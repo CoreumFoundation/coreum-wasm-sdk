@@ -1,6 +1,6 @@
 use crate::{assetft, assetnft, nft};
 use cosmwasm_schema::cw_serde;
-use cosmwasm_std::{CosmosMsg, CustomMsg, CustomQuery};
+use cosmwasm_std::{CosmosMsg, CustomMsg, CustomQuery, Response};
 
 #[cw_serde]
 pub enum CoreumMsg {
@@ -10,8 +10,8 @@ pub enum CoreumMsg {
 }
 
 impl From<CoreumMsg> for CosmosMsg<CoreumMsg> {
-    fn from(val: CoreumMsg) -> Self {
-        CosmosMsg::Custom(val)
+    fn from(msg: CoreumMsg) -> Self {
+        CosmosMsg::Custom(msg)
     }
 }
 
@@ -25,3 +25,5 @@ pub enum CoreumQueries {
 }
 
 impl CustomQuery for CoreumQueries {}
+
+pub type CoreumResult<E> = Result<Response<CoreumMsg>, E>;

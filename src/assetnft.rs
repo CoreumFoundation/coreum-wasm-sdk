@@ -1,5 +1,17 @@
 use cosmwasm_schema::{cw_serde, QueryResponses};
-use cosmwasm_std::Binary;
+use cosmwasm_std::{Binary, Coin};
+
+use crate::pagination::{PageRequest, PageResponse};
+
+#[cw_serde]
+pub struct Params {
+    pub issue_fee: Coin,
+}
+
+#[cw_serde]
+pub struct ParamsResponse {
+    pub params: Params,
+}
 
 #[cw_serde]
 pub struct Class {
@@ -21,6 +33,12 @@ pub struct ClassResponse {
 }
 
 #[cw_serde]
+pub struct ClassesResponse {
+    pub pagination: PageResponse,
+    pub classes: Vec<Class>,
+}
+
+#[cw_serde]
 pub struct FrozenResponse {
     pub frozen: bool,
 }
@@ -28,6 +46,12 @@ pub struct FrozenResponse {
 #[cw_serde]
 pub struct WhitelistedResponse {
     pub whitelisted: bool,
+}
+
+#[cw_serde]
+pub struct WhitelistedAccountsForNFTResponse {
+    pub pagination: PageResponse,
+    pub accounts: Vec<String>,
 }
 
 #[cw_serde]
@@ -76,8 +100,17 @@ pub enum Msg {
 #[cw_serde]
 #[derive(QueryResponses)]
 pub enum Query {
+    #[returns(ParamsResponse)]
+    Params {},
+
     #[returns(ClassResponse)]
     Class { id: String },
+
+    #[returns(ClassesResponse)]
+    Classes {
+        pagination: PageRequest,
+        issuer: String,
+    },
 
     #[returns(FrozenResponse)]
     Frozen { id: String, class_id: String },
@@ -87,5 +120,12 @@ pub enum Query {
         id: String,
         class_id: String,
         account: String,
+    },
+
+    #[returns(WhitelistedAccountsForNFTResponse)]
+    WhitelistedAccountsForNFT {
+        pagination: PageRequest,
+        id: String,
+        class_id: String,
     },
 }

@@ -1,6 +1,8 @@
 use cosmwasm_schema::{cw_serde, QueryResponses};
 use cosmwasm_std::{Coin, Uint128};
 
+use crate::pagination::{PageRequest, PageResponse};
+
 #[cw_serde]
 pub struct Params {
     pub issue_fee: Coin,
@@ -26,12 +28,38 @@ pub struct Token {
 
 #[cw_serde]
 pub struct TokenResponse {
+    pub pagination: PageResponse,
+    pub tokens: Vec<Token>,
+}
+
+#[cw_serde]
+pub struct TokensResponse {
     pub token: Token,
+}
+
+#[cw_serde]
+pub struct BalanceResponse {
+    pub balance: String,
+    pub whitelisted: String,
+    pub frozen: String,
+    pub locked: String,
+}
+
+#[cw_serde]
+pub struct FrozenBalancesResponse {
+    pub pagination: PageResponse,
+    pub balances: Vec<Coin>,
 }
 
 #[cw_serde]
 pub struct FrozenBalanceResponse {
     pub balance: Coin,
+}
+
+#[cw_serde]
+pub struct WhitelistedBalancesResponse {
+    pub pagination: PageResponse,
+    pub balances: Vec<Coin>,
 }
 
 #[cw_serde]
@@ -83,11 +111,32 @@ pub enum Query {
     #[returns(ParamsResponse)]
     Params {},
 
+    #[returns(TokensResponse)]
+    Tokens {
+        pagination: Option<PageRequest>,
+        issuer: String,
+    },
+
     #[returns(TokenResponse)]
     Token { denom: String },
 
+    #[returns(BalanceResponse)]
+    Balance { account: String, denom: String },
+
+    #[returns(FrozenBalancesResponse)]
+    FrozenBalances {
+        pagination: Option<PageRequest>,
+        account: String,
+    },
+
     #[returns(FrozenBalanceResponse)]
     FrozenBalance { account: String, denom: String },
+
+    #[returns(WhitelistedBalancesResponse)]
+    WhitelistedBalances {
+        pagination: Option<PageRequest>,
+        account: String,
+    },
 
     #[returns(WhitelistedBalanceResponse)]
     WhitelistedBalance { account: String, denom: String },
