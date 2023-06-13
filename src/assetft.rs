@@ -1,9 +1,17 @@
+use cosmwasm_schema::{cw_serde, QueryResponses};
 use cosmwasm_std::{Coin, Uint128};
-use schemars::JsonSchema;
-use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[cw_serde]
+pub struct Params {
+    pub issue_fee: Coin,
+}
+
+#[cw_serde]
+pub struct ParamsResponse {
+    pub params: Params,
+}
+
+#[cw_serde]
 pub struct Token {
     pub denom: String,
     pub issuer: String,
@@ -16,25 +24,22 @@ pub struct Token {
     pub send_commission_rate: String,
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[cw_serde]
 pub struct TokenResponse {
     pub token: Token,
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[cw_serde]
 pub struct FrozenBalanceResponse {
     pub balance: Coin,
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[cw_serde]
 pub struct WhitelistedBalanceResponse {
     pub balance: Coin,
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[cw_serde]
 pub enum Msg {
     Issue {
         symbol: String,
@@ -72,9 +77,18 @@ pub enum Msg {
     },
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[cw_serde]
+#[derive(QueryResponses)]
 pub enum Query {
+    #[returns(ParamsResponse)]
+    Params {},
+
+    #[returns(TokenResponse)]
     Token { denom: String },
+
+    #[returns(FrozenBalanceResponse)]
     FrozenBalance { account: String, denom: String },
+
+    #[returns(WhitelistedBalanceResponse)]
     WhitelistedBalance { account: String, denom: String },
 }

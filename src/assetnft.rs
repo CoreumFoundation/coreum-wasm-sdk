@@ -1,9 +1,7 @@
+use cosmwasm_schema::{cw_serde, QueryResponses};
 use cosmwasm_std::Binary;
-use schemars::JsonSchema;
-use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[cw_serde]
 pub struct Class {
     pub id: String,
     pub issuer: String,
@@ -17,25 +15,22 @@ pub struct Class {
     pub royalty_rate: Option<String>,
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[cw_serde]
 pub struct ClassResponse {
     pub class: Class,
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[cw_serde]
 pub struct FrozenResponse {
     pub frozen: bool,
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
+#[cw_serde]
 pub struct WhitelistedResponse {
     pub whitelisted: bool,
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[cw_serde]
 pub enum Msg {
     IssueClass {
         name: String,
@@ -78,15 +73,16 @@ pub enum Msg {
     },
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[cw_serde]
+#[derive(QueryResponses)]
 pub enum Query {
-    Class {
-        id: String,
-    },
-    Frozen {
-        id: String,
-        class_id: String,
-    },
+    #[returns(ClassResponse)]
+    Class { id: String },
+
+    #[returns(FrozenResponse)]
+    Frozen { id: String, class_id: String },
+
+    #[returns(WhitelistedResponse)]
     Whitelisted {
         id: String,
         class_id: String,
