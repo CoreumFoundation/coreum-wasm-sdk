@@ -1,7 +1,9 @@
-use cosmwasm_schema::cw_serde;
+use schemars::JsonSchema;
+use serde::{Serialize, Deserialize};
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[derive(Default)]
+#[serde(rename_all = "snake_case")]
 pub struct PageRequest {
     key: Option<String>,
     offset: Option<u64>,
@@ -41,8 +43,10 @@ impl PageRequest {
     }
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct PageResponse {
     pub next_key: Option<String>,
     pub total: Option<u64>,
 }
+

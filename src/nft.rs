@@ -1,9 +1,12 @@
-use cosmwasm_schema::{cw_serde, QueryResponses};
+use cosmwasm_schema::QueryResponses;
 use cosmwasm_std::Binary;
+use schemars::JsonSchema;
+use serde::{Deserialize, Serialize};
 
 use crate::pagination::{PageRequest, PageResponse};
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct NFT {
     pub class_id: String,
     pub id: String,
@@ -12,33 +15,39 @@ pub struct NFT {
     pub data: Option<Binary>,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct BalanceResponse {
     pub amount: u64,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct OwnerResponse {
     pub owner: String,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct SupplyResponse {
     pub amount: u64,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct NFTsResponse {
     pub nft: NFT,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct NFTResponse {
     pub nfts: Vec<NFT>,
     pub pagination: PageResponse,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct Class {
     pub id: String,
     pub name: Option<String>,
@@ -49,18 +58,20 @@ pub struct Class {
     pub data: Option<Binary>,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct ClassResponse {
     pub class: Class,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct ClassesResponse {
     pub classes: Vec<Class>,
     pub pagination: PageResponse,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub enum Msg {
     Send {
         class_id: String,
@@ -69,8 +80,7 @@ pub enum Msg {
     },
 }
 
-#[cw_serde]
-#[derive(QueryResponses)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema, QueryResponses)]
 pub enum Query {
     #[returns(BalanceResponse)]
     Balance { class_id: String, owner: String },

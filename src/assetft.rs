@@ -1,19 +1,24 @@
-use cosmwasm_schema::{cw_serde, QueryResponses};
+use cosmwasm_schema::QueryResponses;
 use cosmwasm_std::{Coin, Uint128};
+use schemars::JsonSchema;
+use serde::{Deserialize, Serialize};
 
 use crate::pagination::{PageRequest, PageResponse};
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct Params {
     pub issue_fee: Coin,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct ParamsResponse {
     pub params: Params,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct Token {
     pub denom: String,
     pub issuer: String,
@@ -26,18 +31,21 @@ pub struct Token {
     pub send_commission_rate: String,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct TokensResponse {
     pub pagination: PageResponse,
     pub tokens: Vec<Token>,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct TokenResponse {
     pub token: Token,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct BalanceResponse {
     pub balance: String,
     pub whitelisted: String,
@@ -45,29 +53,32 @@ pub struct BalanceResponse {
     pub locked: String,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct FrozenBalancesResponse {
     pub pagination: PageResponse,
     pub balances: Vec<Coin>,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct FrozenBalanceResponse {
     pub balance: Coin,
 }
-
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct WhitelistedBalancesResponse {
     pub pagination: PageResponse,
     pub balances: Vec<Coin>,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct WhitelistedBalanceResponse {
     pub balance: Coin,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub enum Msg {
     Issue {
         symbol: String,
@@ -105,8 +116,7 @@ pub enum Msg {
     },
 }
 
-#[cw_serde]
-#[derive(QueryResponses)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema, QueryResponses)]
 pub enum Query {
     #[returns(ParamsResponse)]
     Params {},

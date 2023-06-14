@@ -1,19 +1,24 @@
-use cosmwasm_schema::{cw_serde, QueryResponses};
+use cosmwasm_schema::QueryResponses;
 use cosmwasm_std::{Binary, Coin};
+use schemars::JsonSchema;
+use serde::{Deserialize, Serialize};
 
 use crate::pagination::{PageRequest, PageResponse};
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct Params {
     pub issue_fee: Coin,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct ParamsResponse {
     pub params: Params,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct Class {
     pub id: String,
     pub issuer: String,
@@ -27,34 +32,39 @@ pub struct Class {
     pub royalty_rate: Option<String>,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct ClassResponse {
     pub class: Class,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct ClassesResponse {
     pub pagination: PageResponse,
     pub classes: Vec<Class>,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct FrozenResponse {
     pub frozen: bool,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct WhitelistedResponse {
     pub whitelisted: bool,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct WhitelistedAccountsForNFTResponse {
     pub pagination: PageResponse,
     pub accounts: Vec<String>,
 }
 
-#[cw_serde]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub enum Msg {
     IssueClass {
         name: String,
@@ -97,8 +107,7 @@ pub enum Msg {
     },
 }
 
-#[cw_serde]
-#[derive(QueryResponses)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema, QueryResponses)]
 pub enum Query {
     #[returns(ParamsResponse)]
     Params {},
