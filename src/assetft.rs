@@ -27,13 +27,13 @@ pub struct Token {
 }
 
 #[cw_serde]
-pub struct TokenResponse {
+pub struct TokensResponse {
     pub pagination: PageResponse,
     pub tokens: Vec<Token>,
 }
 
 #[cw_serde]
-pub struct TokensResponse {
+pub struct TokenResponse {
     pub token: Token,
 }
 
