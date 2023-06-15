@@ -8,7 +8,7 @@ use crate::pagination::{PageRequest, PageResponse};
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub struct Params {
-    pub issue_fee: Coin,
+    pub mint_fee: Coin,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
