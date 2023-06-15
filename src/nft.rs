@@ -3,8 +3,6 @@ use cosmwasm_std::Binary;
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
-use crate::pagination::{PageRequest, PageResponse};
-
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub struct NFT {
@@ -35,40 +33,8 @@ pub struct SupplyResponse {
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
-pub struct NFTsResponse {
-    pub nft: NFT,
-}
-
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
 pub struct NFTResponse {
-    pub nfts: Vec<NFT>,
-    pub pagination: PageResponse,
-}
-
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
-pub struct Class {
-    pub id: String,
-    pub name: Option<String>,
-    pub symbol: Option<String>,
-    pub description: Option<String>,
-    pub uri: Option<String>,
-    pub uri_hash: Option<String>,
-    pub data: Option<Binary>,
-}
-
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
-pub struct ClassResponse {
-    pub class: Class,
-}
-
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
-#[serde(rename_all = "snake_case")]
-pub struct ClassesResponse {
-    pub classes: Vec<Class>,
-    pub pagination: PageResponse,
+    pub nft: NFT,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -93,17 +59,4 @@ pub enum Query {
 
     #[returns(NFTResponse)]
     NFT { class_id: String, id: String },
-
-    #[returns(NFTsResponse)]
-    NFTs {
-        class_id: String,
-        owner: String,
-        pagination: PageRequest,
-    },
-
-    #[returns(ClassResponse)]
-    Class { class_id: String },
-
-    #[returns(ClassesResponse)]
-    Classes { pagination: PageRequest },
 }
