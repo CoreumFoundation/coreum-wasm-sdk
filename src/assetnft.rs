@@ -117,7 +117,7 @@ pub enum Query {
 
     #[returns(ClassesResponse)]
     Classes {
-        pagination: PageRequest,
+        pagination: Option<PageRequest>,
         issuer: String,
     },
 
@@ -133,7 +133,7 @@ pub enum Query {
 
     #[returns(WhitelistedAccountsForNFTResponse)]
     WhitelistedAccountsForNFT {
-        pagination: PageRequest,
+        pagination: Option<PageRequest>,
         id: String,
         class_id: String,
     },
