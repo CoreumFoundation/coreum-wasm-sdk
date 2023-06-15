@@ -5,11 +5,11 @@ use serde::{Serialize, Deserialize};
 #[derive(Default)]
 #[serde(rename_all = "snake_case")]
 pub struct PageRequest {
-    key: Option<String>,
-    offset: Option<u64>,
-    limit: Option<u64>,
-    count_total: Option<bool>,
-    reverse: Option<bool>,
+    pub key: Option<String>,
+    pub offset: Option<u64>,
+    pub limit: Option<u64>,
+    pub count_total: Option<bool>,
+    pub reverse: Option<bool>,
 }
 
 impl PageRequest {
