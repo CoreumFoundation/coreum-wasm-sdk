@@ -1,6 +1,21 @@
-use cosmwasm_std::Binary;
+use cosmwasm_schema::QueryResponses;
+use cosmwasm_std::{Binary, Coin};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
+
+use crate::pagination::{PageRequest, PageResponse};
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub struct Params {
+    pub mint_fee: Coin,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub struct ParamsResponse {
+    pub params: Params,
+}
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
@@ -25,6 +40,13 @@ pub struct ClassResponse {
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
+pub struct ClassesResponse {
+    pub pagination: PageResponse,
+    pub classes: Vec<Class>,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct FrozenResponse {
     pub frozen: bool,
 }
@@ -33,6 +55,13 @@ pub struct FrozenResponse {
 #[serde(rename_all = "snake_case")]
 pub struct WhitelistedResponse {
     pub whitelisted: bool,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub struct WhitelistedAccountsForNFTResponse {
+    pub pagination: PageResponse,
+    pub accounts: Vec<String>,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -78,18 +107,34 @@ pub enum Msg {
     },
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema, QueryResponses)]
 pub enum Query {
-    Class {
-        id: String,
+    #[returns(ParamsResponse)]
+    Params {},
+
+    #[returns(ClassResponse)]
+    Class { id: String },
+
+    #[returns(ClassesResponse)]
+    Classes {
+        pagination: Option<PageRequest>,
+        issuer: String,
     },
-    Frozen {
-        id: String,
-        class_id: String,
-    },
+
+    #[returns(FrozenResponse)]
+    Frozen { id: String, class_id: String },
+
+    #[returns(WhitelistedResponse)]
     Whitelisted {
         id: String,
         class_id: String,
         account: String,
+    },
+
+    #[returns(WhitelistedAccountsForNFTResponse)]
+    WhitelistedAccountsForNFT {
+        pagination: Option<PageRequest>,
+        id: String,
+        class_id: String,
     },
 }
