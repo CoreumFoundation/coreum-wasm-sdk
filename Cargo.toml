@@ -1,6 +1,6 @@
 [package]
 name = "coreum-wasm-sdk"
-version = "0.1.2"
+version = "0.1.3"
 edition = "2021"
 description = "SDK for WASM coreum messages and queries."
 homepage = "https://coreum.com/"
