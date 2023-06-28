@@ -29,6 +29,7 @@ pub struct Token {
     pub features: Option<Vec<u32>>,
     pub burn_rate: String,
     pub send_commission_rate: String,
+    pub version: u32,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -113,6 +114,10 @@ pub enum Msg {
     SetWhitelistedLimit {
         account: String,
         coin: Coin,
+    },
+    UpgradeTokenV1 {
+        denom: String,
+        ibc_enabled: bool,
     },
 }
 
