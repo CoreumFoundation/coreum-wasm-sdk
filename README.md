@@ -7,4 +7,4 @@ They allow developers to issue and execute on-chain messages managing Smart Toke
 
 - [Coreum Website](https://coreum.com)
 - [Coreum Documentation](https://docs.coreum.dev)
-- [Smart contract examples](https://github.com/CoreumFoundation/coreum/tree/master/integration-tests/modules/testdata/wasm)
+- [Smart contract examples](https://github.com/CoreumFoundation/coreum/tree/master/integration-tests/contracts)
