@@ -5,6 +5,12 @@ use serde::{Deserialize, Serialize};
 
 use crate::pagination::{PageRequest, PageResponse};
 
+pub const MINTING: u32 = 0;
+pub const BURNING: u32 = 1;
+pub const FREEZING: u32 = 2;
+pub const WHITELISTING: u32 = 3;
+pub const IBC: u32 = 4;
+
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub struct Params {
