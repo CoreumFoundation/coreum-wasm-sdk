@@ -332,14 +332,14 @@ impl TryFrom<crate::types::cosmos::base::v1beta1::Coin> for cosmwasm_std::Coin {
     }
 }
 
-/// Convert a list of `Coin` from osmosis proto generated proto `Coin` type to cosmwasm `Coin` type
+/// Convert a list of `Coin` from coreum proto generated proto `Coin` type to cosmwasm `Coin` type
 pub fn try_proto_to_cosmwasm_coins(
     coins: impl IntoIterator<Item = crate::types::cosmos::base::v1beta1::Coin>,
 ) -> StdResult<Vec<cosmwasm_std::Coin>> {
     coins.into_iter().map(|c| c.try_into()).collect()
 }
 
-/// Convert a list of `Coin` from cosmwasm `Coin` type to  osmosis proto generated proto `Coin` type
+/// Convert a list of `Coin` from cosmwasm `Coin` type to coreum proto generated proto `Coin` type
 pub fn cosmwasm_to_proto_coins(
     coins: impl IntoIterator<Item = cosmwasm_std::Coin>,
 ) -> Vec<crate::types::cosmos::base::v1beta1::Coin> {
