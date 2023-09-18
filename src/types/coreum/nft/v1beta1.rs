@@ -36,10 +36,9 @@ pub struct Class {
     // uri_hash is a hash of the document pointed by uri. Optional
     #[prost(string, tag = "6")]
     pub uri_hash: ::prost::alloc::string::String,
-    #[prost(message, optional, tag = "8")]
+    #[prost(message, optional, tag = "7")]
     pub data: ::core::option::Option<crate::shim::Any>,
 }
-
 
 // NFT defines the NFT.
 #[allow(clippy::derive_partial_eq_without_eq)]
