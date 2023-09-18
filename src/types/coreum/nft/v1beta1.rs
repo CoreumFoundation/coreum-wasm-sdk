@@ -1,5 +1,9 @@
 use osmosis_std_derive::CosmwasmExt;
 
+// These proto structures were generated using protoc-gen-rust (for more information visit https://crates.io/crates/protobuf-codegen), adding derive macros afterwards.
+// They should not be modified by hand.
+// Instructions on how to use are in section "How to use protoc-gen-rust"
+
 /// Class defines the class of the nft type.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
