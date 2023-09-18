@@ -71,6 +71,19 @@ pub struct WhitelistedAccountsForNFTResponse {
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub struct BurntNFTResponse {
+    pub burnt: bool,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub struct BurntNFTsInClassResponse {
+    pub pagination: PageResponse,
+    pub nft_ids: Vec<String>,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub enum Msg {
     IssueClass {
         name: String,
@@ -141,6 +154,18 @@ pub enum Query {
     WhitelistedAccountsForNFT {
         pagination: Option<PageRequest>,
         id: String,
+        class_id: String,
+    },
+
+    #[returns(BurntNFTResponse)]
+    BurntNFT {
+        class_id: String,
+        nft_id: String,
+    },
+
+    #[returns(BurntNFTsInClassResponse)]
+    BurntNFTsInClass {
+        pagination: Option<PageRequest>,
         class_id: String,
     },
 }
