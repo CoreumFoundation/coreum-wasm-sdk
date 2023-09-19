@@ -74,7 +74,8 @@ pub struct PageRequest {
 #[proto_message(type_url = "/cosmos.base.query.v1beta1.PageResponse")]
 pub struct PageResponse {
     /// next_key is the key to be passed to PageRequest.key to
-    /// query the next page most efficiently
+    /// query the next page most efficiently. It will be empty if
+    /// there are no more results.
     #[prost(bytes = "vec", tag = "1")]
     pub next_key: ::prost::alloc::vec::Vec<u8>,
     /// total is total number of results available if PageRequest.count_total

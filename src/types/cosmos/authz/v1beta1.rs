@@ -35,6 +35,9 @@ pub struct GenericAuthorization {
 pub struct Grant {
     #[prost(message, optional, tag = "1")]
     pub authorization: ::core::option::Option<crate::shim::Any>,
+    /// time when the grant will expire and will be pruned. If null, then the grant
+    /// doesn't have a time expiration (other conditions  in `authorization`
+    /// may apply to invalidate the grant)
     #[prost(message, optional, tag = "2")]
     pub expiration: ::core::option::Option<crate::shim::Timestamp>,
 }
@@ -61,6 +64,24 @@ pub struct GrantAuthorization {
     pub authorization: ::core::option::Option<crate::shim::Any>,
     #[prost(message, optional, tag = "4")]
     pub expiration: ::core::option::Option<crate::shim::Timestamp>,
+}
+/// GrantQueueItem contains the list of TypeURL of a sdk.Msg.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmos.authz.v1beta1.GrantQueueItem")]
+pub struct GrantQueueItem {
+    /// msg_type_urls contains the list of TypeURL of a sdk.Msg.
+    #[prost(string, repeated, tag = "1")]
+    pub msg_type_urls: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 /// EventGrant is emitted on Msg/Grant
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -324,7 +345,7 @@ pub struct MsgExecResponse {
 pub struct MsgExec {
     #[prost(string, tag = "1")]
     pub grantee: ::prost::alloc::string::String,
-    /// Authorization Msg requests to execute. Each msg must implement Authorization interface
+    /// Execute Msg.
     /// The x/authz will try to find a grant matching (msg.signers\[0\], grantee, MsgTypeURL(msg))
     /// triple and validate it.
     #[prost(message, repeated, tag = "2")]
@@ -380,48 +401,3 @@ pub struct MsgRevoke {
 )]
 #[proto_message(type_url = "/cosmos.authz.v1beta1.MsgRevokeResponse")]
 pub struct MsgRevokeResponse {}
-pub struct AuthzQuerier<'a, Q: cosmwasm_std::CustomQuery> {
-    querier: &'a cosmwasm_std::QuerierWrapper<'a, Q>,
-}
-impl<'a, Q: cosmwasm_std::CustomQuery> AuthzQuerier<'a, Q> {
-    pub fn new(querier: &'a cosmwasm_std::QuerierWrapper<'a, Q>) -> Self {
-        Self { querier }
-    }
-    pub fn grants(
-        &self,
-        granter: ::prost::alloc::string::String,
-        grantee: ::prost::alloc::string::String,
-        msg_type_url: ::prost::alloc::string::String,
-        pagination: ::core::option::Option<super::super::base::query::v1beta1::PageRequest>,
-    ) -> Result<QueryGrantsResponse, cosmwasm_std::StdError> {
-        QueryGrantsRequest {
-            granter,
-            grantee,
-            msg_type_url,
-            pagination,
-        }
-        .query(self.querier)
-    }
-    pub fn granter_grants(
-        &self,
-        granter: ::prost::alloc::string::String,
-        pagination: ::core::option::Option<super::super::base::query::v1beta1::PageRequest>,
-    ) -> Result<QueryGranterGrantsResponse, cosmwasm_std::StdError> {
-        QueryGranterGrantsRequest {
-            granter,
-            pagination,
-        }
-        .query(self.querier)
-    }
-    pub fn grantee_grants(
-        &self,
-        grantee: ::prost::alloc::string::String,
-        pagination: ::core::option::Option<super::super::base::query::v1beta1::PageRequest>,
-    ) -> Result<QueryGranteeGrantsResponse, cosmwasm_std::StdError> {
-        QueryGranteeGrantsRequest {
-            grantee,
-            pagination,
-        }
-        .query(self.querier)
-    }
-}

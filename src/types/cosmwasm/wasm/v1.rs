@@ -231,10 +231,6 @@ pub struct AccessConfig {
         deserialize_with = "crate::serde::as_str::deserialize"
     )]
     pub permission: i32,
-    /// Address
-    /// Deprecated: replaced by addresses
-    #[prost(string, tag = "2")]
-    pub address: ::prost::alloc::string::String,
     #[prost(string, repeated, tag = "3")]
     pub addresses: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
@@ -422,9 +418,6 @@ pub enum AccessType {
     Unspecified = 0,
     /// AccessTypeNobody forbidden
     Nobody = 1,
-    /// AccessTypeOnlyAddress restricted to a single address
-    /// Deprecated: use AccessTypeAnyOfAddresses instead
-    OnlyAddress = 2,
     /// AccessTypeEverybody unrestricted
     Everybody = 3,
     /// AccessTypeAnyOfAddresses allow any of the addresses
@@ -439,7 +432,6 @@ impl AccessType {
         match self {
             AccessType::Unspecified => "ACCESS_TYPE_UNSPECIFIED",
             AccessType::Nobody => "ACCESS_TYPE_NOBODY",
-            AccessType::OnlyAddress => "ACCESS_TYPE_ONLY_ADDRESS",
             AccessType::Everybody => "ACCESS_TYPE_EVERYBODY",
             AccessType::AnyOfAddresses => "ACCESS_TYPE_ANY_OF_ADDRESSES",
         }
@@ -449,7 +441,6 @@ impl AccessType {
         match value {
             "ACCESS_TYPE_UNSPECIFIED" => Some(Self::Unspecified),
             "ACCESS_TYPE_NOBODY" => Some(Self::Nobody),
-            "ACCESS_TYPE_ONLY_ADDRESS" => Some(Self::OnlyAddress),
             "ACCESS_TYPE_EVERYBODY" => Some(Self::Everybody),
             "ACCESS_TYPE_ANY_OF_ADDRESSES" => Some(Self::AnyOfAddresses),
             _ => None,
@@ -675,7 +666,10 @@ pub struct MsgIbcCloseChannel {
     #[prost(string, tag = "2")]
     pub channel: ::prost::alloc::string::String,
 }
-/// StoreCodeProposal gov proposal content type to submit WASM code to the system
+/// Deprecated: Do not use. Since wasmd v0.40, there is no longer a need for
+/// an explicit StoreCodeProposal. To submit WASM code to the system,
+/// a simple MsgStoreCode can be invoked from the x/gov module via
+/// a v1 governance proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
@@ -688,6 +682,7 @@ pub struct MsgIbcCloseChannel {
     CosmwasmExt,
 )]
 #[proto_message(type_url = "/cosmwasm.wasm.v1.StoreCodeProposal")]
+#[deprecated]
 pub struct StoreCodeProposal {
     /// Title is a short summary
     #[prost(string, tag = "1")]
@@ -719,8 +714,10 @@ pub struct StoreCodeProposal {
     #[prost(bytes = "vec", tag = "11")]
     pub code_hash: ::prost::alloc::vec::Vec<u8>,
 }
-/// InstantiateContractProposal gov proposal content type to instantiate a
-/// contract.
+/// Deprecated: Do not use. Since wasmd v0.40, there is no longer a need for
+/// an explicit InstantiateContractProposal. To instantiate a contract,
+/// a simple MsgInstantiateContract can be invoked from the x/gov module via
+/// a v1 governance proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
@@ -733,6 +730,7 @@ pub struct StoreCodeProposal {
     CosmwasmExt,
 )]
 #[proto_message(type_url = "/cosmwasm.wasm.v1.InstantiateContractProposal")]
+#[deprecated]
 pub struct InstantiateContractProposal {
     /// Title is a short summary
     #[prost(string, tag = "1")]
@@ -764,8 +762,10 @@ pub struct InstantiateContractProposal {
     #[prost(message, repeated, tag = "8")]
     pub funds: ::prost::alloc::vec::Vec<super::super::super::cosmos::base::v1beta1::Coin>,
 }
-/// InstantiateContract2Proposal gov proposal content type to instantiate
-/// contract 2
+/// Deprecated: Do not use. Since wasmd v0.40, there is no longer a need for
+/// an explicit InstantiateContract2Proposal. To instantiate contract 2,
+/// a simple MsgInstantiateContract2 can be invoked from the x/gov module via
+/// a v1 governance proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
@@ -778,6 +778,7 @@ pub struct InstantiateContractProposal {
     CosmwasmExt,
 )]
 #[proto_message(type_url = "/cosmwasm.wasm.v1.InstantiateContract2Proposal")]
+#[deprecated]
 pub struct InstantiateContract2Proposal {
     /// Title is a short summary
     #[prost(string, tag = "1")]
@@ -816,7 +817,10 @@ pub struct InstantiateContract2Proposal {
     #[prost(bool, tag = "10")]
     pub fix_msg: bool,
 }
-/// MigrateContractProposal gov proposal content type to migrate a contract.
+/// Deprecated: Do not use. Since wasmd v0.40, there is no longer a need for
+/// an explicit MigrateContractProposal. To migrate a contract,
+/// a simple MsgMigrateContract can be invoked from the x/gov module via
+/// a v1 governance proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
@@ -829,6 +833,7 @@ pub struct InstantiateContract2Proposal {
     CosmwasmExt,
 )]
 #[proto_message(type_url = "/cosmwasm.wasm.v1.MigrateContractProposal")]
+#[deprecated]
 pub struct MigrateContractProposal {
     /// Title is a short summary
     #[prost(string, tag = "1")]
@@ -853,7 +858,10 @@ pub struct MigrateContractProposal {
     #[prost(bytes = "vec", tag = "6")]
     pub msg: ::prost::alloc::vec::Vec<u8>,
 }
-/// SudoContractProposal gov proposal content type to call sudo on a contract.
+/// Deprecated: Do not use. Since wasmd v0.40, there is no longer a need for
+/// an explicit SudoContractProposal. To call sudo on a contract,
+/// a simple MsgSudoContract can be invoked from the x/gov module via
+/// a v1 governance proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
@@ -866,6 +874,7 @@ pub struct MigrateContractProposal {
     CosmwasmExt,
 )]
 #[proto_message(type_url = "/cosmwasm.wasm.v1.SudoContractProposal")]
+#[deprecated]
 pub struct SudoContractProposal {
     /// Title is a short summary
     #[prost(string, tag = "1")]
@@ -880,8 +889,10 @@ pub struct SudoContractProposal {
     #[prost(bytes = "vec", tag = "4")]
     pub msg: ::prost::alloc::vec::Vec<u8>,
 }
-/// ExecuteContractProposal gov proposal content type to call execute on a
-/// contract.
+/// Deprecated: Do not use. Since wasmd v0.40, there is no longer a need for
+/// an explicit ExecuteContractProposal. To call execute on a contract,
+/// a simple MsgExecuteContract can be invoked from the x/gov module via
+/// a v1 governance proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
@@ -894,6 +905,7 @@ pub struct SudoContractProposal {
     CosmwasmExt,
 )]
 #[proto_message(type_url = "/cosmwasm.wasm.v1.ExecuteContractProposal")]
+#[deprecated]
 pub struct ExecuteContractProposal {
     /// Title is a short summary
     #[prost(string, tag = "1")]
@@ -914,7 +926,10 @@ pub struct ExecuteContractProposal {
     #[prost(message, repeated, tag = "6")]
     pub funds: ::prost::alloc::vec::Vec<super::super::super::cosmos::base::v1beta1::Coin>,
 }
-/// UpdateAdminProposal gov proposal content type to set an admin for a contract.
+/// Deprecated: Do not use. Since wasmd v0.40, there is no longer a need for
+/// an explicit UpdateAdminProposal. To set an admin for a contract,
+/// a simple MsgUpdateAdmin can be invoked from the x/gov module via
+/// a v1 governance proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
@@ -927,6 +942,7 @@ pub struct ExecuteContractProposal {
     CosmwasmExt,
 )]
 #[proto_message(type_url = "/cosmwasm.wasm.v1.UpdateAdminProposal")]
+#[deprecated]
 pub struct UpdateAdminProposal {
     /// Title is a short summary
     #[prost(string, tag = "1")]
@@ -941,8 +957,10 @@ pub struct UpdateAdminProposal {
     #[prost(string, tag = "4")]
     pub contract: ::prost::alloc::string::String,
 }
-/// ClearAdminProposal gov proposal content type to clear the admin of a
-/// contract.
+/// Deprecated: Do not use. Since wasmd v0.40, there is no longer a need for
+/// an explicit ClearAdminProposal. To clear the admin of a contract,
+/// a simple MsgClearAdmin can be invoked from the x/gov module via
+/// a v1 governance proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
@@ -955,6 +973,7 @@ pub struct UpdateAdminProposal {
     CosmwasmExt,
 )]
 #[proto_message(type_url = "/cosmwasm.wasm.v1.ClearAdminProposal")]
+#[deprecated]
 pub struct ClearAdminProposal {
     /// Title is a short summary
     #[prost(string, tag = "1")]
@@ -966,8 +985,10 @@ pub struct ClearAdminProposal {
     #[prost(string, tag = "3")]
     pub contract: ::prost::alloc::string::String,
 }
-/// PinCodesProposal gov proposal content type to pin a set of code ids in the
-/// wasmvm cache.
+/// Deprecated: Do not use. Since wasmd v0.40, there is no longer a need for
+/// an explicit PinCodesProposal. To pin a set of code ids in the wasmvm
+/// cache, a simple MsgPinCodes can be invoked from the x/gov module via
+/// a v1 governance proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
@@ -980,6 +1001,7 @@ pub struct ClearAdminProposal {
     CosmwasmExt,
 )]
 #[proto_message(type_url = "/cosmwasm.wasm.v1.PinCodesProposal")]
+#[deprecated]
 pub struct PinCodesProposal {
     /// Title is a short summary
     #[prost(string, tag = "1")]
@@ -992,8 +1014,10 @@ pub struct PinCodesProposal {
     #[serde(alias = "codeIDs")]
     pub code_ids: ::prost::alloc::vec::Vec<u64>,
 }
-/// UnpinCodesProposal gov proposal content type to unpin a set of code ids in
-/// the wasmvm cache.
+/// Deprecated: Do not use. Since wasmd v0.40, there is no longer a need for
+/// an explicit UnpinCodesProposal. To unpin a set of code ids in the wasmvm
+/// cache, a simple MsgUnpinCodes can be invoked from the x/gov module via
+/// a v1 governance proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
@@ -1006,6 +1030,7 @@ pub struct PinCodesProposal {
     CosmwasmExt,
 )]
 #[proto_message(type_url = "/cosmwasm.wasm.v1.UnpinCodesProposal")]
+#[deprecated]
 pub struct UnpinCodesProposal {
     /// Title is a short summary
     #[prost(string, tag = "1")]
@@ -1045,8 +1070,10 @@ pub struct AccessConfigUpdate {
     #[prost(message, optional, tag = "2")]
     pub instantiate_permission: ::core::option::Option<AccessConfig>,
 }
-/// UpdateInstantiateConfigProposal gov proposal content type to update
-/// instantiate config to a  set of code ids.
+/// Deprecated: Do not use. Since wasmd v0.40, there is no longer a need for
+/// an explicit UpdateInstantiateConfigProposal. To update instantiate config
+/// to a set of code ids, a simple MsgUpdateInstantiateConfig can be invoked from
+/// the x/gov module via a v1 governance proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
@@ -1059,6 +1086,7 @@ pub struct AccessConfigUpdate {
     CosmwasmExt,
 )]
 #[proto_message(type_url = "/cosmwasm.wasm.v1.UpdateInstantiateConfigProposal")]
+#[deprecated]
 pub struct UpdateInstantiateConfigProposal {
     /// Title is a short summary
     #[prost(string, tag = "1")]
@@ -1071,8 +1099,10 @@ pub struct UpdateInstantiateConfigProposal {
     #[prost(message, repeated, tag = "3")]
     pub access_config_updates: ::prost::alloc::vec::Vec<AccessConfigUpdate>,
 }
-/// StoreAndInstantiateContractProposal gov proposal content type to store
-/// and instantiate the contract.
+/// Deprecated: Do not use. Since wasmd v0.40, there is no longer a need for
+/// an explicit StoreAndInstantiateContractProposal. To store and instantiate
+/// the contract, a simple MsgStoreAndInstantiateContract can be invoked from
+/// the x/gov module via a v1 governance proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
@@ -1085,6 +1115,7 @@ pub struct UpdateInstantiateConfigProposal {
     CosmwasmExt,
 )]
 #[proto_message(type_url = "/cosmwasm.wasm.v1.StoreAndInstantiateContractProposal")]
+#[deprecated]
 pub struct StoreAndInstantiateContractProposal {
     /// Title is a short summary
     #[prost(string, tag = "1")]
@@ -1753,6 +1784,27 @@ pub struct MsgInstantiateContract {
     #[prost(message, repeated, tag = "6")]
     pub funds: ::prost::alloc::vec::Vec<super::super::super::cosmos::base::v1beta1::Coin>,
 }
+/// MsgInstantiateContractResponse return instantiation result data
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmwasm.wasm.v1.MsgInstantiateContractResponse")]
+pub struct MsgInstantiateContractResponse {
+    /// Address is the bech32 address of the new contract instance.
+    #[prost(string, tag = "1")]
+    pub address: ::prost::alloc::string::String,
+    /// Data contains bytes to returned from the contract
+    #[prost(bytes = "vec", tag = "2")]
+    pub data: ::prost::alloc::vec::Vec<u8>,
+}
 /// MsgInstantiateContract2 create a new smart contract instance for the given
 /// code id with a predicable address.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1798,27 +1850,6 @@ pub struct MsgInstantiateContract2 {
     /// Default is false
     #[prost(bool, tag = "8")]
     pub fix_msg: bool,
-}
-/// MsgInstantiateContractResponse return instantiation result data
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
-#[proto_message(type_url = "/cosmwasm.wasm.v1.MsgInstantiateContractResponse")]
-pub struct MsgInstantiateContractResponse {
-    /// Address is the bech32 address of the new contract instance.
-    #[prost(string, tag = "1")]
-    pub address: ::prost::alloc::string::String,
-    /// Data contains bytes to returned from the contract
-    #[prost(bytes = "vec", tag = "2")]
-    pub data: ::prost::alloc::vec::Vec<u8>,
 }
 /// MsgInstantiateContract2Response return instantiation result data
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -2053,113 +2084,325 @@ pub struct MsgUpdateInstantiateConfig {
 )]
 #[proto_message(type_url = "/cosmwasm.wasm.v1.MsgUpdateInstantiateConfigResponse")]
 pub struct MsgUpdateInstantiateConfigResponse {}
-pub struct WasmQuerier<'a, Q: cosmwasm_std::CustomQuery> {
-    querier: &'a cosmwasm_std::QuerierWrapper<'a, Q>,
+/// MsgUpdateParams is the MsgUpdateParams request type.
+///
+/// Since: 0.40
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmwasm.wasm.v1.MsgUpdateParams")]
+pub struct MsgUpdateParams {
+    /// Authority is the address of the governance account.
+    #[prost(string, tag = "1")]
+    pub authority: ::prost::alloc::string::String,
+    /// params defines the x/wasm parameters to update.
+    ///
+    /// NOTE: All parameters must be supplied.
+    #[prost(message, optional, tag = "2")]
+    pub params: ::core::option::Option<Params>,
 }
-impl<'a, Q: cosmwasm_std::CustomQuery> WasmQuerier<'a, Q> {
-    pub fn new(querier: &'a cosmwasm_std::QuerierWrapper<'a, Q>) -> Self {
-        Self { querier }
-    }
-    pub fn contract_info(
-        &self,
-        address: ::prost::alloc::string::String,
-    ) -> Result<QueryContractInfoResponse, cosmwasm_std::StdError> {
-        QueryContractInfoRequest { address }.query(self.querier)
-    }
-    pub fn contract_history(
-        &self,
-        address: ::prost::alloc::string::String,
-        pagination: ::core::option::Option<
-            super::super::super::cosmos::base::query::v1beta1::PageRequest,
-        >,
-    ) -> Result<QueryContractHistoryResponse, cosmwasm_std::StdError> {
-        QueryContractHistoryRequest {
-            address,
-            pagination,
-        }
-        .query(self.querier)
-    }
-    pub fn contracts_by_code(
-        &self,
-        code_id: u64,
-        pagination: ::core::option::Option<
-            super::super::super::cosmos::base::query::v1beta1::PageRequest,
-        >,
-    ) -> Result<QueryContractsByCodeResponse, cosmwasm_std::StdError> {
-        QueryContractsByCodeRequest {
-            code_id,
-            pagination,
-        }
-        .query(self.querier)
-    }
-    pub fn all_contract_state(
-        &self,
-        address: ::prost::alloc::string::String,
-        pagination: ::core::option::Option<
-            super::super::super::cosmos::base::query::v1beta1::PageRequest,
-        >,
-    ) -> Result<QueryAllContractStateResponse, cosmwasm_std::StdError> {
-        QueryAllContractStateRequest {
-            address,
-            pagination,
-        }
-        .query(self.querier)
-    }
-    pub fn raw_contract_state(
-        &self,
-        address: ::prost::alloc::string::String,
-        query_data: ::prost::alloc::vec::Vec<u8>,
-    ) -> Result<QueryRawContractStateResponse, cosmwasm_std::StdError> {
-        QueryRawContractStateRequest {
-            address,
-            query_data,
-        }
-        .query(self.querier)
-    }
-    pub fn smart_contract_state(
-        &self,
-        address: ::prost::alloc::string::String,
-        query_data: ::prost::alloc::vec::Vec<u8>,
-    ) -> Result<QuerySmartContractStateResponse, cosmwasm_std::StdError> {
-        QuerySmartContractStateRequest {
-            address,
-            query_data,
-        }
-        .query(self.querier)
-    }
-    pub fn code(&self, code_id: u64) -> Result<QueryCodeResponse, cosmwasm_std::StdError> {
-        QueryCodeRequest { code_id }.query(self.querier)
-    }
-    pub fn codes(
-        &self,
-        pagination: ::core::option::Option<
-            super::super::super::cosmos::base::query::v1beta1::PageRequest,
-        >,
-    ) -> Result<QueryCodesResponse, cosmwasm_std::StdError> {
-        QueryCodesRequest { pagination }.query(self.querier)
-    }
-    pub fn pinned_codes(
-        &self,
-        pagination: ::core::option::Option<
-            super::super::super::cosmos::base::query::v1beta1::PageRequest,
-        >,
-    ) -> Result<QueryPinnedCodesResponse, cosmwasm_std::StdError> {
-        QueryPinnedCodesRequest { pagination }.query(self.querier)
-    }
-    pub fn params(&self) -> Result<QueryParamsResponse, cosmwasm_std::StdError> {
-        QueryParamsRequest {}.query(self.querier)
-    }
-    pub fn contracts_by_creator(
-        &self,
-        creator_address: ::prost::alloc::string::String,
-        pagination: ::core::option::Option<
-            super::super::super::cosmos::base::query::v1beta1::PageRequest,
-        >,
-    ) -> Result<QueryContractsByCreatorResponse, cosmwasm_std::StdError> {
-        QueryContractsByCreatorRequest {
-            creator_address,
-            pagination,
-        }
-        .query(self.querier)
-    }
+/// MsgUpdateParamsResponse defines the response structure for executing a
+/// MsgUpdateParams message.
+///
+/// Since: 0.40
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmwasm.wasm.v1.MsgUpdateParamsResponse")]
+pub struct MsgUpdateParamsResponse {}
+/// MsgSudoContract is the MsgSudoContract request type.
+///
+/// Since: 0.40
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmwasm.wasm.v1.MsgSudoContract")]
+pub struct MsgSudoContract {
+    /// Authority is the address of the governance account.
+    #[prost(string, tag = "1")]
+    pub authority: ::prost::alloc::string::String,
+    /// Contract is the address of the smart contract
+    #[prost(string, tag = "2")]
+    pub contract: ::prost::alloc::string::String,
+    /// Msg json encoded message to be passed to the contract as sudo
+    #[prost(bytes = "vec", tag = "3")]
+    pub msg: ::prost::alloc::vec::Vec<u8>,
 }
+/// MsgSudoContractResponse defines the response structure for executing a
+/// MsgSudoContract message.
+///
+/// Since: 0.40
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmwasm.wasm.v1.MsgSudoContractResponse")]
+pub struct MsgSudoContractResponse {
+    /// Data contains bytes to returned from the contract
+    #[prost(bytes = "vec", tag = "1")]
+    pub data: ::prost::alloc::vec::Vec<u8>,
+}
+/// MsgPinCodes is the MsgPinCodes request type.
+///
+/// Since: 0.40
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmwasm.wasm.v1.MsgPinCodes")]
+pub struct MsgPinCodes {
+    /// Authority is the address of the governance account.
+    #[prost(string, tag = "1")]
+    pub authority: ::prost::alloc::string::String,
+    /// CodeIDs references the new WASM codes
+    #[prost(uint64, repeated, packed = "false", tag = "2")]
+    #[serde(alias = "codeIDs")]
+    pub code_ids: ::prost::alloc::vec::Vec<u64>,
+}
+/// MsgPinCodesResponse defines the response structure for executing a
+/// MsgPinCodes message.
+///
+/// Since: 0.40
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmwasm.wasm.v1.MsgPinCodesResponse")]
+pub struct MsgPinCodesResponse {}
+/// MsgUnpinCodes is the MsgUnpinCodes request type.
+///
+/// Since: 0.40
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmwasm.wasm.v1.MsgUnpinCodes")]
+pub struct MsgUnpinCodes {
+    /// Authority is the address of the governance account.
+    #[prost(string, tag = "1")]
+    pub authority: ::prost::alloc::string::String,
+    /// CodeIDs references the WASM codes
+    #[prost(uint64, repeated, packed = "false", tag = "2")]
+    #[serde(alias = "codeIDs")]
+    pub code_ids: ::prost::alloc::vec::Vec<u64>,
+}
+/// MsgUnpinCodesResponse defines the response structure for executing a
+/// MsgUnpinCodes message.
+///
+/// Since: 0.40
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmwasm.wasm.v1.MsgUnpinCodesResponse")]
+pub struct MsgUnpinCodesResponse {}
+/// MsgStoreAndInstantiateContract is the MsgStoreAndInstantiateContract
+/// request type.
+///
+/// Since: 0.40
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmwasm.wasm.v1.MsgStoreAndInstantiateContract")]
+pub struct MsgStoreAndInstantiateContract {
+    /// Authority is the address of the governance account.
+    #[prost(string, tag = "1")]
+    pub authority: ::prost::alloc::string::String,
+    /// WASMByteCode can be raw or gzip compressed
+    #[prost(bytes = "vec", tag = "3")]
+    pub wasm_byte_code: ::prost::alloc::vec::Vec<u8>,
+    /// InstantiatePermission to apply on contract creation, optional
+    #[prost(message, optional, tag = "4")]
+    pub instantiate_permission: ::core::option::Option<AccessConfig>,
+    /// UnpinCode code on upload, optional. As default the uploaded contract is
+    /// pinned to cache.
+    #[prost(bool, tag = "5")]
+    pub unpin_code: bool,
+    /// Admin is an optional address that can execute migrations
+    #[prost(string, tag = "6")]
+    pub admin: ::prost::alloc::string::String,
+    /// Label is optional metadata to be stored with a constract instance.
+    #[prost(string, tag = "7")]
+    pub label: ::prost::alloc::string::String,
+    /// Msg json encoded message to be passed to the contract on instantiation
+    #[prost(bytes = "vec", tag = "8")]
+    pub msg: ::prost::alloc::vec::Vec<u8>,
+    /// Funds coins that are transferred from the authority account to the contract
+    /// on instantiation
+    #[prost(message, repeated, tag = "9")]
+    pub funds: ::prost::alloc::vec::Vec<super::super::super::cosmos::base::v1beta1::Coin>,
+    /// Source is the URL where the code is hosted
+    #[prost(string, tag = "10")]
+    pub source: ::prost::alloc::string::String,
+    /// Builder is the docker image used to build the code deterministically, used
+    /// for smart contract verification
+    #[prost(string, tag = "11")]
+    pub builder: ::prost::alloc::string::String,
+    /// CodeHash is the SHA256 sum of the code outputted by builder, used for smart
+    /// contract verification
+    #[prost(bytes = "vec", tag = "12")]
+    pub code_hash: ::prost::alloc::vec::Vec<u8>,
+}
+/// MsgStoreAndInstantiateContractResponse defines the response structure
+/// for executing a MsgStoreAndInstantiateContract message.
+///
+/// Since: 0.40
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmwasm.wasm.v1.MsgStoreAndInstantiateContractResponse")]
+pub struct MsgStoreAndInstantiateContractResponse {
+    /// Address is the bech32 address of the new contract instance.
+    #[prost(string, tag = "1")]
+    pub address: ::prost::alloc::string::String,
+    /// Data contains bytes to returned from the contract
+    #[prost(bytes = "vec", tag = "2")]
+    pub data: ::prost::alloc::vec::Vec<u8>,
+}
+/// MsgAddCodeUploadParamsAddresses is the
+/// MsgAddCodeUploadParamsAddresses request type.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmwasm.wasm.v1.MsgAddCodeUploadParamsAddresses")]
+pub struct MsgAddCodeUploadParamsAddresses {
+    /// Authority is the address of the governance account.
+    #[prost(string, tag = "1")]
+    pub authority: ::prost::alloc::string::String,
+    #[prost(string, repeated, tag = "2")]
+    pub addresses: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// MsgAddCodeUploadParamsAddressesResponse defines the response
+/// structure for executing a MsgAddCodeUploadParamsAddresses message.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmwasm.wasm.v1.MsgAddCodeUploadParamsAddressesResponse")]
+pub struct MsgAddCodeUploadParamsAddressesResponse {}
+/// MsgRemoveCodeUploadParamsAddresses is the
+/// MsgRemoveCodeUploadParamsAddresses request type.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmwasm.wasm.v1.MsgRemoveCodeUploadParamsAddresses")]
+pub struct MsgRemoveCodeUploadParamsAddresses {
+    /// Authority is the address of the governance account.
+    #[prost(string, tag = "1")]
+    pub authority: ::prost::alloc::string::String,
+    #[prost(string, repeated, tag = "2")]
+    pub addresses: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// MsgRemoveCodeUploadParamsAddressesResponse defines the response
+/// structure for executing a MsgRemoveCodeUploadParamsAddresses message.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmwasm.wasm.v1.MsgRemoveCodeUploadParamsAddressesResponse")]
+pub struct MsgRemoveCodeUploadParamsAddressesResponse {}
