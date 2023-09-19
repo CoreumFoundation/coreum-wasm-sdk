@@ -1,27 +1,5 @@
 use osmosis_std_derive::CosmwasmExt;
 
-/// Nested message and enum types in `StakeAuthorization`.
-pub mod stake_authorization {
-    /// Validators defines list of validator addresses.
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Message)]
-    pub struct Validators_ {
-        #[prost(string, repeated, tag = "1")]
-        pub address: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
-    }
-    /// validators is the oneof that represents either allow_list or deny_list
-    #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
-    pub enum Validators {
-        /// allow_list specifies list of validator addresses to whom grantee can delegate tokens on behalf of granter's
-        /// account.
-        #[prost(message, tag = "2")]
-        AllowList(Validators_),
-        /// deny_list specifies list of validator addresses to whom grantee can not delegate tokens.
-        #[prost(message, tag = "3")]
-        DenyList(Validators_),
-    }
-}
 /// AuthorizationType defines the type of staking module authorization type
 ///
 /// Since: cosmos-sdk 0.43
@@ -62,23 +40,6 @@ impl AuthorizationType {
         }
     }
 }
-/// HistoricalInfo contains header and validator information for a given block.
-/// It is stored as part of staking module's state, which persists the `n` most
-/// recent HistoricalInfo
-/// (`n` is set by the staking module's `historical_entries` parameter).
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
-#[proto_message(type_url = "/cosmos.staking.v1beta1.HistoricalInfo")]
-pub struct HistoricalInfo {}
 /// CommissionRates defines the initial commission rates to be used for creating
 /// a validator.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -629,21 +590,7 @@ pub struct Pool {
     #[prost(string, tag = "2")]
     pub bonded_tokens: ::prost::alloc::string::String,
 }
-/// ValidatorUpdates defines an array of abci.ValidatorUpdate objects.
-/// TODO: explore moving this to proto/cosmos/base to separate modules from tendermint dependence
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
-#[proto_message(type_url = "/cosmos.staking.v1beta1.ValidatorUpdates")]
-pub struct ValidatorUpdates {}
+
 /// BondStatus is the status of a validator.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -1290,52 +1237,7 @@ pub struct QueryDelegatorValidatorResponse {
     #[prost(message, optional, tag = "1")]
     pub validator: ::core::option::Option<Validator>,
 }
-/// QueryHistoricalInfoRequest is request type for the Query/HistoricalInfo RPC
-/// method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
-#[proto_message(type_url = "/cosmos.staking.v1beta1.QueryHistoricalInfoRequest")]
-#[proto_query(
-    path = "/cosmos.staking.v1beta1.Query/HistoricalInfo",
-    response_type = QueryHistoricalInfoResponse
-)]
-pub struct QueryHistoricalInfoRequest {
-    /// height defines at which height to query the historical info.
-    #[prost(int64, tag = "1")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
-    pub height: i64,
-}
-/// QueryHistoricalInfoResponse is response type for the Query/HistoricalInfo RPC
-/// method.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
-#[proto_message(type_url = "/cosmos.staking.v1beta1.QueryHistoricalInfoResponse")]
-pub struct QueryHistoricalInfoResponse {
-    /// hist defines the historical info at the given height.
-    #[prost(message, optional, tag = "1")]
-    pub hist: ::core::option::Option<HistoricalInfo>,
-}
+
 /// QueryPoolRequest is request type for the Query/Pool RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
