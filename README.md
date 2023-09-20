@@ -5,6 +5,10 @@
 Coreum WASM SDK contains Rust data types to be used in WASM smart contracts interacting with the Coreum blockchain.
 They allow developers to issue and execute on-chain messages managing Smart Tokens.
 
+## Proto types
+
+The proto types are generated using [coreum-rust-protobuf](https://github.com/CoreumFoundation/coreum-rust-protobuf) according to our current version of the chain to make them compatible with tools like our [coreum-test-tube](https://github.com/CoreumFoundation/test-tube) or to interact with our chain using gRPC and Rust, they should not be manually modified. Instructions on how to use the tool are in [coreum-rust-protobuf](https://github.com/CoreumFoundation/coreum-rust-protobuf) and can be used to generate any Rust protobuf types for any version of our chain.
+
 ## Useful links
 
 - [Coreum Website](https://coreum.com)
