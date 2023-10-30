@@ -9,7 +9,6 @@ pub const BURNING: u32 = 0;
 pub const FREEZING: u32 = 1;
 pub const WHITELISTING: u32 = 2;
 pub const DISABLE_SENDING: u32 = 3;
-pub const ROYALTY_RATE: u32 = 4;
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
@@ -59,6 +58,19 @@ pub struct FrozenResponse {
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
+pub struct ClassFrozenResponse {
+    pub frozen: bool,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub struct ClassFrozenAccountsResponse {
+    pub pagination: PageResponse,
+    pub accounts: Vec<String>,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
 pub struct WhitelistedResponse {
     pub whitelisted: bool,
 }
@@ -66,6 +78,13 @@ pub struct WhitelistedResponse {
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub struct WhitelistedAccountsForNFTResponse {
+    pub pagination: PageResponse,
+    pub accounts: Vec<String>,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[serde(rename_all = "snake_case")]
+pub struct ClassWhitelistedAccountsResponse {
     pub pagination: PageResponse,
     pub accounts: Vec<String>,
 }
@@ -114,6 +133,14 @@ pub enum Msg {
         class_id: String,
         id: String,
     },
+    ClassFreeze {
+        class_id: String,
+        account: String,
+    },
+    ClassUnfreeze {
+        class_id: String,
+        account: String,
+    },
     AddToWhitelist {
         class_id: String,
         id: String,
@@ -122,6 +149,14 @@ pub enum Msg {
     RemoveFromWhitelist {
         class_id: String,
         id: String,
+        account: String,
+    },
+    AddToClassWhitelist {
+        class_id: String,
+        account: String,
+    },
+    RemoveFromClassWhitelist {
+        class_id: String,
         account: String,
     },
 }
@@ -143,6 +178,15 @@ pub enum Query {
     #[returns(FrozenResponse)]
     Frozen { id: String, class_id: String },
 
+    #[returns(ClassFrozenResponse)]
+    ClassFrozen { class_id: String, account: String },
+
+    #[returns(ClassFrozenAccountsResponse)]
+    ClassFrozenAccounts {
+        pagination: Option<PageRequest>,
+        class_id: String,
+    },
+
     #[returns(WhitelistedResponse)]
     Whitelisted {
         id: String,
@@ -157,11 +201,14 @@ pub enum Query {
         class_id: String,
     },
 
-    #[returns(BurntNFTResponse)]
-    BurntNFT {
+    #[returns(ClassWhitelistedAccountsResponse)]
+    ClassWhitelistedAccounts {
+        pagination: Option<PageRequest>,
         class_id: String,
-        nft_id: String,
     },
+
+    #[returns(BurntNFTResponse)]
+    BurntNFT { class_id: String, nft_id: String },
 
     #[returns(BurntNFTsInClassResponse)]
     BurntNFTsInClass {
