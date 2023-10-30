@@ -1,4 +1,42 @@
 use osmosis_std_derive::CosmwasmExt;
+/// MintAuthorization allows the grantee to mint up to mint_limit coin from
+/// the granter's account.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.MintAuthorization")]
+pub struct MintAuthorization {
+    #[prost(message, repeated, tag = "1")]
+    pub mint_limit:
+        ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
+}
+/// BurnAuthorization allows the grantee to burn up to burn_limit coin from
+/// the granter's account.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.BurnAuthorization")]
+pub struct BurnAuthorization {
+    #[prost(message, repeated, tag = "1")]
+    pub burn_limit:
+        ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
+}
 /// Definition defines the fungible token settings to store.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -33,6 +71,10 @@ pub struct Definition {
         deserialize_with = "crate::serde::as_str::deserialize"
     )]
     pub version: u32,
+    #[prost(string, tag = "7")]
+    pub uri: ::prost::alloc::string::String,
+    #[prost(string, tag = "8")]
+    pub uri_hash: ::prost::alloc::string::String,
 }
 /// Token is a full representation of the fungible token.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -82,6 +124,10 @@ pub struct Token {
         deserialize_with = "crate::serde::as_str::deserialize"
     )]
     pub version: u32,
+    #[prost(string, tag = "12")]
+    pub uri: ::prost::alloc::string::String,
+    #[prost(string, tag = "13")]
+    pub uri_hash: ::prost::alloc::string::String,
 }
 /// DelayedTokenUpgradeV1 is executed by the delay module when it's time to enable IBC.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -213,6 +259,10 @@ pub struct EventIssued {
     pub burn_rate: ::prost::alloc::string::String,
     #[prost(string, tag = "10")]
     pub send_commission_rate: ::prost::alloc::string::String,
+    #[prost(string, tag = "11")]
+    pub uri: ::prost::alloc::string::String,
+    #[prost(string, tag = "12")]
+    pub uri_hash: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -777,6 +827,10 @@ pub struct MsgIssue {
     /// amount sent to the token issuer account.
     #[prost(string, tag = "9")]
     pub send_commission_rate: ::prost::alloc::string::String,
+    #[prost(string, tag = "10")]
+    pub uri: ::prost::alloc::string::String,
+    #[prost(string, tag = "11")]
+    pub uri_hash: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -795,6 +849,8 @@ pub struct MsgMint {
     pub sender: ::prost::alloc::string::String,
     #[prost(message, optional, tag = "2")]
     pub coin: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    #[prost(string, tag = "3")]
+    pub recipient: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -847,6 +903,26 @@ pub struct MsgFreeze {
 )]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgUnfreeze")]
 pub struct MsgUnfreeze {
+    #[prost(string, tag = "1")]
+    pub sender: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub account: ::prost::alloc::string::String,
+    #[prost(message, optional, tag = "3")]
+    pub coin: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.MsgSetFrozen")]
+pub struct MsgSetFrozen {
     #[prost(string, tag = "1")]
     pub sender: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]

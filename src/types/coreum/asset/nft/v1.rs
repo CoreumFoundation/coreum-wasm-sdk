@@ -1,4 +1,43 @@
 use osmosis_std_derive::CosmwasmExt;
+/// SendAuthorization allows the grantee to send specific NFTs from the granter's account.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.SendAuthorization")]
+pub struct SendAuthorization {
+    #[prost(message, repeated, tag = "1")]
+    pub nfts: ::prost::alloc::vec::Vec<NftIdentifier>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.NFTIdentifier")]
+pub struct NftIdentifier {
+    /// class_id defines the unique identifier of the nft classification, similar to the contract address of ERC721
+    #[prost(string, tag = "1")]
+    #[serde(alias = "classID")]
+    pub class_id: ::prost::alloc::string::String,
+    /// id defines the unique identification of nft
+    #[prost(string, tag = "2")]
+    #[serde(alias = "ID")]
+    pub id: ::prost::alloc::string::String,
+}
 /// ClassDefinition defines the non-fungible token class settings to store.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -188,6 +227,44 @@ pub struct EventUnfrozen {
     ::schemars::JsonSchema,
     CosmwasmExt,
 )]
+#[proto_message(type_url = "/coreum.asset.nft.v1.EventClassFrozen")]
+pub struct EventClassFrozen {
+    #[prost(string, tag = "1")]
+    #[serde(alias = "classID")]
+    pub class_id: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
+    pub account: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.EventClassUnfrozen")]
+pub struct EventClassUnfrozen {
+    #[prost(string, tag = "1")]
+    #[serde(alias = "classID")]
+    pub class_id: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
+    pub account: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventAddedToWhitelist")]
 pub struct EventAddedToWhitelist {
     #[prost(string, tag = "1")]
@@ -219,6 +296,44 @@ pub struct EventRemovedFromWhitelist {
     #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
+    pub account: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.EventAddedToClassWhitelist")]
+pub struct EventAddedToClassWhitelist {
+    #[prost(string, tag = "1")]
+    #[serde(alias = "classID")]
+    pub class_id: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub account: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.EventRemovedFromClassWhitelist")]
+pub struct EventRemovedFromClassWhitelist {
+    #[prost(string, tag = "1")]
+    #[serde(alias = "classID")]
+    pub class_id: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
     pub account: ::prost::alloc::string::String,
 }
 /// Params store gov manageable parameters.
@@ -265,6 +380,10 @@ pub struct GenesisState {
     pub whitelisted_nft_accounts: ::prost::alloc::vec::Vec<WhitelistedNftAccounts>,
     #[prost(message, repeated, tag = "5")]
     pub burnt_nfts: ::prost::alloc::vec::Vec<BurntNft>,
+    #[prost(message, repeated, tag = "6")]
+    pub class_whitelisted_accounts: ::prost::alloc::vec::Vec<ClassWhitelistedAccounts>,
+    #[prost(message, repeated, tag = "7")]
+    pub class_frozen_accounts: ::prost::alloc::vec::Vec<ClassFrozenAccounts>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -305,6 +424,44 @@ pub struct WhitelistedNftAccounts {
     #[serde(alias = "nftID")]
     pub nft_id: ::prost::alloc::string::String,
     #[prost(string, repeated, tag = "4")]
+    pub accounts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.ClassWhitelistedAccounts")]
+pub struct ClassWhitelistedAccounts {
+    #[prost(string, tag = "1")]
+    #[serde(alias = "classID")]
+    pub class_id: ::prost::alloc::string::String,
+    #[prost(string, repeated, tag = "2")]
+    pub accounts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.ClassFrozenAccounts")]
+pub struct ClassFrozenAccounts {
+    #[prost(string, tag = "1")]
+    #[serde(alias = "classID")]
+    pub class_id: ::prost::alloc::string::String,
+    #[prost(string, repeated, tag = "2")]
     pub accounts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -500,6 +657,45 @@ pub struct QueryFrozenResponse {
     ::schemars::JsonSchema,
     CosmwasmExt,
 )]
+#[proto_message(type_url = "/coreum.asset.nft.v1.QueryClassFrozenRequest")]
+#[proto_query(
+    path = "/coreum.asset.nft.v1.Query/ClassFrozen",
+    response_type = QueryClassFrozenResponse
+)]
+pub struct QueryClassFrozenRequest {
+    #[prost(string, tag = "1")]
+    #[serde(alias = "classID")]
+    pub class_id: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub account: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.QueryClassFrozenResponse")]
+pub struct QueryClassFrozenResponse {
+    #[prost(bool, tag = "1")]
+    pub frozen: bool,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryWhitelistedRequest")]
 #[proto_query(
     path = "/coreum.asset.nft.v1.Query/Whitelisted",
@@ -573,6 +769,100 @@ pub struct QueryWhitelistedAccountsForNftRequest {
 )]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryWhitelistedAccountsForNFTResponse")]
 pub struct QueryWhitelistedAccountsForNftResponse {
+    /// pagination defines the pagination in the response.
+    #[prost(message, optional, tag = "1")]
+    pub pagination: ::core::option::Option<
+        super::super::super::super::cosmos::base::query::v1beta1::PageResponse,
+    >,
+    #[prost(string, repeated, tag = "2")]
+    pub accounts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.QueryClassWhitelistedAccountsRequest")]
+#[proto_query(
+    path = "/coreum.asset.nft.v1.Query/ClassWhitelistedAccounts",
+    response_type = QueryClassWhitelistedAccountsResponse
+)]
+pub struct QueryClassWhitelistedAccountsRequest {
+    /// pagination defines an optional pagination for the request.
+    #[prost(message, optional, tag = "1")]
+    pub pagination: ::core::option::Option<
+        super::super::super::super::cosmos::base::query::v1beta1::PageRequest,
+    >,
+    #[prost(string, tag = "2")]
+    #[serde(alias = "classID")]
+    pub class_id: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.QueryClassWhitelistedAccountsResponse")]
+pub struct QueryClassWhitelistedAccountsResponse {
+    /// pagination defines the pagination in the response.
+    #[prost(message, optional, tag = "1")]
+    pub pagination: ::core::option::Option<
+        super::super::super::super::cosmos::base::query::v1beta1::PageResponse,
+    >,
+    #[prost(string, repeated, tag = "2")]
+    pub accounts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.QueryClassFrozenAccountsRequest")]
+#[proto_query(
+    path = "/coreum.asset.nft.v1.Query/ClassFrozenAccounts",
+    response_type = QueryClassFrozenAccountsResponse
+)]
+pub struct QueryClassFrozenAccountsRequest {
+    /// pagination defines an optional pagination for the request.
+    #[prost(message, optional, tag = "1")]
+    pub pagination: ::core::option::Option<
+        super::super::super::super::cosmos::base::query::v1beta1::PageRequest,
+    >,
+    #[prost(string, tag = "2")]
+    #[serde(alias = "classID")]
+    pub class_id: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.QueryClassFrozenAccountsResponse")]
+pub struct QueryClassFrozenAccountsResponse {
     /// pagination defines the pagination in the response.
     #[prost(message, optional, tag = "1")]
     pub pagination: ::core::option::Option<
@@ -728,6 +1018,8 @@ pub struct MsgMint {
     pub uri_hash: ::prost::alloc::string::String,
     #[prost(message, optional, tag = "6")]
     pub data: ::core::option::Option<crate::shim::Any>,
+    #[prost(string, tag = "7")]
+    pub recipient: ::prost::alloc::string::String,
 }
 /// MsgBurn defines message for the Burn method.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -807,6 +1099,48 @@ pub struct MsgUnfreeze {
     ::schemars::JsonSchema,
     CosmwasmExt,
 )]
+#[proto_message(type_url = "/coreum.asset.nft.v1.MsgClassFreeze")]
+pub struct MsgClassFreeze {
+    #[prost(string, tag = "1")]
+    pub sender: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    #[serde(alias = "classID")]
+    pub class_id: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
+    pub account: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.MsgClassUnfreeze")]
+pub struct MsgClassUnfreeze {
+    #[prost(string, tag = "1")]
+    pub sender: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    #[serde(alias = "classID")]
+    pub class_id: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
+    pub account: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.MsgAddToWhitelist")]
 pub struct MsgAddToWhitelist {
     #[prost(string, tag = "1")]
@@ -842,6 +1176,48 @@ pub struct MsgRemoveFromWhitelist {
     #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     #[prost(string, tag = "4")]
+    pub account: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.MsgAddToClassWhitelist")]
+pub struct MsgAddToClassWhitelist {
+    #[prost(string, tag = "1")]
+    pub sender: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    #[serde(alias = "classID")]
+    pub class_id: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
+    pub account: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.MsgRemoveFromClassWhitelist")]
+pub struct MsgRemoveFromClassWhitelist {
+    #[prost(string, tag = "1")]
+    pub sender: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    #[serde(alias = "classID")]
+    pub class_id: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
     pub account: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
