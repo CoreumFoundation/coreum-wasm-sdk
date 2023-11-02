@@ -36,6 +36,8 @@ pub struct Token {
     pub burn_rate: String,
     pub send_commission_rate: String,
     pub version: u32,
+    pub uri: Option<String>,
+    pub uri_hash: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -94,8 +96,10 @@ pub enum Msg {
         initial_amount: Uint128,
         description: Option<String>,
         features: Option<Vec<u32>>,
-        burn_rate: Option<String>,
-        send_commission_rate: Option<String>,
+        burn_rate: String,
+        send_commission_rate: String,
+        uri: Option<String>,
+        uri_hash: Option<String>,
     },
     Mint {
         coin: Coin,

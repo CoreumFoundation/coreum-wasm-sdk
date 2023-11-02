@@ -4,4 +4,6 @@ pub mod bank;
 pub mod base;
 pub mod feegrant;
 pub mod gov;
+pub mod group;
+pub mod nft;
 pub mod staking;
