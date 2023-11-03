@@ -103,6 +103,7 @@ pub enum Msg {
     },
     Mint {
         coin: Coin,
+        recipient: String,
     },
     Burn {
         coin: Coin,

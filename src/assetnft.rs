@@ -121,6 +121,7 @@ pub enum Msg {
         uri: Option<String>,
         uri_hash: Option<String>,
         data: Option<Binary>,
+        recipient: String,
     },
     Burn {
         class_id: String,
