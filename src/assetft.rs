@@ -103,7 +103,7 @@ pub enum Msg {
     },
     Mint {
         coin: Coin,
-        recipient: String,
+        recipient: Option<String>,
     },
     Burn {
         coin: Coin,
@@ -113,6 +113,10 @@ pub enum Msg {
         coin: Coin,
     },
     Unfreeze {
+        account: String,
+        coin: Coin,
+    },
+    SetFrozen {
         account: String,
         coin: Coin,
     },
