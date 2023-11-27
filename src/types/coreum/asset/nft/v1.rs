@@ -113,6 +113,7 @@ pub enum ClassFeature {
     Freezing = 1,
     Whitelisting = 2,
     DisableSending = 3,
+    Soulbound = 4,
 }
 impl ClassFeature {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -125,6 +126,7 @@ impl ClassFeature {
             ClassFeature::Freezing => "freezing",
             ClassFeature::Whitelisting => "whitelisting",
             ClassFeature::DisableSending => "disable_sending",
+            ClassFeature::Soulbound => "soulbound",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -134,6 +136,7 @@ impl ClassFeature {
             "freezing" => Some(Self::Freezing),
             "whitelisting" => Some(Self::Whitelisting),
             "disable_sending" => Some(Self::DisableSending),
+            "soulbound" => Some(Self::Soulbound),
             _ => None,
         }
     }
