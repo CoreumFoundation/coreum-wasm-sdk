@@ -194,6 +194,7 @@ pub enum Feature {
     Freezing = 2,
     Whitelisting = 3,
     Ibc = 4,
+    BlockSmartContracts = 5,
 }
 impl Feature {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -207,6 +208,7 @@ impl Feature {
             Feature::Freezing => "freezing",
             Feature::Whitelisting => "whitelisting",
             Feature::Ibc => "ibc",
+            Feature::BlockSmartContracts => "block_smart_contracts",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -217,6 +219,7 @@ impl Feature {
             "freezing" => Some(Self::Freezing),
             "whitelisting" => Some(Self::Whitelisting),
             "ibc" => Some(Self::Ibc),
+            "block_smart_contracts" => Some(Self::BlockSmartContracts),
             _ => None,
         }
     }

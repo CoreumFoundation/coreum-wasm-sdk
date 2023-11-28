@@ -10,6 +10,7 @@ pub const BURNING: u32 = 1;
 pub const FREEZING: u32 = 2;
 pub const WHITELISTING: u32 = 3;
 pub const IBC: u32 = 4;
+pub const BLOCK_SMART_CONTRACTS: u32 = 5;
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
