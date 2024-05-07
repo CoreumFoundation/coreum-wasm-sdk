@@ -35,7 +35,7 @@ pub struct Token {
     pub subunit: String,
     pub precision: u32,
     pub description: Option<String>,
-    pub globally_frozen: bool,
+    pub globally_frozen: Option<bool>,
     pub features: Option<Vec<u32>>,
     pub burn_rate: String,
     pub send_commission_rate: String,
