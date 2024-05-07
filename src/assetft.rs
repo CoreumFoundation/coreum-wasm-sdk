@@ -42,6 +42,8 @@ pub struct Token {
     pub version: u32,
     pub uri: Option<String>,
     pub uri_hash: Option<String>,
+    pub extension_cw_address: Option<String>,
+    pub admin: String,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
