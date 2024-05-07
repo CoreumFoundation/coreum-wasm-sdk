@@ -17,10 +17,6 @@ use osmosis_std_derive::CosmwasmExt;
 pub struct WeightedVoteOption {
     /// option defines the valid vote options, it must not contain duplicate vote options.
     #[prost(enumeration = "VoteOption", tag = "1")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub option: i32,
     /// weight is the vote weight associated with the vote option.
     #[prost(string, tag = "2")]
@@ -65,11 +61,6 @@ pub struct TextProposal {
 pub struct Deposit {
     /// proposal_id defines the unique id of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// depositor defines the deposit addresses from the proposals.
     #[prost(string, tag = "2")]
@@ -94,21 +85,12 @@ pub struct Deposit {
 pub struct Proposal {
     /// proposal_id defines the unique id of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// content is the proposal's content.
     #[prost(message, optional, tag = "2")]
     pub content: ::core::option::Option<crate::shim::Any>,
     /// status defines the proposal status.
     #[prost(enumeration = "ProposalStatus", tag = "3")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub status: i32,
     /// final_tally_result is the final tally result of the proposal. When
     /// querying a proposal via gRPC, this field is not populated until the
@@ -175,11 +157,6 @@ pub struct TallyResult {
 pub struct Vote {
     /// proposal_id defines the unique id of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// voter is the voter address of the proposal.
     #[prost(string, tag = "2")]
@@ -189,10 +166,6 @@ pub struct Vote {
     /// other cases, this field will default to VOTE_OPTION_UNSPECIFIED.
     #[deprecated]
     #[prost(enumeration = "VoteOption", tag = "3")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub option: i32,
     /// options is the weighted vote options.
     ///
@@ -375,11 +348,6 @@ impl ProposalStatus {
 pub struct GenesisState {
     /// starting_proposal_id is the ID of the starting proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "starting_proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub starting_proposal_id: u64,
     /// deposits defines all the deposits present at genesis.
     #[prost(message, repeated, tag = "2")]
@@ -420,11 +388,6 @@ pub struct GenesisState {
 pub struct QueryProposalRequest {
     /// proposal_id defines the unique id of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
 }
 /// QueryProposalResponse is the response type for the Query/Proposal RPC method.
@@ -464,10 +427,6 @@ pub struct QueryProposalResponse {
 pub struct QueryProposalsRequest {
     /// proposal_status defines the status of the proposals.
     #[prost(enumeration = "ProposalStatus", tag = "1")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_status: i32,
     /// voter defines the voter address for the proposals.
     #[prost(string, tag = "2")]
@@ -521,11 +480,6 @@ pub struct QueryProposalsResponse {
 pub struct QueryVoteRequest {
     /// proposal_id defines the unique id of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// voter defines the voter address for the proposals.
     #[prost(string, tag = "2")]
@@ -569,11 +523,6 @@ pub struct QueryVoteResponse {
 pub struct QueryVotesRequest {
     /// proposal_id defines the unique id of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// pagination defines an optional pagination for the request.
     #[prost(message, optional, tag = "2")]
@@ -667,11 +616,6 @@ pub struct QueryParamsResponse {
 pub struct QueryDepositRequest {
     /// proposal_id defines the unique id of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// depositor defines the deposit addresses from the proposals.
     #[prost(string, tag = "2")]
@@ -715,11 +659,6 @@ pub struct QueryDepositResponse {
 pub struct QueryDepositsRequest {
     /// proposal_id defines the unique id of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// pagination defines an optional pagination for the request.
     #[prost(message, optional, tag = "2")]
@@ -766,11 +705,6 @@ pub struct QueryDepositsResponse {
 pub struct QueryTallyResultRequest {
     /// proposal_id defines the unique id of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
 }
 /// QueryTallyResultResponse is the response type for the Query/Tally RPC method.
@@ -832,11 +766,6 @@ pub struct MsgSubmitProposal {
 pub struct MsgSubmitProposalResponse {
     /// proposal_id defines the unique id of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
 }
 /// MsgVote defines a message to cast a vote.
@@ -855,21 +784,12 @@ pub struct MsgSubmitProposalResponse {
 pub struct MsgVote {
     /// proposal_id defines the unique id of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// voter is the voter address for the proposal.
     #[prost(string, tag = "2")]
     pub voter: ::prost::alloc::string::String,
     /// option defines the vote option.
     #[prost(enumeration = "VoteOption", tag = "3")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub option: i32,
 }
 /// MsgVoteResponse defines the Msg/Vote response type.
@@ -904,11 +824,6 @@ pub struct MsgVoteResponse {}
 pub struct MsgVoteWeighted {
     /// proposal_id defines the unique id of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// voter is the voter address for the proposal.
     #[prost(string, tag = "2")]
@@ -949,11 +864,6 @@ pub struct MsgVoteWeightedResponse {}
 pub struct MsgDeposit {
     /// proposal_id defines the unique id of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// depositor defines the deposit addresses from the proposals.
     #[prost(string, tag = "2")]

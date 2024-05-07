@@ -14,10 +14,6 @@ use osmosis_std_derive::CosmwasmExt;
 #[proto_message(type_url = "/cosmwasm.wasm.v1.AccessTypeParam")]
 pub struct AccessTypeParam {
     #[prost(enumeration = "AccessType", tag = "1")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub value: i32,
 }
 /// AccessConfig access control type.
@@ -35,10 +31,6 @@ pub struct AccessTypeParam {
 #[proto_message(type_url = "/cosmwasm.wasm.v1.AccessConfig")]
 pub struct AccessConfig {
     #[prost(enumeration = "AccessType", tag = "1")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub permission: i32,
     #[prost(string, repeated, tag = "3")]
     pub addresses: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
@@ -60,10 +52,6 @@ pub struct Params {
     #[prost(message, optional, tag = "1")]
     pub code_upload_access: ::core::option::Option<AccessConfig>,
     #[prost(enumeration = "AccessType", tag = "2")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub instantiate_default_permission: i32,
 }
 /// CodeInfo is data for the uploaded contract WASM code
@@ -106,11 +94,6 @@ pub struct CodeInfo {
 pub struct ContractInfo {
     /// CodeID is the reference to the stored Wasm code
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "codeID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub code_id: u64,
     /// Creator address who initially instantiated the contract
     #[prost(string, tag = "2")]
@@ -125,7 +108,6 @@ pub struct ContractInfo {
     #[prost(message, optional, tag = "5")]
     pub created: ::core::option::Option<AbsoluteTxPosition>,
     #[prost(string, tag = "6")]
-    #[serde(alias = "ibc_portID")]
     pub ibc_port_id: ::prost::alloc::string::String,
     /// Extension is an extension point to store custom metadata within the
     /// persistence model.
@@ -147,18 +129,9 @@ pub struct ContractInfo {
 #[proto_message(type_url = "/cosmwasm.wasm.v1.ContractCodeHistoryEntry")]
 pub struct ContractCodeHistoryEntry {
     #[prost(enumeration = "ContractCodeHistoryOperationType", tag = "1")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub operation: i32,
     /// CodeID is the reference to the stored WASM code
     #[prost(uint64, tag = "2")]
-    #[serde(alias = "codeID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub code_id: u64,
     /// Updated Tx position when the operation was executed.
     #[prost(message, optional, tag = "3")]
@@ -183,18 +156,10 @@ pub struct ContractCodeHistoryEntry {
 pub struct AbsoluteTxPosition {
     /// BlockHeight is the block the contract was created at
     #[prost(uint64, tag = "1")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub block_height: u64,
     /// TxIndex is a monotonic counter within the block (actual transaction index,
     /// or gas consumed)
     #[prost(uint64, tag = "2")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub tx_index: u64,
 }
 /// Model is a struct that holds a KV pair
@@ -426,10 +391,6 @@ pub struct ContractGrant {
 pub struct MaxCallsLimit {
     /// Remaining number that is decremented on each execution
     #[prost(uint64, tag = "1")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub remaining: u64,
 }
 /// MaxFundsLimit defines the maximal amounts that can be sent to the contract.
@@ -469,10 +430,6 @@ pub struct MaxFundsLimit {
 pub struct CombinedLimit {
     /// Remaining number that is decremented on each execution
     #[prost(uint64, tag = "1")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub calls_remaining: u64,
     /// Amounts is the maximal amount of tokens transferable to the contract.
     #[prost(message, repeated, tag = "2")]
@@ -572,11 +529,6 @@ pub struct GenesisState {
 #[proto_message(type_url = "/cosmwasm.wasm.v1.Code")]
 pub struct Code {
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "codeID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub code_id: u64,
     #[prost(message, optional, tag = "2")]
     pub code_info: ::core::option::Option<CodeInfo>,
@@ -626,10 +578,6 @@ pub struct Sequence {
     #[prost(bytes = "vec", tag = "1")]
     pub id_key: ::prost::alloc::vec::Vec<u8>,
     #[prost(uint64, tag = "2")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub value: u64,
 }
 /// MsgIBCSend
@@ -652,18 +600,10 @@ pub struct MsgIbcSend {
     /// Timeout height relative to the current block height.
     /// The timeout is disabled when set to 0.
     #[prost(uint64, tag = "4")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub timeout_height: u64,
     /// Timeout timestamp (in nanoseconds) relative to the current block timestamp.
     /// The timeout is disabled when set to 0.
     #[prost(uint64, tag = "5")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub timeout_timestamp: u64,
     /// Data is the payload to transfer. We must not make assumption what format or
     /// content is in here.
@@ -686,10 +626,6 @@ pub struct MsgIbcSend {
 pub struct MsgIbcSendResponse {
     /// Sequence number of the IBC packet sent
     #[prost(uint64, tag = "1")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub sequence: u64,
 }
 /// MsgIBCCloseChannel port and channel need to be owned by the contract
@@ -823,11 +759,6 @@ pub struct QueryContractHistoryResponse {
 pub struct QueryContractsByCodeRequest {
     /// grpc-gateway_out does not support Go style CodID
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "codeID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub code_id: u64,
     /// pagination defines an optional pagination for the request.
     #[prost(message, optional, tag = "2")]
@@ -1012,11 +943,6 @@ pub struct QuerySmartContractStateResponse {
 pub struct QueryCodeRequest {
     /// grpc-gateway_out does not support Go style CodID
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "codeID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub code_id: u64,
 }
 /// CodeInfoResponse contains code meta data from CodeInfo
@@ -1035,11 +961,6 @@ pub struct QueryCodeRequest {
 pub struct CodeInfoResponse {
     /// id for legacy support
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "codeID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub code_id: u64,
     #[prost(string, tag = "2")]
     pub creator: ::prost::alloc::string::String,
@@ -1151,7 +1072,6 @@ pub struct QueryPinnedCodesRequest {
 #[proto_message(type_url = "/cosmwasm.wasm.v1.QueryPinnedCodesResponse")]
 pub struct QueryPinnedCodesResponse {
     #[prost(uint64, repeated, packed = "false", tag = "1")]
-    #[serde(alias = "codeIDs")]
     pub code_ids: ::prost::alloc::vec::Vec<u64>,
     /// pagination defines the pagination in the response.
     #[prost(message, optional, tag = "2")]
@@ -1285,11 +1205,6 @@ pub struct MsgStoreCode {
 pub struct MsgStoreCodeResponse {
     /// CodeID is the reference to the stored WASM code
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "codeID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub code_id: u64,
     /// Checksum is the sha256 hash of the stored code
     #[prost(bytes = "vec", tag = "2")]
@@ -1318,11 +1233,6 @@ pub struct MsgInstantiateContract {
     pub admin: ::prost::alloc::string::String,
     /// CodeID is the reference to the stored WASM code
     #[prost(uint64, tag = "3")]
-    #[serde(alias = "codeID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub code_id: u64,
     /// Label is optional metadata to be stored with a contract instance.
     #[prost(string, tag = "4")]
@@ -1378,11 +1288,6 @@ pub struct MsgInstantiateContract2 {
     pub admin: ::prost::alloc::string::String,
     /// CodeID is the reference to the stored WASM code
     #[prost(uint64, tag = "3")]
-    #[serde(alias = "codeID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub code_id: u64,
     /// Label is optional metadata to be stored with a contract instance.
     #[prost(string, tag = "4")]
@@ -1489,11 +1394,6 @@ pub struct MsgMigrateContract {
     pub contract: ::prost::alloc::string::String,
     /// CodeID references the new WASM code
     #[prost(uint64, tag = "3")]
-    #[serde(alias = "codeID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub code_id: u64,
     /// Msg json encoded message to be passed to the contract on migration
     #[prost(bytes = "vec", tag = "4")]
@@ -1608,11 +1508,6 @@ pub struct MsgClearAdminResponse {}
 pub struct AccessConfigUpdate {
     /// CodeID is the reference to the stored WASM code to be updated
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "codeID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub code_id: u64,
     /// InstantiatePermission to apply to the set of code ids
     #[prost(message, optional, tag = "2")]
@@ -1637,11 +1532,6 @@ pub struct MsgUpdateInstantiateConfig {
     pub sender: ::prost::alloc::string::String,
     /// CodeID references the stored WASM code
     #[prost(uint64, tag = "2")]
-    #[serde(alias = "codeID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub code_id: u64,
     /// NewInstantiatePermission is the new access control
     #[prost(message, optional, tag = "3")]
@@ -1771,7 +1661,6 @@ pub struct MsgPinCodes {
     pub authority: ::prost::alloc::string::String,
     /// CodeIDs references the new WASM codes
     #[prost(uint64, repeated, packed = "false", tag = "2")]
-    #[serde(alias = "codeIDs")]
     pub code_ids: ::prost::alloc::vec::Vec<u64>,
 }
 /// MsgPinCodesResponse defines the response structure for executing a
@@ -1812,7 +1701,6 @@ pub struct MsgUnpinCodes {
     pub authority: ::prost::alloc::string::String,
     /// CodeIDs references the WASM codes
     #[prost(uint64, repeated, packed = "false", tag = "2")]
-    #[serde(alias = "codeIDs")]
     pub code_ids: ::prost::alloc::vec::Vec<u64>,
 }
 /// MsgUnpinCodesResponse defines the response structure for executing a
@@ -2035,11 +1923,6 @@ pub struct MsgStoreAndMigrateContract {
 pub struct MsgStoreAndMigrateContractResponse {
     /// CodeID is the reference to the stored WASM code
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "codeID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub code_id: u64,
     /// Checksum is the sha256 hash of the stored code
     #[prost(bytes = "vec", tag = "2")]
