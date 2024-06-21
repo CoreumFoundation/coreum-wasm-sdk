@@ -128,7 +128,7 @@ pub struct DecisionPolicyWindows {
     /// min_execution_period is the minimum duration after the proposal submission
     /// where members can start sending MsgExec. This means that the window for
     /// sending a MsgExec transaction is:
-    /// `[ submission + min_execution_period ; submission + voting_period + max_execution_period]`
+    /// `\[ submission + min_execution_period ; submission + voting_period + max_execution_period\]`
     /// where max_execution_period is a app-specific config, defined in the keeper.
     /// If not set, min_execution_period will default to 0.
     ///
@@ -155,11 +155,6 @@ pub struct DecisionPolicyWindows {
 pub struct GroupInfo {
     /// id is the unique ID of the group.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "ID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub id: u64,
     /// admin is the account address of the group's admin.
     #[prost(string, tag = "2")]
@@ -172,10 +167,6 @@ pub struct GroupInfo {
     /// or any member is added or removed this version is incremented and will
     /// cause proposals based on older versions of this group to fail
     #[prost(uint64, tag = "4")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub version: u64,
     /// total_weight is the sum of the group members' weights.
     #[prost(string, tag = "5")]
@@ -200,11 +191,6 @@ pub struct GroupInfo {
 pub struct GroupMember {
     /// group_id is the unique ID of the group.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "groupID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_id: u64,
     /// member is the member data.
     #[prost(message, optional, tag = "2")]
@@ -229,11 +215,6 @@ pub struct GroupPolicyInfo {
     pub address: ::prost::alloc::string::String,
     /// group_id is the unique ID of the group.
     #[prost(uint64, tag = "2")]
-    #[serde(alias = "groupID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_id: u64,
     /// admin is the account address of the group admin.
     #[prost(string, tag = "3")]
@@ -246,10 +227,6 @@ pub struct GroupPolicyInfo {
     /// version is used to track changes to a group's GroupPolicyInfo structure that
     /// would create a different result on a running proposal.
     #[prost(uint64, tag = "5")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub version: u64,
     /// decision_policy specifies the group policy's decision policy.
     #[prost(message, optional, tag = "6")]
@@ -277,11 +254,6 @@ pub struct GroupPolicyInfo {
 pub struct Proposal {
     /// id is the unique id of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "ID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub id: u64,
     /// group_policy_address is the account address of group policy.
     #[prost(string, tag = "2")]
@@ -300,27 +272,15 @@ pub struct Proposal {
     /// group_version tracks the version of the group at proposal submission.
     /// This field is here for informational purposes only.
     #[prost(uint64, tag = "6")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_version: u64,
     /// group_policy_version tracks the version of the group policy at proposal submission.
     /// When a decision policy is changed, existing proposals from previous policy
     /// versions will become invalid with the `ABORTED` status.
     /// This field is here for informational purposes only.
     #[prost(uint64, tag = "7")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_policy_version: u64,
     /// status represents the high level position in the life cycle of the proposal. Initial value is Submitted.
     #[prost(enumeration = "ProposalStatus", tag = "8")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub status: i32,
     /// final_tally_result contains the sums of all weighted votes for this
     /// proposal for each vote option. It is empty at submission, and only
@@ -337,10 +297,6 @@ pub struct Proposal {
     pub voting_period_end: ::core::option::Option<crate::shim::Timestamp>,
     /// executor_result is the final result of the proposal execution. Initial value is NotRun.
     #[prost(enumeration = "ProposalExecutorResult", tag = "11")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub executor_result: i32,
     /// messages is a list of `sdk.Msg`s that will be executed if the proposal passes.
     #[prost(message, repeated, tag = "12")]
@@ -399,21 +355,12 @@ pub struct TallyResult {
 pub struct Vote {
     /// proposal is the unique ID of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// voter is the account address of the voter.
     #[prost(string, tag = "2")]
     pub voter: ::prost::alloc::string::String,
     /// option is the voter's choice on the proposal.
     #[prost(enumeration = "VoteOption", tag = "3")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub option: i32,
     /// metadata is any arbitrary metadata attached to the vote.
     #[prost(string, tag = "4")]
@@ -569,11 +516,6 @@ impl ProposalExecutorResult {
 pub struct EventCreateGroup {
     /// group_id is the unique ID of the group.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "groupID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_id: u64,
 }
 /// EventUpdateGroup is an event emitted when a group is updated.
@@ -592,11 +534,6 @@ pub struct EventCreateGroup {
 pub struct EventUpdateGroup {
     /// group_id is the unique ID of the group.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "groupID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_id: u64,
 }
 /// EventCreateGroupPolicy is an event emitted when a group policy is created.
@@ -651,11 +588,6 @@ pub struct EventUpdateGroupPolicy {
 pub struct EventSubmitProposal {
     /// proposal_id is the unique ID of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
 }
 /// EventWithdrawProposal is an event emitted when a proposal is withdrawn.
@@ -674,11 +606,6 @@ pub struct EventSubmitProposal {
 pub struct EventWithdrawProposal {
     /// proposal_id is the unique ID of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
 }
 /// EventVote is an event emitted when a voter votes on a proposal.
@@ -697,11 +624,6 @@ pub struct EventWithdrawProposal {
 pub struct EventVote {
     /// proposal_id is the unique ID of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
 }
 /// EventExec is an event emitted when a proposal is executed.
@@ -720,18 +642,9 @@ pub struct EventVote {
 pub struct EventExec {
     /// proposal_id is the unique ID of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// result is the proposal execution result.
     #[prost(enumeration = "ProposalExecutorResult", tag = "2")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub result: i32,
     /// logs contains error logs in case the execution result is FAILURE.
     #[prost(string, tag = "3")]
@@ -753,11 +666,6 @@ pub struct EventExec {
 pub struct EventLeaveGroup {
     /// group_id is the unique ID of the group.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "groupID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_id: u64,
     /// address is the account address of the group member.
     #[prost(string, tag = "2")]
@@ -779,18 +687,9 @@ pub struct EventLeaveGroup {
 pub struct EventProposalPruned {
     /// proposal_id is the unique ID of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// status is the proposal status (UNSPECIFIED, SUBMITTED, ACCEPTED, REJECTED, ABORTED, WITHDRAWN).
     #[prost(enumeration = "ProposalStatus", tag = "2")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub status: i32,
     /// tally_result is the proposal tally result (when applicable).
     #[prost(message, optional, tag = "3")]
@@ -813,10 +712,6 @@ pub struct GenesisState {
     /// group_seq is the group table orm.Sequence,
     /// it is used to get the next group ID.
     #[prost(uint64, tag = "1")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_seq: u64,
     /// groups is the list of groups info.
     #[prost(message, repeated, tag = "2")]
@@ -827,10 +722,6 @@ pub struct GenesisState {
     /// group_policy_seq is the group policy table orm.Sequence,
     /// it is used to generate the next group policy account address.
     #[prost(uint64, tag = "4")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_policy_seq: u64,
     /// group_policies is the list of group policies info.
     #[prost(message, repeated, tag = "5")]
@@ -838,10 +729,6 @@ pub struct GenesisState {
     /// proposal_seq is the proposal table orm.Sequence,
     /// it is used to get the next proposal ID.
     #[prost(uint64, tag = "6")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_seq: u64,
     /// proposals is the list of proposals.
     #[prost(message, repeated, tag = "7")]
@@ -870,11 +757,6 @@ pub struct GenesisState {
 pub struct QueryGroupInfoRequest {
     /// group_id is the unique ID of the group.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "groupID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_id: u64,
 }
 /// QueryGroupInfoResponse is the Query/GroupInfo response type.
@@ -955,11 +837,6 @@ pub struct QueryGroupPolicyInfoResponse {
 pub struct QueryGroupMembersRequest {
     /// group_id is the unique ID of the group.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "groupID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_id: u64,
     /// pagination defines an optional pagination for the request.
     #[prost(message, optional, tag = "2")]
@@ -1052,11 +929,6 @@ pub struct QueryGroupsByAdminResponse {
 pub struct QueryGroupPoliciesByGroupRequest {
     /// group_id is the unique ID of the group policy's group.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "groupID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_id: u64,
     /// pagination defines an optional pagination for the request.
     #[prost(message, optional, tag = "2")]
@@ -1149,11 +1021,6 @@ pub struct QueryGroupPoliciesByAdminResponse {
 pub struct QueryProposalRequest {
     /// proposal_id is the unique ID of a proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
 }
 /// QueryProposalResponse is the Query/Proposal response type.
@@ -1240,11 +1107,6 @@ pub struct QueryProposalsByGroupPolicyResponse {
 pub struct QueryVoteByProposalVoterRequest {
     /// proposal_id is the unique ID of a proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// voter is a proposal voter account address.
     #[prost(string, tag = "2")]
@@ -1288,11 +1150,6 @@ pub struct QueryVoteByProposalVoterResponse {
 pub struct QueryVotesByProposalRequest {
     /// proposal_id is the unique ID of a proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// pagination defines an optional pagination for the request.
     #[prost(message, optional, tag = "2")]
@@ -1431,11 +1288,6 @@ pub struct QueryGroupsByMemberResponse {
 pub struct QueryTallyResultRequest {
     /// proposal_id is the unique id of a proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
 }
 /// QueryTallyResultResponse is the Query/TallyResult response type.
@@ -1543,11 +1395,6 @@ pub struct MsgCreateGroup {
 pub struct MsgCreateGroupResponse {
     /// group_id is the unique ID of the newly created group.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "groupID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_id: u64,
 }
 /// MsgUpdateGroupMembers is the Msg/UpdateGroupMembers request type.
@@ -1569,11 +1416,6 @@ pub struct MsgUpdateGroupMembers {
     pub admin: ::prost::alloc::string::String,
     /// group_id is the unique ID of the group.
     #[prost(uint64, tag = "2")]
-    #[serde(alias = "groupID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_id: u64,
     /// member_updates is the list of members to update,
     /// set weight to 0 to remove a member.
@@ -1613,11 +1455,6 @@ pub struct MsgUpdateGroupAdmin {
     pub admin: ::prost::alloc::string::String,
     /// group_id is the unique ID of the group.
     #[prost(uint64, tag = "2")]
-    #[serde(alias = "groupID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_id: u64,
     /// new_admin is the group new admin account address.
     #[prost(string, tag = "3")]
@@ -1656,11 +1493,6 @@ pub struct MsgUpdateGroupMetadata {
     pub admin: ::prost::alloc::string::String,
     /// group_id is the unique ID of the group.
     #[prost(uint64, tag = "2")]
-    #[serde(alias = "groupID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_id: u64,
     /// metadata is the updated group's metadata.
     #[prost(string, tag = "3")]
@@ -1699,11 +1531,6 @@ pub struct MsgCreateGroupPolicy {
     pub admin: ::prost::alloc::string::String,
     /// group_id is the unique ID of the group.
     #[prost(uint64, tag = "2")]
-    #[serde(alias = "groupID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_id: u64,
     /// metadata is any arbitrary metadata attached to the group policy.
     #[prost(string, tag = "3")]
@@ -1818,11 +1645,6 @@ pub struct MsgCreateGroupWithPolicy {
 pub struct MsgCreateGroupWithPolicyResponse {
     /// group_id is the unique ID of the newly created group with policy.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "groupID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_id: u64,
     /// group_policy_address is the account address of the newly created group policy.
     #[prost(string, tag = "2")]
@@ -1935,10 +1757,6 @@ pub struct MsgSubmitProposal {
     /// whether it should be executed immediately on creation or not.
     /// If so, proposers signatures are considered as Yes votes.
     #[prost(enumeration = "Exec", tag = "5")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub exec: i32,
     /// title is the title of the proposal.
     ///
@@ -1967,11 +1785,6 @@ pub struct MsgSubmitProposal {
 pub struct MsgSubmitProposalResponse {
     /// proposal is the unique ID of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
 }
 /// MsgWithdrawProposal is the Msg/WithdrawProposal request type.
@@ -1990,11 +1803,6 @@ pub struct MsgSubmitProposalResponse {
 pub struct MsgWithdrawProposal {
     /// proposal is the unique ID of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// address is the admin of the group policy or one of the proposer of the proposal.
     #[prost(string, tag = "2")]
@@ -2030,21 +1838,12 @@ pub struct MsgWithdrawProposalResponse {}
 pub struct MsgVote {
     /// proposal is the unique ID of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// voter is the voter account address.
     #[prost(string, tag = "2")]
     pub voter: ::prost::alloc::string::String,
     /// option is the voter's choice on the proposal.
     #[prost(enumeration = "VoteOption", tag = "3")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub option: i32,
     /// metadata is any arbitrary metadata attached to the vote.
     #[prost(string, tag = "4")]
@@ -2052,10 +1851,6 @@ pub struct MsgVote {
     /// exec defines whether the proposal should be executed
     /// immediately after voting or not.
     #[prost(enumeration = "Exec", tag = "5")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub exec: i32,
 }
 /// MsgVoteResponse is the Msg/Vote response type.
@@ -2088,11 +1883,6 @@ pub struct MsgVoteResponse {}
 pub struct MsgExec {
     /// proposal is the unique ID of the proposal.
     #[prost(uint64, tag = "1")]
-    #[serde(alias = "proposalID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub proposal_id: u64,
     /// executor is the account address used to execute the proposal.
     #[prost(string, tag = "2")]
@@ -2114,10 +1904,6 @@ pub struct MsgExec {
 pub struct MsgExecResponse {
     /// result is the final result of the proposal execution.
     #[prost(enumeration = "ProposalExecutorResult", tag = "2")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub result: i32,
 }
 /// MsgLeaveGroup is the Msg/LeaveGroup request type.
@@ -2139,11 +1925,6 @@ pub struct MsgLeaveGroup {
     pub address: ::prost::alloc::string::String,
     /// group_id is the unique ID of the group.
     #[prost(uint64, tag = "2")]
-    #[serde(alias = "groupID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub group_id: u64,
 }
 /// MsgLeaveGroupResponse is the Msg/LeaveGroup response type.

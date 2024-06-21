@@ -7,4 +7,3 @@ pub mod pagination;
 pub mod shim;
 #[allow(deprecated)]
 pub mod types;
-mod serde;

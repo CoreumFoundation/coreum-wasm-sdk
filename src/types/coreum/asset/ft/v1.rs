@@ -62,19 +62,19 @@ pub struct Definition {
     #[prost(string, tag = "4")]
     pub burn_rate: ::prost::alloc::string::String,
     /// send_commission_rate is a number between 0 and 1 which will be multiplied by send amount to determine
-    /// amount sent to the token issuer account.
+    /// amount sent to the token admin account.
     #[prost(string, tag = "5")]
     pub send_commission_rate: ::prost::alloc::string::String,
     #[prost(uint32, tag = "6")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub version: u32,
     #[prost(string, tag = "7")]
     pub uri: ::prost::alloc::string::String,
     #[prost(string, tag = "8")]
     pub uri_hash: ::prost::alloc::string::String,
+    #[prost(string, tag = "9")]
+    pub extension_cw_address: ::prost::alloc::string::String,
+    #[prost(string, tag = "10")]
+    pub admin: ::prost::alloc::string::String,
 }
 /// Token is a full representation of the fungible token.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -99,10 +99,6 @@ pub struct Token {
     #[prost(string, tag = "4")]
     pub subunit: ::prost::alloc::string::String,
     #[prost(uint32, tag = "5")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub precision: u32,
     #[prost(string, tag = "6")]
     pub description: ::prost::alloc::string::String,
@@ -115,19 +111,19 @@ pub struct Token {
     #[prost(string, tag = "9")]
     pub burn_rate: ::prost::alloc::string::String,
     /// send_commission_rate is a number between 0 and 1 which will be multiplied by send amount to determine
-    /// amount sent to the token issuer account.
+    /// amount sent to the token admin account.
     #[prost(string, tag = "10")]
     pub send_commission_rate: ::prost::alloc::string::String,
     #[prost(uint32, tag = "11")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub version: u32,
     #[prost(string, tag = "12")]
     pub uri: ::prost::alloc::string::String,
     #[prost(string, tag = "13")]
     pub uri_hash: ::prost::alloc::string::String,
+    #[prost(string, tag = "14")]
+    pub extension_cw_address: ::prost::alloc::string::String,
+    #[prost(string, tag = "15")]
+    pub admin: ::prost::alloc::string::String,
 }
 /// DelayedTokenUpgradeV1 is executed by the delay module when it's time to enable IBC.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -195,6 +191,8 @@ pub enum Feature {
     Whitelisting = 3,
     Ibc = 4,
     BlockSmartContracts = 5,
+    Clawback = 6,
+    Extension = 7,
 }
 impl Feature {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -209,6 +207,8 @@ impl Feature {
             Feature::Whitelisting => "whitelisting",
             Feature::Ibc => "ibc",
             Feature::BlockSmartContracts => "block_smart_contracts",
+            Feature::Clawback => "clawback",
+            Feature::Extension => "extension",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -220,6 +220,8 @@ impl Feature {
             "whitelisting" => Some(Self::Whitelisting),
             "ibc" => Some(Self::Ibc),
             "block_smart_contracts" => Some(Self::BlockSmartContracts),
+            "clawback" => Some(Self::Clawback),
+            "extension" => Some(Self::Extension),
             _ => None,
         }
     }
@@ -247,10 +249,6 @@ pub struct EventIssued {
     #[prost(string, tag = "4")]
     pub subunit: ::prost::alloc::string::String,
     #[prost(uint32, tag = "5")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub precision: u32,
     #[prost(string, tag = "6")]
     pub initial_amount: ::prost::alloc::string::String,
@@ -266,6 +264,8 @@ pub struct EventIssued {
     pub uri: ::prost::alloc::string::String,
     #[prost(string, tag = "12")]
     pub uri_hash: ::prost::alloc::string::String,
+    #[prost(string, tag = "13")]
+    pub admin: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -300,6 +300,26 @@ pub struct EventFrozenAmountChanged {
     ::schemars::JsonSchema,
     CosmwasmExt,
 )]
+#[proto_message(type_url = "/coreum.asset.ft.v1.EventAmountClawedBack")]
+pub struct EventAmountClawedBack {
+    #[prost(string, tag = "1")]
+    pub account: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub denom: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
+    pub amount: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.EventWhitelistedAmountChanged")]
 pub struct EventWhitelistedAmountChanged {
     #[prost(string, tag = "1")]
@@ -310,6 +330,44 @@ pub struct EventWhitelistedAmountChanged {
     pub previous_amount: ::prost::alloc::string::String,
     #[prost(string, tag = "4")]
     pub current_amount: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.EventAdminTransferred")]
+pub struct EventAdminTransferred {
+    #[prost(string, tag = "1")]
+    pub denom: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub previous_admin: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
+    pub current_admin: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.EventAdminCleared")]
+pub struct EventAdminCleared {
+    #[prost(string, tag = "1")]
+    pub denom: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub previous_admin: ::prost::alloc::string::String,
 }
 /// Params store gov manageable parameters.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -403,10 +461,6 @@ pub struct PendingTokenUpgrade {
     #[prost(string, tag = "1")]
     pub denom: ::prost::alloc::string::String,
     #[prost(uint32, tag = "2")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub version: u32,
 }
 /// QueryParamsRequest defines the request type for querying x/asset/ft parameters.
@@ -811,10 +865,6 @@ pub struct MsgIssue {
     #[prost(string, tag = "3")]
     pub subunit: ::prost::alloc::string::String,
     #[prost(uint32, tag = "4")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub precision: u32,
     #[prost(string, tag = "5")]
     pub initial_amount: ::prost::alloc::string::String,
@@ -827,13 +877,41 @@ pub struct MsgIssue {
     #[prost(string, tag = "8")]
     pub burn_rate: ::prost::alloc::string::String,
     /// send_commission_rate is a number between 0 and 1 which will be multiplied by send amount to determine
-    /// amount sent to the token issuer account.
+    /// amount sent to the token admin account.
     #[prost(string, tag = "9")]
     pub send_commission_rate: ::prost::alloc::string::String,
     #[prost(string, tag = "10")]
     pub uri: ::prost::alloc::string::String,
     #[prost(string, tag = "11")]
     pub uri_hash: ::prost::alloc::string::String,
+    /// extension_settings must be provided in case wasm extensions are enabled.
+    #[prost(message, optional, tag = "12")]
+    pub extension_settings: ::core::option::Option<ExtensionIssueSettings>,
+}
+/// ExtensionIssueSettings are settings that will be used to Instantantiate the smart contract which contains
+/// the source code for the extension.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.ExtensionIssueSettings")]
+pub struct ExtensionIssueSettings {
+    /// code_id is the reference to the stored WASM code
+    #[prost(uint64, tag = "1")]
+    pub code_id: u64,
+    /// label is optional metadata to be stored with a contract instance.
+    #[prost(string, tag = "2")]
+    pub label: ::prost::alloc::string::String,
+    /// funds coins that are transferred to the contract on instantiation
+    #[prost(message, repeated, tag = "3")]
+    pub funds: ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -980,6 +1058,26 @@ pub struct MsgGloballyUnfreeze {
     ::schemars::JsonSchema,
     CosmwasmExt,
 )]
+#[proto_message(type_url = "/coreum.asset.ft.v1.MsgClawback")]
+pub struct MsgClawback {
+    #[prost(string, tag = "1")]
+    pub sender: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub account: ::prost::alloc::string::String,
+    #[prost(message, optional, tag = "3")]
+    pub coin: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgSetWhitelistedLimit")]
 pub struct MsgSetWhitelistedLimit {
     #[prost(string, tag = "1")]
@@ -988,6 +1086,44 @@ pub struct MsgSetWhitelistedLimit {
     pub account: ::prost::alloc::string::String,
     #[prost(message, optional, tag = "3")]
     pub coin: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.MsgTransferAdmin")]
+pub struct MsgTransferAdmin {
+    #[prost(string, tag = "1")]
+    pub sender: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub account: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
+    pub denom: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.MsgClearAdmin")]
+pub struct MsgClearAdmin {
+    #[prost(string, tag = "1")]
+    pub sender: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub denom: ::prost::alloc::string::String,
 }
 /// MsgUpgradeTokenV1 is the message upgrading token to V1.
 #[allow(clippy::derive_partial_eq_without_eq)]

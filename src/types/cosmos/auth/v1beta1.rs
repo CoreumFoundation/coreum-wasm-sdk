@@ -20,16 +20,8 @@ pub struct BaseAccount {
     #[prost(message, optional, tag = "2")]
     pub pub_key: ::core::option::Option<crate::shim::Any>,
     #[prost(uint64, tag = "3")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub account_number: u64,
     #[prost(uint64, tag = "4")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub sequence: u64,
 }
 /// ModuleAccount defines an account for modules that holds coins on a pool.
@@ -92,34 +84,14 @@ pub struct ModuleCredential {
 #[proto_message(type_url = "/cosmos.auth.v1beta1.Params")]
 pub struct Params {
     #[prost(uint64, tag = "1")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub max_memo_characters: u64,
     #[prost(uint64, tag = "2")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub tx_sig_limit: u64,
     #[prost(uint64, tag = "3")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub tx_size_cost_per_byte: u64,
     #[prost(uint64, tag = "4")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub sig_verify_cost_ed25519: u64,
     #[prost(uint64, tag = "5")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub sig_verify_cost_secp256k1: u64,
 }
 /// GenesisState defines the auth module's genesis state.
@@ -493,21 +465,11 @@ pub struct QueryAccountAddressByIdRequest {
     /// updated to uint64 in a future version of the auth query.
     #[deprecated]
     #[prost(int64, tag = "1")]
-    #[serde(alias = "ID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub id: i64,
     /// account_id is the account number of the address to be queried.
     ///
     /// Since: cosmos-sdk 0.47
     #[prost(uint64, tag = "2")]
-    #[serde(alias = "accountID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub account_id: u64,
 }
 /// QueryAccountAddressByIDResponse is the response type for AccountAddressByID rpc method

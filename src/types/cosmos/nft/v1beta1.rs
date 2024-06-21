@@ -15,11 +15,9 @@ use osmosis_std_derive::CosmwasmExt;
 pub struct EventSend {
     /// class_id associated with the nft
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     /// id is a unique identifier of the nft
     #[prost(string, tag = "2")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     /// sender is the address of the owner of nft
     #[prost(string, tag = "3")]
@@ -44,11 +42,9 @@ pub struct EventSend {
 pub struct EventMint {
     /// class_id associated with the nft
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     /// id is a unique identifier of the nft
     #[prost(string, tag = "2")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     /// owner is the owner address of the nft
     #[prost(string, tag = "3")]
@@ -70,11 +66,9 @@ pub struct EventMint {
 pub struct EventBurn {
     /// class_id associated with the nft
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     /// id is a unique identifier of the nft
     #[prost(string, tag = "2")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     /// owner is the owner address of the nft
     #[prost(string, tag = "3")]
@@ -96,7 +90,6 @@ pub struct EventBurn {
 pub struct Class {
     /// id defines the unique identifier of the NFT classification, similar to the contract address of ERC721
     #[prost(string, tag = "1")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     /// name defines the human-readable name of the NFT classification. Optional
     #[prost(string, tag = "2")]
@@ -133,11 +126,9 @@ pub struct Class {
 pub struct Nft {
     /// class_id associated with the NFT, similar to the contract address of ERC721
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     /// id is a unique identifier of the NFT
     #[prost(string, tag = "2")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     /// uri for the NFT metadata stored off chain
     #[prost(string, tag = "3")]
@@ -211,7 +202,6 @@ pub struct Entry {
 pub struct QueryBalanceRequest {
     /// class_id associated with the nft
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     /// owner is the owner address of the nft
     #[prost(string, tag = "2")]
@@ -233,10 +223,6 @@ pub struct QueryBalanceRequest {
 pub struct QueryBalanceResponse {
     /// amount is the number of all NFTs of a given class owned by the owner
     #[prost(uint64, tag = "1")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub amount: u64,
 }
 /// QueryOwnerRequest is the request type for the Query/Owner RPC method
@@ -259,11 +245,9 @@ pub struct QueryBalanceResponse {
 pub struct QueryOwnerRequest {
     /// class_id associated with the nft
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     /// id is a unique identifier of the NFT
     #[prost(string, tag = "2")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
 }
 /// QueryOwnerResponse is the response type for the Query/Owner RPC method
@@ -304,7 +288,6 @@ pub struct QueryOwnerResponse {
 pub struct QuerySupplyRequest {
     /// class_id associated with the nft
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
 }
 /// QuerySupplyResponse is the response type for the Query/Supply RPC method
@@ -323,10 +306,6 @@ pub struct QuerySupplyRequest {
 pub struct QuerySupplyResponse {
     /// amount is the number of all NFTs from the given class
     #[prost(uint64, tag = "1")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub amount: u64,
 }
 /// QueryNFTstRequest is the request type for the Query/NFTs RPC method
@@ -349,7 +328,6 @@ pub struct QuerySupplyResponse {
 pub struct QueryNfTsRequest {
     /// class_id associated with the nft
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     /// owner is the owner address of the nft
     #[prost(string, tag = "2")]
@@ -396,11 +374,9 @@ pub struct QueryNfTsResponse {
 pub struct QueryNftRequest {
     /// class_id associated with the nft
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     /// id is a unique identifier of the NFT
     #[prost(string, tag = "2")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
 }
 /// QueryNFTResponse is the response type for the Query/NFT RPC method
@@ -441,7 +417,6 @@ pub struct QueryNftResponse {
 pub struct QueryClassRequest {
     /// class_id associated with the nft
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
 }
 /// QueryClassResponse is the response type for the Query/Class RPC method
@@ -521,11 +496,9 @@ pub struct QueryClassesResponse {
 pub struct MsgSend {
     /// class_id defines the unique identifier of the nft classification, similar to the contract address of ERC721
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     /// id defines the unique identification of nft
     #[prost(string, tag = "2")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     /// sender is the address of the owner of nft
     #[prost(string, tag = "3")]
@@ -548,3 +521,4 @@ pub struct MsgSend {
 )]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.MsgSendResponse")]
 pub struct MsgSendResponse {}
+

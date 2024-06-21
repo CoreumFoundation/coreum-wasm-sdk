@@ -11,6 +11,8 @@ pub const FREEZING: u32 = 2;
 pub const WHITELISTING: u32 = 3;
 pub const IBC: u32 = 4;
 pub const BLOCK_SMART_CONTRACTS: u32 = 5;
+pub const CLAWBACK: u32 = 6;
+pub const EXTENSION: u32 = 7;
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
@@ -33,12 +35,15 @@ pub struct Token {
     pub subunit: String,
     pub precision: u32,
     pub description: Option<String>,
+    pub globally_frozen: Option<bool>,
     pub features: Option<Vec<u32>>,
     pub burn_rate: String,
     pub send_commission_rate: String,
     pub version: u32,
     pub uri: Option<String>,
     pub uri_hash: Option<String>,
+    pub extension_cw_address: Option<String>,
+    pub admin: Option<String>,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]

@@ -34,9 +34,8 @@ impl Serialize for Timestamp {
             nanos: self.nanos,
         };
         ts.normalize();
-        let dt = NaiveDateTime::from_timestamp_opt(ts.seconds, ts.nanos as u32)
+        let dt = DateTime::from_timestamp(ts.seconds, ts.nanos as u32)
             .expect("invalid or out-of-range datetime");
-        let dt: DateTime<Utc> = DateTime::from_naive_utc_and_offset(dt, Utc);
         serializer.serialize_str(format!("{:?}", dt).as_str())
     }
 }

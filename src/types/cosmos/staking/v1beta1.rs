@@ -1,5 +1,4 @@
 use osmosis_std_derive::CosmwasmExt;
-
 /// AuthorizationType defines the type of staking module authorization type
 ///
 /// Since: cosmos-sdk 0.43
@@ -148,10 +147,6 @@ pub struct Validator {
     pub jailed: bool,
     /// status is the validator status (bonded/unbonding/unbonded).
     #[prost(enumeration = "BondStatus", tag = "4")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub status: i32,
     /// tokens define the delegated tokens (incl. self-delegation).
     #[prost(string, tag = "5")]
@@ -164,10 +159,6 @@ pub struct Validator {
     pub description: ::core::option::Option<Description>,
     /// unbonding_height defines, if unbonding, the height at which this validator has begun unbonding.
     #[prost(int64, tag = "8")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub unbonding_height: i64,
     /// unbonding_time defines, if unbonding, the min time for the validator to complete unbonding.
     #[prost(message, optional, tag = "9")]
@@ -182,14 +173,9 @@ pub struct Validator {
     pub min_self_delegation: ::prost::alloc::string::String,
     /// strictly positive if this validator's unbonding has been stopped by external modules
     #[prost(int64, tag = "12")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub unbonding_on_hold_ref_count: i64,
     /// list of unbonding ids, each uniquely identifing an unbonding of this validator
     #[prost(uint64, repeated, tag = "13")]
-    #[serde(alias = "unbondingIDs")]
     pub unbonding_ids: ::prost::alloc::vec::Vec<u64>,
 }
 /// ValAddresses defines a repeated set of validator addresses.
@@ -357,10 +343,6 @@ pub struct UnbondingDelegation {
 pub struct UnbondingDelegationEntry {
     /// creation_height is the height which the unbonding took place.
     #[prost(int64, tag = "1")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub creation_height: i64,
     /// completion_time is the unix time for unbonding completion.
     #[prost(message, optional, tag = "2")]
@@ -373,18 +355,9 @@ pub struct UnbondingDelegationEntry {
     pub balance: ::prost::alloc::string::String,
     /// Incrementing id that uniquely identifies this entry
     #[prost(uint64, tag = "5")]
-    #[serde(alias = "unbondingID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub unbonding_id: u64,
     /// Strictly positive if this entry's unbonding has been stopped by external modules
     #[prost(int64, tag = "6")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub unbonding_on_hold_ref_count: i64,
 }
 /// RedelegationEntry defines a redelegation object with relevant metadata.
@@ -403,10 +376,6 @@ pub struct UnbondingDelegationEntry {
 pub struct RedelegationEntry {
     /// creation_height  defines the height which the redelegation took place.
     #[prost(int64, tag = "1")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub creation_height: i64,
     /// completion_time defines the unix time for redelegation completion.
     #[prost(message, optional, tag = "2")]
@@ -419,18 +388,9 @@ pub struct RedelegationEntry {
     pub shares_dst: ::prost::alloc::string::String,
     /// Incrementing id that uniquely identifies this entry
     #[prost(uint64, tag = "5")]
-    #[serde(alias = "unbondingID")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub unbonding_id: u64,
     /// Strictly positive if this entry's unbonding has been stopped by external modules
     #[prost(int64, tag = "6")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub unbonding_on_hold_ref_count: i64,
 }
 /// Redelegation contains the list of a particular delegator's redelegating bonds
@@ -482,24 +442,12 @@ pub struct Params {
     pub unbonding_time: ::core::option::Option<crate::shim::Duration>,
     /// max_validators is the maximum number of validators.
     #[prost(uint32, tag = "2")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub max_validators: u32,
     /// max_entries is the max entries for either unbonding delegation or redelegation (per pair/trio).
     #[prost(uint32, tag = "3")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub max_entries: u32,
     /// historical_entries is the number of historical entries to persist.
     #[prost(uint32, tag = "4")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub historical_entries: u32,
     /// bond_denom defines the bondable coin denomination.
     #[prost(string, tag = "5")]
@@ -590,7 +538,6 @@ pub struct Pool {
     #[prost(string, tag = "2")]
     pub bonded_tokens: ::prost::alloc::string::String,
 }
-
 /// BondStatus is the status of a validator.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -722,10 +669,6 @@ pub struct LastValidatorPower {
     pub address: ::prost::alloc::string::String,
     /// power defines the power of the validator.
     #[prost(int64, tag = "2")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub power: i64,
 }
 /// QueryValidatorsRequest is request type for Query/Validators RPC method.
@@ -1237,7 +1180,6 @@ pub struct QueryDelegatorValidatorResponse {
     #[prost(message, optional, tag = "1")]
     pub validator: ::core::option::Option<Validator>,
 }
-
 /// QueryPoolRequest is request type for the Query/Pool RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -1535,10 +1477,6 @@ pub struct MsgCancelUnbondingDelegation {
     pub amount: ::core::option::Option<super::super::base::v1beta1::Coin>,
     /// creation_height is the height which the unbonding took place.
     #[prost(int64, tag = "4")]
-    #[serde(
-        serialize_with = "crate::serde::as_str::serialize",
-        deserialize_with = "crate::serde::as_str::deserialize"
-    )]
     pub creation_height: i64,
 }
 /// MsgCancelUnbondingDelegationResponse

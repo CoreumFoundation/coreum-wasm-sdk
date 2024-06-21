@@ -31,11 +31,9 @@ pub struct SendAuthorization {
 pub struct NftIdentifier {
     /// class_id defines the unique identifier of the nft classification, similar to the contract address of ERC721
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     /// id defines the unique identification of nft
     #[prost(string, tag = "2")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
 }
 /// ClassDefinition defines the non-fungible token class settings to store.
@@ -53,7 +51,6 @@ pub struct NftIdentifier {
 #[proto_message(type_url = "/coreum.asset.nft.v1.ClassDefinition")]
 pub struct ClassDefinition {
     #[prost(string, tag = "1")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
     pub issuer: ::prost::alloc::string::String,
@@ -80,7 +77,6 @@ pub struct ClassDefinition {
 #[proto_message(type_url = "/coreum.asset.nft.v1.Class")]
 pub struct Class {
     #[prost(string, tag = "1")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
     pub issuer: ::prost::alloc::string::String,
@@ -156,7 +152,6 @@ impl ClassFeature {
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventClassIssued")]
 pub struct EventClassIssued {
     #[prost(string, tag = "1")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
     pub issuer: ::prost::alloc::string::String,
@@ -189,10 +184,8 @@ pub struct EventClassIssued {
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventFrozen")]
 pub struct EventFrozen {
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
     pub owner: ::prost::alloc::string::String,
@@ -211,10 +204,8 @@ pub struct EventFrozen {
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventUnfrozen")]
 pub struct EventUnfrozen {
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
     pub owner: ::prost::alloc::string::String,
@@ -233,7 +224,6 @@ pub struct EventUnfrozen {
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventClassFrozen")]
 pub struct EventClassFrozen {
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
     pub account: ::prost::alloc::string::String,
@@ -252,7 +242,6 @@ pub struct EventClassFrozen {
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventClassUnfrozen")]
 pub struct EventClassUnfrozen {
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
     pub account: ::prost::alloc::string::String,
@@ -271,10 +260,8 @@ pub struct EventClassUnfrozen {
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventAddedToWhitelist")]
 pub struct EventAddedToWhitelist {
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
     pub account: ::prost::alloc::string::String,
@@ -293,10 +280,8 @@ pub struct EventAddedToWhitelist {
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventRemovedFromWhitelist")]
 pub struct EventRemovedFromWhitelist {
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
     pub account: ::prost::alloc::string::String,
@@ -315,7 +300,6 @@ pub struct EventRemovedFromWhitelist {
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventAddedToClassWhitelist")]
 pub struct EventAddedToClassWhitelist {
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
     pub account: ::prost::alloc::string::String,
@@ -334,7 +318,6 @@ pub struct EventAddedToClassWhitelist {
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventRemovedFromClassWhitelist")]
 pub struct EventRemovedFromClassWhitelist {
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
     pub account: ::prost::alloc::string::String,
@@ -402,7 +385,6 @@ pub struct GenesisState {
 #[proto_message(type_url = "/coreum.asset.nft.v1.FrozenNFT")]
 pub struct FrozenNft {
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, repeated, tag = "2")]
     pub nft_i_ds: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
@@ -421,10 +403,8 @@ pub struct FrozenNft {
 #[proto_message(type_url = "/coreum.asset.nft.v1.WhitelistedNFTAccounts")]
 pub struct WhitelistedNftAccounts {
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "nftID")]
     pub nft_id: ::prost::alloc::string::String,
     #[prost(string, repeated, tag = "4")]
     pub accounts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
@@ -443,7 +423,6 @@ pub struct WhitelistedNftAccounts {
 #[proto_message(type_url = "/coreum.asset.nft.v1.ClassWhitelistedAccounts")]
 pub struct ClassWhitelistedAccounts {
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, repeated, tag = "2")]
     pub accounts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
@@ -462,7 +441,6 @@ pub struct ClassWhitelistedAccounts {
 #[proto_message(type_url = "/coreum.asset.nft.v1.ClassFrozenAccounts")]
 pub struct ClassFrozenAccounts {
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, repeated, tag = "2")]
     pub accounts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
@@ -481,7 +459,6 @@ pub struct ClassFrozenAccounts {
 #[proto_message(type_url = "/coreum.asset.nft.v1.BurntNFT")]
 pub struct BurntNft {
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, repeated, tag = "2")]
     pub nft_i_ds: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
@@ -541,7 +518,6 @@ pub struct QueryParamsResponse {
 pub struct QueryClassRequest {
     /// we don't use the gogoproto.customname here since the google.api.http ignores it and generates invalid code.
     #[prost(string, tag = "1")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
 }
 /// QueryClassResponse is response type for the Query/Class RPC method.
@@ -627,10 +603,8 @@ pub struct QueryClassesResponse {
 )]
 pub struct QueryFrozenRequest {
     #[prost(string, tag = "1")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -667,7 +641,6 @@ pub struct QueryFrozenResponse {
 )]
 pub struct QueryClassFrozenRequest {
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
     pub account: ::prost::alloc::string::String,
@@ -706,10 +679,8 @@ pub struct QueryClassFrozenResponse {
 )]
 pub struct QueryWhitelistedRequest {
     #[prost(string, tag = "1")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
     pub account: ::prost::alloc::string::String,
@@ -753,10 +724,8 @@ pub struct QueryWhitelistedAccountsForNftRequest {
         super::super::super::super::cosmos::base::query::v1beta1::PageRequest,
     >,
     #[prost(string, tag = "2")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -803,7 +772,6 @@ pub struct QueryClassWhitelistedAccountsRequest {
         super::super::super::super::cosmos::base::query::v1beta1::PageRequest,
     >,
     #[prost(string, tag = "2")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -850,7 +818,6 @@ pub struct QueryClassFrozenAccountsRequest {
         super::super::super::super::cosmos::base::query::v1beta1::PageRequest,
     >,
     #[prost(string, tag = "2")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -892,10 +859,8 @@ pub struct QueryClassFrozenAccountsResponse {
 )]
 pub struct QueryBurntNftRequest {
     #[prost(string, tag = "1")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "nftID")]
     pub nft_id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -936,7 +901,6 @@ pub struct QueryBurntNfTsInClassRequest {
         super::super::super::super::cosmos::base::query::v1beta1::PageRequest,
     >,
     #[prost(string, tag = "2")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -957,8 +921,108 @@ pub struct QueryBurntNfTsInClassResponse {
         super::super::super::super::cosmos::base::query::v1beta1::PageResponse,
     >,
     #[prost(string, repeated, tag = "2")]
-    #[serde(alias = "nftIDs")]
     pub nft_ids: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
+/// DataBytes represents the immutable data.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.DataBytes")]
+pub struct DataBytes {
+    #[prost(bytes = "vec", tag = "1")]
+    pub data: ::prost::alloc::vec::Vec<u8>,
+}
+/// DataDynamicItem contains the updatable data and modification types.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.DataDynamicItem")]
+pub struct DataDynamicItem {
+    /// contains the set of the data editors, if empty no one can update.
+    #[prost(enumeration = "DataEditor", repeated, tag = "1")]
+    pub editors: ::prost::alloc::vec::Vec<i32>,
+    #[prost(bytes = "vec", tag = "2")]
+    pub data: ::prost::alloc::vec::Vec<u8>,
+}
+/// DataDynamicIndexed contains the data and it's index in the DataDynamic.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.DataDynamicIndexedItem")]
+pub struct DataDynamicIndexedItem {
+    #[prost(uint32, tag = "1")]
+    pub index: u32,
+    #[prost(bytes = "vec", tag = "2")]
+    pub data: ::prost::alloc::vec::Vec<u8>,
+}
+/// DataDynamic is dynamic data which contains the list of the items allowed to be modified base on their modification types.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.DataDynamic")]
+pub struct DataDynamic {
+    #[prost(message, repeated, tag = "1")]
+    pub items: ::prost::alloc::vec::Vec<DataDynamicItem>,
+}
+/// DataEditor defines possible data editors.
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
+#[repr(i32)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema)]
+pub enum DataEditor {
+    Admin = 0,
+    Owner = 1,
+}
+impl DataEditor {
+    /// String value of the enum field names used in the ProtoBuf definition.
+    ///
+    /// The values are not transformed in any way and thus are considered stable
+    /// (if the ProtoBuf definition does not change) and safe for programmatic use.
+    pub fn as_str_name(&self) -> &'static str {
+        match self {
+            DataEditor::Admin => "admin",
+            DataEditor::Owner => "owner",
+        }
+    }
+    /// Creates an enum from field names used in the ProtoBuf definition.
+    pub fn from_str_name(value: &str) -> ::core::option::Option<Self> {
+        match value {
+            "admin" => Some(Self::Admin),
+            "owner" => Some(Self::Owner),
+            _ => None,
+        }
+    }
 }
 /// MsgIssueClass defines message for the IssueClass method.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1010,19 +1074,41 @@ pub struct MsgMint {
     #[prost(string, tag = "1")]
     pub sender: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     #[prost(string, tag = "4")]
     pub uri: ::prost::alloc::string::String,
     #[prost(string, tag = "5")]
     pub uri_hash: ::prost::alloc::string::String,
+    /// Data can be DataBytes or DataDynamic.
     #[prost(message, optional, tag = "6")]
     pub data: ::core::option::Option<crate::shim::Any>,
     #[prost(string, tag = "7")]
     pub recipient: ::prost::alloc::string::String,
+}
+/// MsgUpdateData defines message to update the dynamic data.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.nft.v1.MsgUpdateData")]
+pub struct MsgUpdateData {
+    #[prost(string, tag = "1")]
+    pub sender: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub class_id: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
+    pub id: ::prost::alloc::string::String,
+    #[prost(message, repeated, tag = "4")]
+    pub items: ::prost::alloc::vec::Vec<DataDynamicIndexedItem>,
 }
 /// MsgBurn defines message for the Burn method.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1041,10 +1127,8 @@ pub struct MsgBurn {
     #[prost(string, tag = "1")]
     pub sender: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1063,10 +1147,8 @@ pub struct MsgFreeze {
     #[prost(string, tag = "1")]
     pub sender: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1085,10 +1167,8 @@ pub struct MsgUnfreeze {
     #[prost(string, tag = "1")]
     pub sender: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -1107,7 +1187,6 @@ pub struct MsgClassFreeze {
     #[prost(string, tag = "1")]
     pub sender: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
     pub account: ::prost::alloc::string::String,
@@ -1128,7 +1207,6 @@ pub struct MsgClassUnfreeze {
     #[prost(string, tag = "1")]
     pub sender: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
     pub account: ::prost::alloc::string::String,
@@ -1149,10 +1227,8 @@ pub struct MsgAddToWhitelist {
     #[prost(string, tag = "1")]
     pub sender: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     #[prost(string, tag = "4")]
     pub account: ::prost::alloc::string::String,
@@ -1173,10 +1249,8 @@ pub struct MsgRemoveFromWhitelist {
     #[prost(string, tag = "1")]
     pub sender: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
-    #[serde(alias = "ID")]
     pub id: ::prost::alloc::string::String,
     #[prost(string, tag = "4")]
     pub account: ::prost::alloc::string::String,
@@ -1197,7 +1271,6 @@ pub struct MsgAddToClassWhitelist {
     #[prost(string, tag = "1")]
     pub sender: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
     pub account: ::prost::alloc::string::String,
@@ -1218,7 +1291,6 @@ pub struct MsgRemoveFromClassWhitelist {
     #[prost(string, tag = "1")]
     pub sender: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
-    #[serde(alias = "classID")]
     pub class_id: ::prost::alloc::string::String,
     #[prost(string, tag = "3")]
     pub account: ::prost::alloc::string::String,
@@ -1254,19 +1326,3 @@ pub struct MsgUpdateParams {
 )]
 #[proto_message(type_url = "/coreum.asset.nft.v1.EmptyResponse")]
 pub struct EmptyResponse {}
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
-#[proto_message(type_url = "/coreum.asset.nft.v1.DataBytes")]
-pub struct DataBytes {
-    #[prost(bytes = "vec", tag = "1")]
-    pub data: ::prost::alloc::vec::Vec<u8>,
-}

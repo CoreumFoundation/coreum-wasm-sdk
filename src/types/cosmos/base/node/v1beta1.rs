@@ -30,3 +30,4 @@ pub struct ConfigResponse {
     #[prost(string, tag = "1")]
     pub minimum_gas_price: ::prost::alloc::string::String,
 }
+
