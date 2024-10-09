@@ -1,17 +1,17 @@
 [package]
 name = "coreum-wasm-sdk"
-version = "1.0.0"
+version = "1.1.0"
 edition = "2021"
 description = "SDK for WASM coreum messages and queries."
 homepage = "https://coreum.com/"
 license = "Apache-2.0"
 
 [dependencies]
-cosmwasm-std = { version = "1.5.5", features = ["stargate"] }
+cosmwasm-std = { version = "2.1.4", features = ["stargate", "cosmwasm_2_0"] }
 serde = { version = "1.0.203", default-features = false, features = ["derive"] }
 schemars = "0.8.21"
-cosmwasm-schema = "1.5.5"
-osmosis-std-derive = "0.20.1"
+cosmwasm-schema = "2.1.4"
+osmosis-std-derive = { git = "https://github.com/CoreumFoundation/osmosis-std-derive.git", branch = "cosmwasm_2_0" }
 chrono = { version = "0.4.38", default-features = false }
 prost = { version = "0.12.6", default-features = false, features = [
     "prost-derive",
