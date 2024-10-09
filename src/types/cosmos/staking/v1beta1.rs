@@ -1,4 +1,4 @@
-use osmosis_std_derive::CosmwasmExt;
+use coreum_std_derive::CosmwasmExt;
 /// AuthorizationType defines the type of staking module authorization type
 ///
 /// Since: cosmos-sdk 0.43

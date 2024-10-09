@@ -1,4 +1,4 @@
-use osmosis_std_derive::CosmwasmExt;
+use coreum_std_derive::CosmwasmExt;
 /// MintAuthorization allows the grantee to mint up to mint_limit coin from
 /// the granter's account.
 #[allow(clippy::derive_partial_eq_without_eq)]

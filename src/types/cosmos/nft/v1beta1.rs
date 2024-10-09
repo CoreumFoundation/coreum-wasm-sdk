@@ -1,4 +1,4 @@
-use osmosis_std_derive::CosmwasmExt;
+use coreum_std_derive::CosmwasmExt;
 /// EventSend is emitted on Msg/Send
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(

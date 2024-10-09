@@ -1,4 +1,4 @@
-use osmosis_std_derive::CosmwasmExt;
+use coreum_std_derive::CosmwasmExt;
 /// SendAuthorization allows the grantee to send specific NFTs from the granter's account.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
