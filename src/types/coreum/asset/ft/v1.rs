@@ -124,6 +124,8 @@ pub struct Token {
     pub extension_cw_address: ::prost::alloc::string::String,
     #[prost(string, tag = "15")]
     pub admin: ::prost::alloc::string::String,
+    #[prost(message, optional, tag = "16")]
+    pub dex_settings: ::core::option::Option<DexSettings>,
 }
 /// DelayedTokenUpgradeV1 is executed by the delay module when it's time to enable IBC.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -180,6 +182,27 @@ pub struct TokenUpgradeStatuses {
     #[prost(message, optional, tag = "1")]
     pub v1: ::core::option::Option<TokenUpgradeV1Status>,
 }
+/// DEXSettings defines the token settings of the dex.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.DEXSettings")]
+pub struct DexSettings {
+    /// unified_ref_amount is the approximate amount you need to by 1USD, used to define the price tick size
+    #[prost(string, tag = "1")]
+    pub unified_ref_amount: ::prost::alloc::string::String,
+    /// whitelisted_denoms is the list of denoms to trade with.
+    #[prost(string, repeated, tag = "2")]
+    pub whitelisted_denoms: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+}
 /// Feature defines possible features of fungible token.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -193,6 +216,10 @@ pub enum Feature {
     BlockSmartContracts = 5,
     Clawback = 6,
     Extension = 7,
+    DexBlock = 8,
+    DexWhitelistedDenoms = 9,
+    DexOrderCancellation = 10,
+    DexUnifiedRefAmountChange = 11,
 }
 impl Feature {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -209,6 +236,10 @@ impl Feature {
             Feature::BlockSmartContracts => "block_smart_contracts",
             Feature::Clawback => "clawback",
             Feature::Extension => "extension",
+            Feature::DexBlock => "dex_block",
+            Feature::DexWhitelistedDenoms => "dex_whitelisted_denoms",
+            Feature::DexOrderCancellation => "dex_order_cancellation",
+            Feature::DexUnifiedRefAmountChange => "dex_unified_ref_amount_change",
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -222,6 +253,10 @@ impl Feature {
             "block_smart_contracts" => Some(Self::BlockSmartContracts),
             "clawback" => Some(Self::Clawback),
             "extension" => Some(Self::Extension),
+            "dex_block" => Some(Self::DexBlock),
+            "dex_whitelisted_denoms" => Some(Self::DexWhitelistedDenoms),
+            "dex_order_cancellation" => Some(Self::DexOrderCancellation),
+            "dex_unified_ref_amount_change" => Some(Self::DexUnifiedRefAmountChange),
             _ => None,
         }
     }
@@ -266,6 +301,8 @@ pub struct EventIssued {
     pub uri_hash: ::prost::alloc::string::String,
     #[prost(string, tag = "13")]
     pub admin: ::prost::alloc::string::String,
+    #[prost(message, optional, tag = "14")]
+    pub dex_settings: ::core::option::Option<DexSettings>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -342,6 +379,50 @@ pub struct EventWhitelistedAmountChanged {
     ::schemars::JsonSchema,
     CosmwasmExt,
 )]
+#[proto_message(type_url = "/coreum.asset.ft.v1.EventDEXLockedAmountChanged")]
+pub struct EventDexLockedAmountChanged {
+    #[prost(string, tag = "1")]
+    pub account: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub denom: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
+    pub previous_amount: ::prost::alloc::string::String,
+    #[prost(string, tag = "4")]
+    pub current_amount: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.EventDEXWhitelistingReservedAmountChanged")]
+pub struct EventDexWhitelistingReservedAmountChanged {
+    #[prost(string, tag = "1")]
+    pub account: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub denom: ::prost::alloc::string::String,
+    #[prost(string, tag = "3")]
+    pub previous_amount: ::prost::alloc::string::String,
+    #[prost(string, tag = "4")]
+    pub current_amount: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.EventAdminTransferred")]
 pub struct EventAdminTransferred {
     #[prost(string, tag = "1")]
@@ -368,6 +449,24 @@ pub struct EventAdminCleared {
     pub denom: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
     pub previous_admin: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.EventDEXSettingsChanged")]
+pub struct EventDexSettingsChanged {
+    #[prost(message, optional, tag = "1")]
+    pub previous_settings: ::core::option::Option<DexSettings>,
+    #[prost(message, optional, tag = "2")]
+    pub new_settings: ::core::option::Option<DexSettings>,
 }
 /// Params store gov manageable parameters.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -422,6 +521,13 @@ pub struct GenesisState {
     /// pending_token_upgrades contains pending token upgrades.
     #[prost(message, repeated, tag = "5")]
     pub pending_token_upgrades: ::prost::alloc::vec::Vec<PendingTokenUpgrade>,
+    /// dex_locked_balances contains the DEX locked balances on all of the accounts
+    #[prost(message, repeated, tag = "6")]
+    pub dex_locked_balances: ::prost::alloc::vec::Vec<Balance>,
+    #[prost(message, repeated, tag = "7")]
+    pub dex_whitelisting_reserved_balances: ::prost::alloc::vec::Vec<Balance>,
+    #[prost(message, repeated, tag = "8")]
+    pub dex_settings: ::prost::alloc::vec::Vec<DexSettingsWithDenom>,
 }
 /// Balance defines an account address and balance pair used module genesis genesis state.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -462,6 +568,24 @@ pub struct PendingTokenUpgrade {
     pub denom: ::prost::alloc::string::String,
     #[prost(uint32, tag = "2")]
     pub version: u32,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.DEXSettingsWithDenom")]
+pub struct DexSettingsWithDenom {
+    #[prost(string, tag = "1")]
+    pub denom: ::prost::alloc::string::String,
+    #[prost(message, optional, tag = "2")]
+    pub dex_settings: ::core::option::Option<DexSettings>,
 }
 /// QueryParamsRequest defines the request type for querying x/asset/ft parameters.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -662,9 +786,17 @@ pub struct QueryBalanceResponse {
     /// frozen is the frozen amount of the denom on the account.
     #[prost(string, tag = "3")]
     pub frozen: ::prost::alloc::string::String,
-    /// locked is the balance locked by vesting.
+    /// locked is the balance locked in vesting and DEX.
     #[prost(string, tag = "4")]
     pub locked: ::prost::alloc::string::String,
+    /// locked_in_vesting is the balance locked in bank vesting.
+    #[prost(string, tag = "5")]
+    pub locked_in_vesting: ::prost::alloc::string::String,
+    /// locked_in_dex is the balance locked in DEX.
+    #[prost(string, tag = "6")]
+    pub locked_in_dex: ::prost::alloc::string::String,
+    #[prost(string, tag = "7")]
+    pub whitelisting_reserved_in_dex: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -844,6 +976,44 @@ pub struct QueryWhitelistedBalanceResponse {
     #[prost(message, optional, tag = "1")]
     pub balance: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
 }
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.QueryDEXSettingsRequest")]
+#[proto_query(
+    path = "/coreum.asset.ft.v1.Query/DEXSettings",
+    response_type = QueryDexSettingsResponse
+)]
+pub struct QueryDexSettingsRequest {
+    /// denom specifies the denom onto which we query DEX settings
+    #[prost(string, tag = "1")]
+    pub denom: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.QueryDEXSettingsResponse")]
+pub struct QueryDexSettingsResponse {
+    /// dex_settings contains the DEX settings
+    #[prost(message, optional, tag = "1")]
+    pub dex_settings: ::core::option::Option<DexSettings>,
+}
 /// MsgIssue defines message to issue new fungible token.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -887,8 +1057,11 @@ pub struct MsgIssue {
     /// extension_settings must be provided in case wasm extensions are enabled.
     #[prost(message, optional, tag = "12")]
     pub extension_settings: ::core::option::Option<ExtensionIssueSettings>,
+    /// dex_settings allowed to be customized by issuer
+    #[prost(message, optional, tag = "13")]
+    pub dex_settings: ::core::option::Option<DexSettings>,
 }
-/// ExtensionIssueSettings are settings that will be used to Instantantiate the smart contract which contains
+/// ExtensionIssueSettings are settings that will be used to Instantiate the smart contract which contains
 /// the source code for the extension.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -912,6 +1085,9 @@ pub struct ExtensionIssueSettings {
     /// funds coins that are transferred to the contract on instantiation
     #[prost(message, repeated, tag = "3")]
     pub funds: ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    /// optional json encoded data to pass to WASM on instantiation by the ft issuer
+    #[prost(bytes = "vec", tag = "4")]
+    pub issuance_msg: ::prost::alloc::vec::Vec<u8>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -1163,6 +1339,48 @@ pub struct MsgUpdateParams {
     pub authority: ::prost::alloc::string::String,
     #[prost(message, optional, tag = "2")]
     pub params: ::core::option::Option<Params>,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.MsgUpdateDEXUnifiedRefAmount")]
+pub struct MsgUpdateDexUnifiedRefAmount {
+    #[prost(string, tag = "1")]
+    pub sender: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub denom: ::prost::alloc::string::String,
+    /// unified_ref_amount is the approximate amount you need to by 1USD, used to define the price tick size
+    #[prost(string, tag = "3")]
+    pub unified_ref_amount: ::prost::alloc::string::String,
+}
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.MsgUpdateDEXWhitelistedDenoms")]
+pub struct MsgUpdateDexWhitelistedDenoms {
+    #[prost(string, tag = "1")]
+    pub sender: ::prost::alloc::string::String,
+    #[prost(string, tag = "2")]
+    pub denom: ::prost::alloc::string::String,
+    /// whitelisted_denoms is the list of denoms to trade with.
+    #[prost(string, repeated, tag = "3")]
+    pub whitelisted_denoms: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
