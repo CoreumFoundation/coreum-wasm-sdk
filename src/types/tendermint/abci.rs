@@ -448,7 +448,14 @@ pub struct Response {
 /// Nested message and enum types in `Response`.
 pub mod response {
     #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    #[derive(
+        Clone,
+        PartialEq,
+        ::serde::Serialize,
+        ::serde::Deserialize,
+        ::schemars::JsonSchema,
+        ::prost::Oneof,
+    )]
     pub enum Value {
         #[prost(message, tag = "1")]
         Exception(super::ResponseException),
