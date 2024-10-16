@@ -119,7 +119,14 @@ pub struct PublicKey {
 /// Nested message and enum types in `PublicKey`.
 pub mod public_key {
     #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    #[derive(
+        Clone,
+        PartialEq,
+        ::serde::Serialize,
+        ::serde::Deserialize,
+        ::schemars::JsonSchema,
+        ::prost::Oneof,
+    )]
     pub enum Sum {
         #[prost(bytes, tag = "1")]
         Ed25519(::prost::alloc::vec::Vec<u8>),

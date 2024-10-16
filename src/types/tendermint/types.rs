@@ -699,7 +699,14 @@ pub struct Evidence {
 /// Nested message and enum types in `Evidence`.
 pub mod evidence {
     #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    #[derive(
+        Clone,
+        PartialEq,
+        ::serde::Serialize,
+        ::serde::Deserialize,
+        ::schemars::JsonSchema,
+        ::prost::Oneof,
+    )]
     pub enum Sum {
         #[prost(message, tag = "1")]
         DuplicateVoteEvidence(super::DuplicateVoteEvidence),

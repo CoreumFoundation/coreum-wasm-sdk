@@ -20,7 +20,14 @@ pub struct Request {
 /// Nested message and enum types in `Request`.
 pub mod request {
     #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, PartialEq, ::prost::Oneof)]
+    #[derive(
+        Clone,
+        PartialEq,
+        ::serde::Serialize,
+        ::serde::Deserialize,
+        ::schemars::JsonSchema,
+        ::prost::Oneof,
+    )]
     pub enum Value {
         #[prost(message, tag = "1")]
         Echo(super::RequestEcho),
