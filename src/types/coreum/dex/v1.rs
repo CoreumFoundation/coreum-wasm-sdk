@@ -612,7 +612,7 @@ pub struct QueryOrderBooksResponse {
 )]
 #[proto_message(type_url = "/coreum.dex.v1.QueryOrderBookOrdersRequest")]
 #[proto_query(
-    path = "/coreum.dex.v1.Query/OrdersBookOrders",
+    path = "/coreum.dex.v1.Query/OrderBookOrders",
     response_type = QueryOrderBookOrdersResponse
 )]
 pub struct QueryOrderBookOrdersRequest {
