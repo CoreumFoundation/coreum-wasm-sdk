@@ -521,4 +521,3 @@ pub struct MsgSend {
 )]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.MsgSendResponse")]
 pub struct MsgSendResponse {}
-
