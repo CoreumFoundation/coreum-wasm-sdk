@@ -1,4 +1,4 @@
-use osmosis_std_derive::CosmwasmExt;
+use coreum_std_derive::CosmwasmExt;
 /// Coin defines a token with a denomination and an amount.
 ///
 /// NOTE: The amount field is an Int which implements the custom method
@@ -44,6 +44,7 @@ pub struct DecCoin {
     pub amount: ::prost::alloc::string::String,
 }
 /// IntProto defines a Protobuf wrapper around an Int object.
+/// Deprecated: Prefer to use math.Int directly. It supports binary Marshal and Unmarshal.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
@@ -61,6 +62,7 @@ pub struct IntProto {
     pub int: ::prost::alloc::string::String,
 }
 /// DecProto defines a Protobuf wrapper around a Dec object.
+/// Deprecated: Prefer to use math.LegacyDec directly. It supports binary Marshal and Unmarshal.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,

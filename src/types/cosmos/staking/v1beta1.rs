@@ -1,4 +1,68 @@
-use osmosis_std_derive::CosmwasmExt;
+use crate::types::tendermint;
+use coreum_std_derive::CosmwasmExt;
+
+/// StakeAuthorization defines authorization for delegate/undelegate/redelegate.
+///
+/// Since: cosmos-sdk 0.43
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmos.staking.v1beta1.StakeAuthorization")]
+pub struct StakeAuthorization {
+    /// max_tokens specifies the maximum amount of tokens can be delegate to a validator. If it is
+    /// empty, there is no spend limit and any amount of coins can be delegated.
+    #[prost(message, optional, tag = "1")]
+    pub max_tokens: ::core::option::Option<super::super::base::v1beta1::Coin>,
+    /// authorization_type defines one of AuthorizationType.
+    #[prost(enumeration = "AuthorizationType", tag = "4")]
+    pub authorization_type: i32,
+    /// validators is the oneof that represents either allow_list or deny_list
+    #[prost(oneof = "stake_authorization::Validators", tags = "2, 3")]
+    pub validators: ::core::option::Option<stake_authorization::Validators>,
+}
+/// Nested message and enum types in `StakeAuthorization`.
+pub mod stake_authorization {
+    /// Validators defines list of validator addresses.
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(
+        Clone,
+        PartialEq,
+        ::serde::Serialize,
+        ::serde::Deserialize,
+        ::schemars::JsonSchema,
+        ::prost::Message,
+    )]
+    pub struct Validators_ {
+        #[prost(string, repeated, tag = "1")]
+        pub address: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
+    }
+    /// validators is the oneof that represents either allow_list or deny_list
+    #[allow(clippy::derive_partial_eq_without_eq)]
+    #[derive(
+        Clone,
+        PartialEq,
+        ::serde::Serialize,
+        ::serde::Deserialize,
+        ::schemars::JsonSchema,
+        ::prost::Oneof,
+    )]
+    pub enum Validators {
+        /// allow_list specifies list of validator addresses to whom grantee can delegate tokens on behalf of granter's
+        /// account.
+        #[prost(message, tag = "2")]
+        AllowList(Validators_),
+        /// deny_list specifies list of validator addresses to whom grantee can not delegate tokens.
+        #[prost(message, tag = "3")]
+        DenyList(Validators_),
+    }
+}
 /// AuthorizationType defines the type of staking module authorization type
 ///
 /// Since: cosmos-sdk 0.43
@@ -14,6 +78,8 @@ pub enum AuthorizationType {
     Undelegate = 2,
     /// AUTHORIZATION_TYPE_REDELEGATE defines an authorization type for Msg/BeginRedelegate
     Redelegate = 3,
+    /// AUTHORIZATION_TYPE_CANCEL_UNBONDING_DELEGATION defines an authorization type for Msg/MsgCancelUnbondingDelegation
+    CancelUnbondingDelegation = 4,
 }
 impl AuthorizationType {
     /// String value of the enum field names used in the ProtoBuf definition.
@@ -26,6 +92,9 @@ impl AuthorizationType {
             AuthorizationType::Delegate => "AUTHORIZATION_TYPE_DELEGATE",
             AuthorizationType::Undelegate => "AUTHORIZATION_TYPE_UNDELEGATE",
             AuthorizationType::Redelegate => "AUTHORIZATION_TYPE_REDELEGATE",
+            AuthorizationType::CancelUnbondingDelegation => {
+                "AUTHORIZATION_TYPE_CANCEL_UNBONDING_DELEGATION"
+            }
         }
     }
     /// Creates an enum from field names used in the ProtoBuf definition.
@@ -35,9 +104,34 @@ impl AuthorizationType {
             "AUTHORIZATION_TYPE_DELEGATE" => Some(Self::Delegate),
             "AUTHORIZATION_TYPE_UNDELEGATE" => Some(Self::Undelegate),
             "AUTHORIZATION_TYPE_REDELEGATE" => Some(Self::Redelegate),
+            "AUTHORIZATION_TYPE_CANCEL_UNBONDING_DELEGATION" => {
+                Some(Self::CancelUnbondingDelegation)
+            }
             _ => None,
         }
     }
+}
+/// HistoricalInfo contains header and validator information for a given block.
+/// It is stored as part of staking module's state, which persists the `n` most
+/// recent HistoricalInfo
+/// (`n` is set by the staking module's `historical_entries` parameter).
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmos.staking.v1beta1.HistoricalInfo")]
+pub struct HistoricalInfo {
+    #[prost(message, optional, tag = "1")]
+    pub header: ::core::option::Option<tendermint::types::Header>,
+    #[prost(message, repeated, tag = "2")]
+    pub valset: ::prost::alloc::vec::Vec<Validator>,
 }
 /// CommissionRates defines the initial commission rates to be used for creating
 /// a validator.
@@ -290,10 +384,10 @@ pub struct DvvTriplets {
 )]
 #[proto_message(type_url = "/cosmos.staking.v1beta1.Delegation")]
 pub struct Delegation {
-    /// delegator_address is the bech32-encoded address of the delegator.
+    /// delegator_address is the encoded address of the delegator.
     #[prost(string, tag = "1")]
     pub delegator_address: ::prost::alloc::string::String,
-    /// validator_address is the bech32-encoded address of the validator.
+    /// validator_address is the encoded address of the validator.
     #[prost(string, tag = "2")]
     pub validator_address: ::prost::alloc::string::String,
     /// shares define the delegation shares received.
@@ -315,10 +409,10 @@ pub struct Delegation {
 )]
 #[proto_message(type_url = "/cosmos.staking.v1beta1.UnbondingDelegation")]
 pub struct UnbondingDelegation {
-    /// delegator_address is the bech32-encoded address of the delegator.
+    /// delegator_address is the encoded address of the delegator.
     #[prost(string, tag = "1")]
     pub delegator_address: ::prost::alloc::string::String,
-    /// validator_address is the bech32-encoded address of the validator.
+    /// validator_address is the encoded address of the validator.
     #[prost(string, tag = "2")]
     pub validator_address: ::prost::alloc::string::String,
     /// entries are the unbonding delegation entries.
@@ -538,6 +632,23 @@ pub struct Pool {
     #[prost(string, tag = "2")]
     pub bonded_tokens: ::prost::alloc::string::String,
 }
+/// ValidatorUpdates defines an array of abci.ValidatorUpdate objects.
+/// TODO: explore moving this to proto/cosmos/base to separate modules from tendermint dependence
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmos.staking.v1beta1.ValidatorUpdates")]
+pub struct ValidatorUpdates {
+    #[prost(message, repeated, tag = "1")]
+    pub updates: ::prost::alloc::vec::Vec<tendermint::abci::ValidatorUpdate>,
+}
 /// BondStatus is the status of a validator.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
 #[repr(i32)]
@@ -635,7 +746,7 @@ pub struct GenesisState {
     /// of the last-block's bonded validators.
     #[prost(message, repeated, tag = "3")]
     pub last_validator_powers: ::prost::alloc::vec::Vec<LastValidatorPower>,
-    /// delegations defines the validator set at genesis.
+    /// validators defines the validator set at genesis.
     #[prost(message, repeated, tag = "4")]
     pub validators: ::prost::alloc::vec::Vec<Validator>,
     /// delegations defines the delegations active at genesis.
@@ -647,6 +758,7 @@ pub struct GenesisState {
     /// redelegations defines the redelegations active at genesis.
     #[prost(message, repeated, tag = "7")]
     pub redelegations: ::prost::alloc::vec::Vec<Redelegation>,
+    /// exported defines a bool to identify whether the chain dealing with exported or initialized genesis.
     #[prost(bool, tag = "8")]
     pub exported: bool,
 }
@@ -1180,6 +1292,48 @@ pub struct QueryDelegatorValidatorResponse {
     #[prost(message, optional, tag = "1")]
     pub validator: ::core::option::Option<Validator>,
 }
+/// QueryHistoricalInfoRequest is request type for the Query/HistoricalInfo RPC
+/// method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmos.staking.v1beta1.QueryHistoricalInfoRequest")]
+#[proto_query(
+    path = "/cosmos.staking.v1beta1.Query/HistoricalInfo",
+    response_type = QueryHistoricalInfoResponse
+)]
+pub struct QueryHistoricalInfoRequest {
+    /// height defines at which height to query the historical info.
+    #[prost(int64, tag = "1")]
+    pub height: i64,
+}
+/// QueryHistoricalInfoResponse is response type for the Query/HistoricalInfo RPC
+/// method.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/cosmos.staking.v1beta1.QueryHistoricalInfoResponse")]
+pub struct QueryHistoricalInfoResponse {
+    /// hist defines the historical info at the given height.
+    #[prost(message, optional, tag = "1")]
+    pub hist: ::core::option::Option<HistoricalInfo>,
+}
 /// QueryPoolRequest is request type for the Query/Pool RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -1272,6 +1426,10 @@ pub struct MsgCreateValidator {
     pub commission: ::core::option::Option<CommissionRates>,
     #[prost(string, tag = "3")]
     pub min_self_delegation: ::prost::alloc::string::String,
+    /// Deprecated: Use of Delegator Address in MsgCreateValidator is deprecated.
+    /// The validator address bytes and delegator address bytes refer to the same account while creating validator (defer
+    /// only in bech32 notation).
+    #[deprecated]
     #[prost(string, tag = "4")]
     pub delegator_address: ::prost::alloc::string::String,
     #[prost(string, tag = "5")]
@@ -1451,6 +1609,11 @@ pub struct MsgUndelegate {
 pub struct MsgUndelegateResponse {
     #[prost(message, optional, tag = "1")]
     pub completion_time: ::core::option::Option<crate::shim::Timestamp>,
+    /// amount returns the amount of undelegated coins
+    ///
+    /// Since: cosmos-sdk 0.50
+    #[prost(message, optional, tag = "2")]
+    pub amount: ::core::option::Option<super::super::base::v1beta1::Coin>,
 }
 /// MsgCancelUnbondingDelegation defines the SDK message for performing a cancel unbonding delegation for delegator
 ///

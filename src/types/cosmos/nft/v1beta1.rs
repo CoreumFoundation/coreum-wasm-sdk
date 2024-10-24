@@ -1,4 +1,4 @@
-use osmosis_std_derive::CosmwasmExt;
+use coreum_std_derive::CosmwasmExt;
 /// EventSend is emitted on Msg/Send
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -521,4 +521,3 @@ pub struct MsgSend {
 )]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.MsgSendResponse")]
 pub struct MsgSendResponse {}
-
