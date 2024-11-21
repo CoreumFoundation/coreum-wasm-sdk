@@ -3,16 +3,8 @@ use coreum_std_derive::CosmwasmExt;
 /// This information is included in ResponseInfo. The App.Protocol can be
 /// updated in ResponseEndBlock.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/tendermint.version.App")]
 pub struct App {
     #[prost(uint64, tag = "1")]
@@ -24,16 +16,8 @@ pub struct App {
 /// including all blockchain data structures and the rules of the application's
 /// state transition machine.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/tendermint.version.Consensus")]
 pub struct Consensus {
     #[prost(uint64, tag = "1")]

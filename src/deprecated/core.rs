@@ -1,7 +1,7 @@
-use crate::{assetft, assetnft, nft};
 use cosmwasm_std::{CosmosMsg, CustomMsg, CustomQuery, Response};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
+use crate::deprecated::{assetft, assetnft, nft};
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub enum CoreumMsg {

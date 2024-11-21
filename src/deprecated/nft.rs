@@ -3,7 +3,7 @@ use cosmwasm_std::Binary;
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
-use crate::pagination::{PageRequest, PageResponse};
+use crate::deprecated::pagination::{PageRequest, PageResponse};
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]

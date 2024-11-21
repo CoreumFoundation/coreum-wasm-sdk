@@ -2,53 +2,31 @@ use coreum_std_derive::CosmwasmExt;
 /// MintAuthorization allows the grantee to mint up to mint_limit coin from
 /// the granter's account.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MintAuthorization")]
 pub struct MintAuthorization {
     #[prost(message, repeated, tag = "1")]
-    pub mint_limit:
-        ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    pub mint_limit: ::prost::alloc::vec::Vec<
+        super::super::super::super::cosmos::base::v1beta1::Coin,
+    >,
 }
 /// BurnAuthorization allows the grantee to burn up to burn_limit coin from
 /// the granter's account.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.BurnAuthorization")]
 pub struct BurnAuthorization {
     #[prost(message, repeated, tag = "1")]
-    pub burn_limit:
-        ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    pub burn_limit: ::prost::alloc::vec::Vec<
+        super::super::super::super::cosmos::base::v1beta1::Coin,
+    >,
 }
 /// Definition defines the fungible token settings to store.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.Definition")]
 pub struct Definition {
     #[prost(string, tag = "1")]
@@ -78,16 +56,8 @@ pub struct Definition {
 }
 /// Token is a full representation of the fungible token.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.Token")]
 pub struct Token {
     #[prost(string, tag = "1")]
@@ -129,16 +99,8 @@ pub struct Token {
 }
 /// DelayedTokenUpgradeV1 is executed by the delay module when it's time to enable IBC.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.DelayedTokenUpgradeV1")]
 pub struct DelayedTokenUpgradeV1 {
     #[prost(string, tag = "1")]
@@ -146,16 +108,8 @@ pub struct DelayedTokenUpgradeV1 {
 }
 /// TokenUpgradeV1Status defines the current status of the v1 token migration.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.TokenUpgradeV1Status")]
 pub struct TokenUpgradeV1Status {
     #[prost(bool, tag = "1")]
@@ -167,16 +121,8 @@ pub struct TokenUpgradeV1Status {
 }
 /// TokenUpgradeStatuses defines all statuses of the token migrations.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.TokenUpgradeStatuses")]
 pub struct TokenUpgradeStatuses {
     #[prost(message, optional, tag = "1")]
@@ -184,16 +130,8 @@ pub struct TokenUpgradeStatuses {
 }
 /// DEXSettings defines the token settings of the dex.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.DEXSettings")]
 pub struct DexSettings {
     /// unified_ref_amount is the approximate amount you need to by 1USD, used to define the price tick size
@@ -263,16 +201,8 @@ impl Feature {
 }
 /// EventIssued is emitted on MsgIssue.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.EventIssued")]
 pub struct EventIssued {
     #[prost(string, tag = "1")]
@@ -305,16 +235,8 @@ pub struct EventIssued {
     pub dex_settings: ::core::option::Option<DexSettings>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.EventFrozenAmountChanged")]
 pub struct EventFrozenAmountChanged {
     #[prost(string, tag = "1")]
@@ -327,16 +249,8 @@ pub struct EventFrozenAmountChanged {
     pub current_amount: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.EventAmountClawedBack")]
 pub struct EventAmountClawedBack {
     #[prost(string, tag = "1")]
@@ -347,16 +261,8 @@ pub struct EventAmountClawedBack {
     pub amount: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.EventWhitelistedAmountChanged")]
 pub struct EventWhitelistedAmountChanged {
     #[prost(string, tag = "1")]
@@ -369,16 +275,8 @@ pub struct EventWhitelistedAmountChanged {
     pub current_amount: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.EventDEXLockedAmountChanged")]
 pub struct EventDexLockedAmountChanged {
     #[prost(string, tag = "1")]
@@ -391,18 +289,10 @@ pub struct EventDexLockedAmountChanged {
     pub current_amount: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
-#[proto_message(type_url = "/coreum.asset.ft.v1.EventDEXWhitelistingReservedAmountChanged")]
-pub struct EventDexWhitelistingReservedAmountChanged {
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[proto_message(type_url = "/coreum.asset.ft.v1.EventDEXExpectedToReceiveAmountChanged")]
+pub struct EventDexExpectedToReceiveAmountChanged {
     #[prost(string, tag = "1")]
     pub account: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
@@ -413,16 +303,8 @@ pub struct EventDexWhitelistingReservedAmountChanged {
     pub current_amount: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.EventAdminTransferred")]
 pub struct EventAdminTransferred {
     #[prost(string, tag = "1")]
@@ -433,16 +315,8 @@ pub struct EventAdminTransferred {
     pub current_admin: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.EventAdminCleared")]
 pub struct EventAdminCleared {
     #[prost(string, tag = "1")]
@@ -451,16 +325,8 @@ pub struct EventAdminCleared {
     pub previous_admin: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.EventDEXSettingsChanged")]
 pub struct EventDexSettingsChanged {
     #[prost(message, optional, tag = "1")]
@@ -470,21 +336,15 @@ pub struct EventDexSettingsChanged {
 }
 /// Params store gov manageable parameters.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.Params")]
 pub struct Params {
     /// issue_fee is the fee burnt each time new token is issued.
     #[prost(message, optional, tag = "1")]
-    pub issue_fee: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    pub issue_fee: ::core::option::Option<
+        super::super::super::super::cosmos::base::v1beta1::Coin,
+    >,
     /// token_upgrade_decision_timeout defines the end of the decision period for upgrading the token.
     #[prost(message, optional, tag = "2")]
     pub token_upgrade_decision_timeout: ::core::option::Option<crate::shim::Timestamp>,
@@ -494,16 +354,8 @@ pub struct Params {
 }
 /// GenesisState defines the module genesis state.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.GenesisState")]
 pub struct GenesisState {
     /// params defines all the parameters of the module.
@@ -525,22 +377,14 @@ pub struct GenesisState {
     #[prost(message, repeated, tag = "6")]
     pub dex_locked_balances: ::prost::alloc::vec::Vec<Balance>,
     #[prost(message, repeated, tag = "7")]
-    pub dex_whitelisting_reserved_balances: ::prost::alloc::vec::Vec<Balance>,
+    pub dex_expected_to_receive_balances: ::prost::alloc::vec::Vec<Balance>,
     #[prost(message, repeated, tag = "8")]
     pub dex_settings: ::prost::alloc::vec::Vec<DexSettingsWithDenom>,
 }
 /// Balance defines an account address and balance pair used module genesis genesis state.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.Balance")]
 pub struct Balance {
     /// address is the address of the balance holder.
@@ -548,20 +392,14 @@ pub struct Balance {
     pub address: ::prost::alloc::string::String,
     /// coins defines the different coins this balance holds.
     #[prost(message, repeated, tag = "2")]
-    pub coins: ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    pub coins: ::prost::alloc::vec::Vec<
+        super::super::super::super::cosmos::base::v1beta1::Coin,
+    >,
 }
 /// PendingTokenUpgrade stores the version of pending token upgrade.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.PendingTokenUpgrade")]
 pub struct PendingTokenUpgrade {
     #[prost(string, tag = "1")]
@@ -570,16 +408,8 @@ pub struct PendingTokenUpgrade {
     pub version: u32,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.DEXSettingsWithDenom")]
 pub struct DexSettingsWithDenom {
     #[prost(string, tag = "1")]
@@ -589,16 +419,8 @@ pub struct DexSettingsWithDenom {
 }
 /// QueryParamsRequest defines the request type for querying x/asset/ft parameters.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryParamsRequest")]
 #[proto_query(
     path = "/coreum.asset.ft.v1.Query/Params",
@@ -607,32 +429,16 @@ pub struct DexSettingsWithDenom {
 pub struct QueryParamsRequest {}
 /// QueryParamsResponse defines the response type for querying x/asset/ft parameters.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryParamsResponse")]
 pub struct QueryParamsResponse {
     #[prost(message, optional, tag = "1")]
     pub params: ::core::option::Option<Params>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryTokenRequest")]
 #[proto_query(
     path = "/coreum.asset.ft.v1.Query/Token",
@@ -643,32 +449,16 @@ pub struct QueryTokenRequest {
     pub denom: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryTokenResponse")]
 pub struct QueryTokenResponse {
     #[prost(message, optional, tag = "1")]
     pub token: ::core::option::Option<Token>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryTokenUpgradeStatusesRequest")]
 #[proto_query(
     path = "/coreum.asset.ft.v1.Query/TokenUpgradeStatuses",
@@ -679,32 +469,16 @@ pub struct QueryTokenUpgradeStatusesRequest {
     pub denom: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryTokenUpgradeStatusesResponse")]
 pub struct QueryTokenUpgradeStatusesResponse {
     #[prost(message, optional, tag = "1")]
     pub statuses: ::core::option::Option<TokenUpgradeStatuses>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryTokensRequest")]
 #[proto_query(
     path = "/coreum.asset.ft.v1.Query/Tokens",
@@ -720,16 +494,8 @@ pub struct QueryTokensRequest {
     pub issuer: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryTokensResponse")]
 pub struct QueryTokensResponse {
     /// pagination defines the pagination in the response.
@@ -741,16 +507,8 @@ pub struct QueryTokensResponse {
     pub tokens: ::prost::alloc::vec::Vec<Token>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryBalanceRequest")]
 #[proto_query(
     path = "/coreum.asset.ft.v1.Query/Balance",
@@ -765,16 +523,8 @@ pub struct QueryBalanceRequest {
     pub denom: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryBalanceResponse")]
 pub struct QueryBalanceResponse {
     /// balance contains the balance with the queried account and denom
@@ -796,19 +546,11 @@ pub struct QueryBalanceResponse {
     #[prost(string, tag = "6")]
     pub locked_in_dex: ::prost::alloc::string::String,
     #[prost(string, tag = "7")]
-    pub whitelisting_reserved_in_dex: ::prost::alloc::string::String,
+    pub expected_to_receive_in_dex: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryFrozenBalancesRequest")]
 #[proto_query(
     path = "/coreum.asset.ft.v1.Query/FrozenBalances",
@@ -825,16 +567,8 @@ pub struct QueryFrozenBalancesRequest {
     pub account: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryFrozenBalancesResponse")]
 pub struct QueryFrozenBalancesResponse {
     /// pagination defines the pagination in the response.
@@ -844,19 +578,13 @@ pub struct QueryFrozenBalancesResponse {
     >,
     /// balances contains the frozen balances on the queried account
     #[prost(message, repeated, tag = "2")]
-    pub balances: ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    pub balances: ::prost::alloc::vec::Vec<
+        super::super::super::super::cosmos::base::v1beta1::Coin,
+    >,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryFrozenBalanceRequest")]
 #[proto_query(
     path = "/coreum.asset.ft.v1.Query/FrozenBalance",
@@ -871,33 +599,19 @@ pub struct QueryFrozenBalanceRequest {
     pub denom: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryFrozenBalanceResponse")]
 pub struct QueryFrozenBalanceResponse {
     /// balance contains the frozen balance with the queried account and denom
     #[prost(message, optional, tag = "1")]
-    pub balance: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    pub balance: ::core::option::Option<
+        super::super::super::super::cosmos::base::v1beta1::Coin,
+    >,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryWhitelistedBalancesRequest")]
 #[proto_query(
     path = "/coreum.asset.ft.v1.Query/WhitelistedBalances",
@@ -914,16 +628,8 @@ pub struct QueryWhitelistedBalancesRequest {
     pub account: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryWhitelistedBalancesResponse")]
 pub struct QueryWhitelistedBalancesResponse {
     /// pagination defines the pagination in the response.
@@ -933,19 +639,13 @@ pub struct QueryWhitelistedBalancesResponse {
     >,
     /// balances contains the whitelisted balances on the queried account
     #[prost(message, repeated, tag = "2")]
-    pub balances: ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    pub balances: ::prost::alloc::vec::Vec<
+        super::super::super::super::cosmos::base::v1beta1::Coin,
+    >,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryWhitelistedBalanceRequest")]
 #[proto_query(
     path = "/coreum.asset.ft.v1.Query/WhitelistedBalance",
@@ -960,33 +660,19 @@ pub struct QueryWhitelistedBalanceRequest {
     pub denom: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryWhitelistedBalanceResponse")]
 pub struct QueryWhitelistedBalanceResponse {
     /// balance contains the whitelisted balance with the queried account and denom
     #[prost(message, optional, tag = "1")]
-    pub balance: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    pub balance: ::core::option::Option<
+        super::super::super::super::cosmos::base::v1beta1::Coin,
+    >,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryDEXSettingsRequest")]
 #[proto_query(
     path = "/coreum.asset.ft.v1.Query/DEXSettings",
@@ -998,16 +684,8 @@ pub struct QueryDexSettingsRequest {
     pub denom: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.QueryDEXSettingsResponse")]
 pub struct QueryDexSettingsResponse {
     /// dex_settings contains the DEX settings
@@ -1016,16 +694,8 @@ pub struct QueryDexSettingsResponse {
 }
 /// MsgIssue defines message to issue new fungible token.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgIssue")]
 pub struct MsgIssue {
     #[prost(string, tag = "1")]
@@ -1064,16 +734,8 @@ pub struct MsgIssue {
 /// ExtensionIssueSettings are settings that will be used to Instantiate the smart contract which contains
 /// the source code for the extension.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.ExtensionIssueSettings")]
 pub struct ExtensionIssueSettings {
     /// code_id is the reference to the stored WASM code
@@ -1084,60 +746,42 @@ pub struct ExtensionIssueSettings {
     pub label: ::prost::alloc::string::String,
     /// funds coins that are transferred to the contract on instantiation
     #[prost(message, repeated, tag = "3")]
-    pub funds: ::prost::alloc::vec::Vec<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    pub funds: ::prost::alloc::vec::Vec<
+        super::super::super::super::cosmos::base::v1beta1::Coin,
+    >,
     /// optional json encoded data to pass to WASM on instantiation by the ft issuer
     #[prost(bytes = "vec", tag = "4")]
     pub issuance_msg: ::prost::alloc::vec::Vec<u8>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgMint")]
 pub struct MsgMint {
     #[prost(string, tag = "1")]
     pub sender: ::prost::alloc::string::String,
     #[prost(message, optional, tag = "2")]
-    pub coin: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    pub coin: ::core::option::Option<
+        super::super::super::super::cosmos::base::v1beta1::Coin,
+    >,
     #[prost(string, tag = "3")]
     pub recipient: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgBurn")]
 pub struct MsgBurn {
     #[prost(string, tag = "1")]
     pub sender: ::prost::alloc::string::String,
     #[prost(message, optional, tag = "3")]
-    pub coin: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    pub coin: ::core::option::Option<
+        super::super::super::super::cosmos::base::v1beta1::Coin,
+    >,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgFreeze")]
 pub struct MsgFreeze {
     #[prost(string, tag = "1")]
@@ -1145,19 +789,13 @@ pub struct MsgFreeze {
     #[prost(string, tag = "2")]
     pub account: ::prost::alloc::string::String,
     #[prost(message, optional, tag = "3")]
-    pub coin: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    pub coin: ::core::option::Option<
+        super::super::super::super::cosmos::base::v1beta1::Coin,
+    >,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgUnfreeze")]
 pub struct MsgUnfreeze {
     #[prost(string, tag = "1")]
@@ -1165,19 +803,13 @@ pub struct MsgUnfreeze {
     #[prost(string, tag = "2")]
     pub account: ::prost::alloc::string::String,
     #[prost(message, optional, tag = "3")]
-    pub coin: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    pub coin: ::core::option::Option<
+        super::super::super::super::cosmos::base::v1beta1::Coin,
+    >,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgSetFrozen")]
 pub struct MsgSetFrozen {
     #[prost(string, tag = "1")]
@@ -1185,19 +817,13 @@ pub struct MsgSetFrozen {
     #[prost(string, tag = "2")]
     pub account: ::prost::alloc::string::String,
     #[prost(message, optional, tag = "3")]
-    pub coin: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    pub coin: ::core::option::Option<
+        super::super::super::super::cosmos::base::v1beta1::Coin,
+    >,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgGloballyFreeze")]
 pub struct MsgGloballyFreeze {
     #[prost(string, tag = "1")]
@@ -1206,16 +832,8 @@ pub struct MsgGloballyFreeze {
     pub denom: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgGloballyUnfreeze")]
 pub struct MsgGloballyUnfreeze {
     #[prost(string, tag = "1")]
@@ -1224,16 +842,8 @@ pub struct MsgGloballyUnfreeze {
     pub denom: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgClawback")]
 pub struct MsgClawback {
     #[prost(string, tag = "1")]
@@ -1241,19 +851,13 @@ pub struct MsgClawback {
     #[prost(string, tag = "2")]
     pub account: ::prost::alloc::string::String,
     #[prost(message, optional, tag = "3")]
-    pub coin: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    pub coin: ::core::option::Option<
+        super::super::super::super::cosmos::base::v1beta1::Coin,
+    >,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgSetWhitelistedLimit")]
 pub struct MsgSetWhitelistedLimit {
     #[prost(string, tag = "1")]
@@ -1261,19 +865,13 @@ pub struct MsgSetWhitelistedLimit {
     #[prost(string, tag = "2")]
     pub account: ::prost::alloc::string::String,
     #[prost(message, optional, tag = "3")]
-    pub coin: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
+    pub coin: ::core::option::Option<
+        super::super::super::super::cosmos::base::v1beta1::Coin,
+    >,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgTransferAdmin")]
 pub struct MsgTransferAdmin {
     #[prost(string, tag = "1")]
@@ -1284,16 +882,8 @@ pub struct MsgTransferAdmin {
     pub denom: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgClearAdmin")]
 pub struct MsgClearAdmin {
     #[prost(string, tag = "1")]
@@ -1303,16 +893,8 @@ pub struct MsgClearAdmin {
 }
 /// MsgUpgradeTokenV1 is the message upgrading token to V1.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgUpgradeTokenV1")]
 pub struct MsgUpgradeTokenV1 {
     #[prost(string, tag = "1")]
@@ -1323,16 +905,8 @@ pub struct MsgUpgradeTokenV1 {
     pub ibc_enabled: bool,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgUpdateParams")]
 pub struct MsgUpdateParams {
     #[prost(string, tag = "1")]
@@ -1341,16 +915,8 @@ pub struct MsgUpdateParams {
     pub params: ::core::option::Option<Params>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgUpdateDEXUnifiedRefAmount")]
 pub struct MsgUpdateDexUnifiedRefAmount {
     #[prost(string, tag = "1")]
@@ -1362,16 +928,8 @@ pub struct MsgUpdateDexUnifiedRefAmount {
     pub unified_ref_amount: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.MsgUpdateDEXWhitelistedDenoms")]
 pub struct MsgUpdateDexWhitelistedDenoms {
     #[prost(string, tag = "1")]
@@ -1383,15 +941,7 @@ pub struct MsgUpdateDexWhitelistedDenoms {
     pub whitelisted_denoms: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
+#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
+#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
 #[proto_message(type_url = "/coreum.asset.ft.v1.EmptyResponse")]
 pub struct EmptyResponse {}

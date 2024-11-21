@@ -1,9 +1,8 @@
-pub mod assetft;
-pub mod assetnft;
-pub mod core;
-pub mod nft;
-pub mod pagination;
 #[allow(unused_imports, unused_variables)]
 pub mod shim;
 #[allow(deprecated)]
 pub mod types;
+#[deprecated(
+    note = "This module is deprecated. Use `types` instead.",
+)]
+pub mod deprecated;
