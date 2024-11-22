@@ -1,8 +1,16 @@
 use coreum_std_derive::CosmwasmExt;
 /// EventOrderPlaced is emitted when a new order is placed and new sequence is generated for it.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.EventOrderPlaced")]
 pub struct EventOrderPlaced {
     /// creator is order creator address.
@@ -17,8 +25,16 @@ pub struct EventOrderPlaced {
 }
 /// EventOrderReduced is emitted when the order is reduced during the matching.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.EventOrderReduced")]
 pub struct EventOrderReduced {
     /// creator is order creator address.
@@ -39,8 +55,16 @@ pub struct EventOrderReduced {
 }
 /// EventOrderCreated is emitted when the limit order is saved to the order book.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.EventOrderCreated")]
 pub struct EventOrderCreated {
     /// creator is order creator address.
@@ -61,8 +85,16 @@ pub struct EventOrderCreated {
 }
 /// EventOrderClosed is emitted when the order is closed during matching or manually, and removed from the order book.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.EventOrderClosed")]
 pub struct EventOrderClosed {
     /// creator is order creator address.
@@ -83,8 +115,17 @@ pub struct EventOrderClosed {
 }
 /// GoodTil is a good til order settings.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.GoodTil")]
 pub struct GoodTil {
     /// good_til_block_height means that order remains active until a specific blockchain block height is reached.
@@ -96,8 +137,16 @@ pub struct GoodTil {
 }
 /// CancelGoodTil is a cancel good til message for the delay router.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.CancelGoodTil")]
 pub struct CancelGoodTil {
     /// creator is order creator address.
@@ -109,8 +158,16 @@ pub struct CancelGoodTil {
 }
 /// Order is a DEX order.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.Order")]
 pub struct Order {
     /// creator is order creator address.
@@ -154,14 +211,20 @@ pub struct Order {
     pub time_in_force: i32,
     /// reserve is the reserve required to save the order in the order book
     #[prost(message, optional, tag = "14")]
-    pub reserve: ::core::option::Option<
-        super::super::super::cosmos::base::v1beta1::Coin,
-    >,
+    pub reserve: ::core::option::Option<super::super::super::cosmos::base::v1beta1::Coin>,
 }
 /// OrderData is a order data used for the store.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.OrderData")]
 pub struct OrderData {
     /// order ID provided by the creator.
@@ -184,14 +247,20 @@ pub struct OrderData {
     pub good_til: ::core::option::Option<GoodTil>,
     /// reserve is the reserve required to save the order in the order book
     #[prost(message, optional, tag = "7")]
-    pub reserve: ::core::option::Option<
-        super::super::super::cosmos::base::v1beta1::Coin,
-    >,
+    pub reserve: ::core::option::Option<super::super::super::cosmos::base::v1beta1::Coin>,
 }
 /// OrderBookData is a order book data used by order for the store.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.OrderBookData")]
 pub struct OrderBookData {
     /// base_denom is base order book denom.
@@ -203,8 +272,16 @@ pub struct OrderBookData {
 }
 /// OrderBookRecord is a single order book record.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.OrderBookRecord")]
 pub struct OrderBookRecord {
     /// order_book_id is order book ID.
@@ -234,8 +311,16 @@ pub struct OrderBookRecord {
 }
 /// OrderBookRecordData is a single order book record used for the store.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.OrderBookRecordData")]
 pub struct OrderBookRecordData {
     /// order ID provided by the creator.
@@ -360,8 +445,16 @@ impl TimeInForce {
 }
 /// Params keeps gov manageable parameters.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.Params")]
 pub struct Params {
     /// default_unified_ref_amount is the default approximate amount you need to by 1USD, used to for tokens without custom value
@@ -375,14 +468,20 @@ pub struct Params {
     pub max_orders_per_denom: u64,
     /// order_reserve is the reserve required to save the order in the order book
     #[prost(message, optional, tag = "4")]
-    pub order_reserve: ::core::option::Option<
-        super::super::super::cosmos::base::v1beta1::Coin,
-    >,
+    pub order_reserve: ::core::option::Option<super::super::super::cosmos::base::v1beta1::Coin>,
 }
 /// GenesisState defines the module genesis state.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.GenesisState")]
 pub struct GenesisState {
     /// params defines all the parameters of the module.
@@ -400,8 +499,16 @@ pub struct GenesisState {
 }
 /// OrderBookDataWithID is a order book data with it's corresponding ID.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.OrderBookDataWithID")]
 pub struct OrderBookDataWithId {
     /// id is order book ID.
@@ -413,8 +520,16 @@ pub struct OrderBookDataWithId {
 }
 /// AccountDenomOrderCount is a count of orders per account and denom.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.AccountDenomOrdersCount")]
 pub struct AccountDenomOrdersCount {
     #[prost(uint64, tag = "1")]
@@ -426,15 +541,32 @@ pub struct AccountDenomOrdersCount {
 }
 /// QueryParamsRequest defines the request type for querying x/dex parameters.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.QueryParamsRequest")]
 #[proto_query(path = "/coreum.dex.v1.Query/Params", response_type = QueryParamsResponse)]
 pub struct QueryParamsRequest {}
 /// QueryParamsResponse defines the response type for querying x/dex parameters.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.QueryParamsResponse")]
 pub struct QueryParamsResponse {
     #[prost(message, optional, tag = "1")]
@@ -442,8 +574,16 @@ pub struct QueryParamsResponse {
 }
 /// QueryOrderRequest defines the request type for the `Order` query.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.QueryOrderRequest")]
 #[proto_query(path = "/coreum.dex.v1.Query/Order", response_type = QueryOrderResponse)]
 pub struct QueryOrderRequest {
@@ -458,8 +598,16 @@ pub struct QueryOrderRequest {
 }
 /// QueryOrderRequestResponse defines the response type for the `Order` query.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.QueryOrderResponse")]
 pub struct QueryOrderResponse {
     #[prost(message, optional, tag = "1")]
@@ -467,8 +615,16 @@ pub struct QueryOrderResponse {
 }
 /// QueryOrdersRequest defines the request type for the `Orders` query.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.QueryOrdersRequest")]
 #[proto_query(path = "/coreum.dex.v1.Query/Orders", response_type = QueryOrdersResponse)]
 pub struct QueryOrdersRequest {
@@ -477,27 +633,41 @@ pub struct QueryOrdersRequest {
     pub creator: ::prost::alloc::string::String,
     /// pagination defines an optional pagination for the request.
     #[prost(message, optional, tag = "2")]
-    pub pagination: ::core::option::Option<
-        super::super::super::cosmos::base::query::v1beta1::PageRequest,
-    >,
+    pub pagination:
+        ::core::option::Option<super::super::super::cosmos::base::query::v1beta1::PageRequest>,
 }
 /// QueryOrdersRequestResponse defines the response type for the `Order` query.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.QueryOrdersResponse")]
 pub struct QueryOrdersResponse {
     #[prost(message, repeated, tag = "1")]
     pub orders: ::prost::alloc::vec::Vec<Order>,
     #[prost(message, optional, tag = "2")]
-    pub pagination: ::core::option::Option<
-        super::super::super::cosmos::base::query::v1beta1::PageResponse,
-    >,
+    pub pagination:
+        ::core::option::Option<super::super::super::cosmos::base::query::v1beta1::PageResponse>,
 }
 /// QueryOrderBooksRequest defines the request type for the `OrderBooks` query.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.QueryOrderBooksRequest")]
 #[proto_query(
     path = "/coreum.dex.v1.Query/OrderBooks",
@@ -506,27 +676,41 @@ pub struct QueryOrdersResponse {
 pub struct QueryOrderBooksRequest {
     /// pagination defines an optional pagination for the request.
     #[prost(message, optional, tag = "1")]
-    pub pagination: ::core::option::Option<
-        super::super::super::cosmos::base::query::v1beta1::PageRequest,
-    >,
+    pub pagination:
+        ::core::option::Option<super::super::super::cosmos::base::query::v1beta1::PageRequest>,
 }
 /// QueryOrderBooksResponse defines the response type for the `OrderBooks` query.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.QueryOrderBooksResponse")]
 pub struct QueryOrderBooksResponse {
     #[prost(message, repeated, tag = "1")]
     pub order_books: ::prost::alloc::vec::Vec<OrderBookData>,
     #[prost(message, optional, tag = "2")]
-    pub pagination: ::core::option::Option<
-        super::super::super::cosmos::base::query::v1beta1::PageResponse,
-    >,
+    pub pagination:
+        ::core::option::Option<super::super::super::cosmos::base::query::v1beta1::PageResponse>,
 }
 /// QueryOrderBookOrdersRequest defines the request type for the `OrderBookOrders` query.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.QueryOrderBookOrdersRequest")]
 #[proto_query(
     path = "/coreum.dex.v1.Query/OrderBookOrders",
@@ -544,27 +728,41 @@ pub struct QueryOrderBookOrdersRequest {
     pub side: i32,
     /// pagination defines an optional pagination for the request.
     #[prost(message, optional, tag = "4")]
-    pub pagination: ::core::option::Option<
-        super::super::super::cosmos::base::query::v1beta1::PageRequest,
-    >,
+    pub pagination:
+        ::core::option::Option<super::super::super::cosmos::base::query::v1beta1::PageRequest>,
 }
 /// QueryOrderBookOrdersResponse defines the response type for the `OrderBookOrders` query.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.QueryOrderBookOrdersResponse")]
 pub struct QueryOrderBookOrdersResponse {
     #[prost(message, repeated, tag = "1")]
     pub orders: ::prost::alloc::vec::Vec<Order>,
     #[prost(message, optional, tag = "2")]
-    pub pagination: ::core::option::Option<
-        super::super::super::cosmos::base::query::v1beta1::PageResponse,
-    >,
+    pub pagination:
+        ::core::option::Option<super::super::super::cosmos::base::query::v1beta1::PageResponse>,
 }
 /// QueryAccountDenomOrdersCountRequest defines the request type for the `AccountDenomOrdersCount` query.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.QueryAccountDenomOrdersCountRequest")]
 #[proto_query(
     path = "/coreum.dex.v1.Query/AccountDenomOrdersCount",
@@ -578,16 +776,33 @@ pub struct QueryAccountDenomOrdersCountRequest {
 }
 /// QueryAccountDenomOrdersCountResponse defines the response type for the `AccountDenomOrdersCount` query.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.QueryAccountDenomOrdersCountResponse")]
 pub struct QueryAccountDenomOrdersCountResponse {
     #[prost(uint64, tag = "1")]
     pub count: u64,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.MsgUpdateParams")]
 pub struct MsgUpdateParams {
     #[prost(string, tag = "1")]
@@ -597,8 +812,16 @@ pub struct MsgUpdateParams {
 }
 /// MsgPlaceOrder defines message to place an order on orderbook.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.MsgPlaceOrder")]
 pub struct MsgPlaceOrder {
     /// sender is order creator address.
@@ -634,8 +857,16 @@ pub struct MsgPlaceOrder {
 }
 /// MsgCancelOrder defines message to cancel the order in the orderbook.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.MsgCancelOrder")]
 pub struct MsgCancelOrder {
     /// sender is order creator address.
@@ -647,8 +878,16 @@ pub struct MsgCancelOrder {
 }
 /// MsgCancelOrdersByDenom defines message to cancel all orders by denom and account.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.MsgCancelOrdersByDenom")]
 pub struct MsgCancelOrdersByDenom {
     /// sender is order creator address.
@@ -662,7 +901,16 @@ pub struct MsgCancelOrdersByDenom {
     pub denom: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.dex.v1.EmptyResponse")]
 pub struct EmptyResponse {}

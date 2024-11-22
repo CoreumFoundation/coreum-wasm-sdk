@@ -1,16 +1,32 @@
 use coreum_std_derive::CosmwasmExt;
 /// SendAuthorization allows the grantee to send specific NFTs from the granter's account.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.SendAuthorization")]
 pub struct SendAuthorization {
     #[prost(message, repeated, tag = "1")]
     pub nfts: ::prost::alloc::vec::Vec<NftIdentifier>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.NFTIdentifier")]
 pub struct NftIdentifier {
     /// class_id defines the unique identifier of the nft classification, similar to the contract address of ERC721
@@ -22,8 +38,16 @@ pub struct NftIdentifier {
 }
 /// ClassDefinition defines the non-fungible token class settings to store.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.ClassDefinition")]
 pub struct ClassDefinition {
     #[prost(string, tag = "1")]
@@ -40,8 +64,16 @@ pub struct ClassDefinition {
 }
 /// Class is a full representation of the non-fungible token class.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.Class")]
 pub struct Class {
     #[prost(string, tag = "1")]
@@ -107,8 +139,16 @@ impl ClassFeature {
 }
 /// EventClassIssued is emitted on MsgIssueClass.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventClassIssued")]
 pub struct EventClassIssued {
     #[prost(string, tag = "1")]
@@ -131,8 +171,16 @@ pub struct EventClassIssued {
     pub royalty_rate: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventFrozen")]
 pub struct EventFrozen {
     #[prost(string, tag = "1")]
@@ -143,8 +191,16 @@ pub struct EventFrozen {
     pub owner: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventUnfrozen")]
 pub struct EventUnfrozen {
     #[prost(string, tag = "1")]
@@ -155,8 +211,16 @@ pub struct EventUnfrozen {
     pub owner: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventClassFrozen")]
 pub struct EventClassFrozen {
     #[prost(string, tag = "1")]
@@ -165,8 +229,16 @@ pub struct EventClassFrozen {
     pub account: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventClassUnfrozen")]
 pub struct EventClassUnfrozen {
     #[prost(string, tag = "1")]
@@ -175,8 +247,16 @@ pub struct EventClassUnfrozen {
     pub account: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventAddedToWhitelist")]
 pub struct EventAddedToWhitelist {
     #[prost(string, tag = "1")]
@@ -187,8 +267,16 @@ pub struct EventAddedToWhitelist {
     pub account: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventRemovedFromWhitelist")]
 pub struct EventRemovedFromWhitelist {
     #[prost(string, tag = "1")]
@@ -199,8 +287,16 @@ pub struct EventRemovedFromWhitelist {
     pub account: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventAddedToClassWhitelist")]
 pub struct EventAddedToClassWhitelist {
     #[prost(string, tag = "1")]
@@ -209,8 +305,16 @@ pub struct EventAddedToClassWhitelist {
     pub account: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.EventRemovedFromClassWhitelist")]
 pub struct EventRemovedFromClassWhitelist {
     #[prost(string, tag = "1")]
@@ -220,20 +324,34 @@ pub struct EventRemovedFromClassWhitelist {
 }
 /// Params store gov manageable parameters.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.Params")]
 pub struct Params {
     /// mint_fee is the fee burnt each time new NFT is minted
     #[prost(message, optional, tag = "1")]
-    pub mint_fee: ::core::option::Option<
-        super::super::super::super::cosmos::base::v1beta1::Coin,
-    >,
+    pub mint_fee: ::core::option::Option<super::super::super::super::cosmos::base::v1beta1::Coin>,
 }
 /// GenesisState defines the nftasset module's genesis state.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.GenesisState")]
 pub struct GenesisState {
     /// params defines all the parameters of the module.
@@ -254,8 +372,16 @@ pub struct GenesisState {
     pub class_frozen_accounts: ::prost::alloc::vec::Vec<ClassFrozenAccounts>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.FrozenNFT")]
 pub struct FrozenNft {
     #[prost(string, tag = "1")]
@@ -264,8 +390,16 @@ pub struct FrozenNft {
     pub nft_i_ds: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.WhitelistedNFTAccounts")]
 pub struct WhitelistedNftAccounts {
     #[prost(string, tag = "1")]
@@ -276,8 +410,16 @@ pub struct WhitelistedNftAccounts {
     pub accounts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.ClassWhitelistedAccounts")]
 pub struct ClassWhitelistedAccounts {
     #[prost(string, tag = "1")]
@@ -286,8 +428,16 @@ pub struct ClassWhitelistedAccounts {
     pub accounts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.ClassFrozenAccounts")]
 pub struct ClassFrozenAccounts {
     #[prost(string, tag = "1")]
@@ -296,8 +446,16 @@ pub struct ClassFrozenAccounts {
     pub accounts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.BurntNFT")]
 pub struct BurntNft {
     #[prost(string, tag = "1")]
@@ -307,8 +465,17 @@ pub struct BurntNft {
 }
 /// QueryParamsRequest defines the request type for querying x/asset/nft parameters.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryParamsRequest")]
 #[proto_query(
     path = "/coreum.asset.nft.v1.Query/Params",
@@ -317,8 +484,16 @@ pub struct BurntNft {
 pub struct QueryParamsRequest {}
 /// QueryParamsResponse defines the response type for querying x/asset/nft parameters.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryParamsResponse")]
 pub struct QueryParamsResponse {
     #[prost(message, optional, tag = "1")]
@@ -326,8 +501,16 @@ pub struct QueryParamsResponse {
 }
 /// QueryTokenRequest is request type for the Query/Class RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryClassRequest")]
 #[proto_query(
     path = "/coreum.asset.nft.v1.Query/Class",
@@ -340,8 +523,16 @@ pub struct QueryClassRequest {
 }
 /// QueryClassResponse is response type for the Query/Class RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryClassResponse")]
 pub struct QueryClassResponse {
     #[prost(message, optional, tag = "1")]
@@ -349,8 +540,16 @@ pub struct QueryClassResponse {
 }
 /// QueryTokenRequest is request type for the Query/Classes RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryClassesRequest")]
 #[proto_query(
     path = "/coreum.asset.nft.v1.Query/Classes",
@@ -367,8 +566,16 @@ pub struct QueryClassesRequest {
 }
 /// QueryClassResponse is response type for the Query/Classes RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryClassesResponse")]
 pub struct QueryClassesResponse {
     /// pagination defines the pagination in the response.
@@ -380,8 +587,16 @@ pub struct QueryClassesResponse {
     pub classes: ::prost::alloc::vec::Vec<Class>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryFrozenRequest")]
 #[proto_query(
     path = "/coreum.asset.nft.v1.Query/Frozen",
@@ -394,16 +609,33 @@ pub struct QueryFrozenRequest {
     pub class_id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryFrozenResponse")]
 pub struct QueryFrozenResponse {
     #[prost(bool, tag = "1")]
     pub frozen: bool,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryClassFrozenRequest")]
 #[proto_query(
     path = "/coreum.asset.nft.v1.Query/ClassFrozen",
@@ -416,16 +648,33 @@ pub struct QueryClassFrozenRequest {
     pub account: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryClassFrozenResponse")]
 pub struct QueryClassFrozenResponse {
     #[prost(bool, tag = "1")]
     pub frozen: bool,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryWhitelistedRequest")]
 #[proto_query(
     path = "/coreum.asset.nft.v1.Query/Whitelisted",
@@ -440,16 +689,33 @@ pub struct QueryWhitelistedRequest {
     pub account: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryWhitelistedResponse")]
 pub struct QueryWhitelistedResponse {
     #[prost(bool, tag = "1")]
     pub whitelisted: bool,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryWhitelistedAccountsForNFTRequest")]
 #[proto_query(
     path = "/coreum.asset.nft.v1.Query/WhitelistedAccountsForNFT",
@@ -467,11 +733,17 @@ pub struct QueryWhitelistedAccountsForNftRequest {
     pub class_id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
-#[proto_message(
-    type_url = "/coreum.asset.nft.v1.QueryWhitelistedAccountsForNFTResponse"
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
 )]
+#[proto_message(type_url = "/coreum.asset.nft.v1.QueryWhitelistedAccountsForNFTResponse")]
 pub struct QueryWhitelistedAccountsForNftResponse {
     /// pagination defines the pagination in the response.
     #[prost(message, optional, tag = "1")]
@@ -482,8 +754,16 @@ pub struct QueryWhitelistedAccountsForNftResponse {
     pub accounts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryClassWhitelistedAccountsRequest")]
 #[proto_query(
     path = "/coreum.asset.nft.v1.Query/ClassWhitelistedAccounts",
@@ -499,8 +779,16 @@ pub struct QueryClassWhitelistedAccountsRequest {
     pub class_id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryClassWhitelistedAccountsResponse")]
 pub struct QueryClassWhitelistedAccountsResponse {
     /// pagination defines the pagination in the response.
@@ -512,8 +800,16 @@ pub struct QueryClassWhitelistedAccountsResponse {
     pub accounts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryClassFrozenAccountsRequest")]
 #[proto_query(
     path = "/coreum.asset.nft.v1.Query/ClassFrozenAccounts",
@@ -529,8 +825,16 @@ pub struct QueryClassFrozenAccountsRequest {
     pub class_id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryClassFrozenAccountsResponse")]
 pub struct QueryClassFrozenAccountsResponse {
     /// pagination defines the pagination in the response.
@@ -542,8 +846,16 @@ pub struct QueryClassFrozenAccountsResponse {
     pub accounts: ::prost::alloc::vec::Vec<::prost::alloc::string::String>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryBurntNFTRequest")]
 #[proto_query(
     path = "/coreum.asset.nft.v1.Query/BurntNFT",
@@ -556,16 +868,33 @@ pub struct QueryBurntNftRequest {
     pub nft_id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryBurntNFTResponse")]
 pub struct QueryBurntNftResponse {
     #[prost(bool, tag = "1")]
     pub burnt: bool,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryBurntNFTsInClassRequest")]
 #[proto_query(
     path = "/coreum.asset.nft.v1.Query/BurntNFTsInClass",
@@ -580,8 +909,16 @@ pub struct QueryBurntNfTsInClassRequest {
     pub class_id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.QueryBurntNFTsInClassResponse")]
 pub struct QueryBurntNfTsInClassResponse {
     #[prost(message, optional, tag = "1")]
@@ -593,8 +930,16 @@ pub struct QueryBurntNfTsInClassResponse {
 }
 /// DataBytes represents the immutable data.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.DataBytes")]
 pub struct DataBytes {
     #[prost(bytes = "vec", tag = "1")]
@@ -602,8 +947,16 @@ pub struct DataBytes {
 }
 /// DataDynamicItem contains the updatable data and modification types.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.DataDynamicItem")]
 pub struct DataDynamicItem {
     /// contains the set of the data editors, if empty no one can update.
@@ -614,8 +967,16 @@ pub struct DataDynamicItem {
 }
 /// DataDynamicIndexed contains the data and it's index in the DataDynamic.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.DataDynamicIndexedItem")]
 pub struct DataDynamicIndexedItem {
     #[prost(uint32, tag = "1")]
@@ -625,8 +986,16 @@ pub struct DataDynamicIndexedItem {
 }
 /// DataDynamic is dynamic data which contains the list of the items allowed to be modified base on their modification types.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.DataDynamic")]
 pub struct DataDynamic {
     #[prost(message, repeated, tag = "1")]
@@ -662,8 +1031,16 @@ impl DataEditor {
 }
 /// MsgIssueClass defines message for the IssueClass method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.MsgIssueClass")]
 pub struct MsgIssueClass {
     #[prost(string, tag = "1")]
@@ -687,8 +1064,16 @@ pub struct MsgIssueClass {
 }
 /// MsgMint defines message for the Mint method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.MsgMint")]
 pub struct MsgMint {
     #[prost(string, tag = "1")]
@@ -709,8 +1094,16 @@ pub struct MsgMint {
 }
 /// MsgUpdateData defines message to update the dynamic data.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.MsgUpdateData")]
 pub struct MsgUpdateData {
     #[prost(string, tag = "1")]
@@ -724,8 +1117,16 @@ pub struct MsgUpdateData {
 }
 /// MsgBurn defines message for the Burn method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.MsgBurn")]
 pub struct MsgBurn {
     #[prost(string, tag = "1")]
@@ -736,8 +1137,16 @@ pub struct MsgBurn {
     pub id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.MsgFreeze")]
 pub struct MsgFreeze {
     #[prost(string, tag = "1")]
@@ -748,8 +1157,16 @@ pub struct MsgFreeze {
     pub id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.MsgUnfreeze")]
 pub struct MsgUnfreeze {
     #[prost(string, tag = "1")]
@@ -760,8 +1177,16 @@ pub struct MsgUnfreeze {
     pub id: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.MsgClassFreeze")]
 pub struct MsgClassFreeze {
     #[prost(string, tag = "1")]
@@ -772,8 +1197,16 @@ pub struct MsgClassFreeze {
     pub account: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.MsgClassUnfreeze")]
 pub struct MsgClassUnfreeze {
     #[prost(string, tag = "1")]
@@ -784,8 +1217,16 @@ pub struct MsgClassUnfreeze {
     pub account: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.MsgAddToWhitelist")]
 pub struct MsgAddToWhitelist {
     #[prost(string, tag = "1")]
@@ -798,8 +1239,16 @@ pub struct MsgAddToWhitelist {
     pub account: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.MsgRemoveFromWhitelist")]
 pub struct MsgRemoveFromWhitelist {
     #[prost(string, tag = "1")]
@@ -812,8 +1261,16 @@ pub struct MsgRemoveFromWhitelist {
     pub account: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.MsgAddToClassWhitelist")]
 pub struct MsgAddToClassWhitelist {
     #[prost(string, tag = "1")]
@@ -824,8 +1281,16 @@ pub struct MsgAddToClassWhitelist {
     pub account: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.MsgRemoveFromClassWhitelist")]
 pub struct MsgRemoveFromClassWhitelist {
     #[prost(string, tag = "1")]
@@ -836,8 +1301,16 @@ pub struct MsgRemoveFromClassWhitelist {
     pub account: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.MsgUpdateParams")]
 pub struct MsgUpdateParams {
     #[prost(string, tag = "1")]
@@ -846,7 +1319,16 @@ pub struct MsgUpdateParams {
     pub params: ::core::option::Option<Params>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/coreum.asset.nft.v1.EmptyResponse")]
 pub struct EmptyResponse {}

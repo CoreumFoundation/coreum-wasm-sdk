@@ -1,7 +1,15 @@
 use coreum_std_derive::CosmwasmExt;
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.Request")]
 pub struct Request {
     #[prost(
@@ -13,8 +21,15 @@ pub struct Request {
 /// Nested message and enum types in `Request`.
 pub mod request {
     #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, Eq, PartialEq, ::prost::Oneof)]
-    #[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema)]
+    #[derive(
+        Clone,
+        Eq,
+        PartialEq,
+        ::prost::Oneof,
+        ::serde::Serialize,
+        ::serde::Deserialize,
+        ::schemars::JsonSchema,
+    )]
     pub enum Value {
         #[prost(message, tag = "1")]
         Echo(super::RequestEcho),
@@ -51,21 +66,46 @@ pub mod request {
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.RequestEcho")]
 pub struct RequestEcho {
     #[prost(string, tag = "1")]
     pub message: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.RequestFlush")]
 pub struct RequestFlush {}
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.RequestInfo")]
 pub struct RequestInfo {
     #[prost(string, tag = "1")]
@@ -78,8 +118,16 @@ pub struct RequestInfo {
     pub abci_version: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.RequestInitChain")]
 pub struct RequestInitChain {
     #[prost(message, optional, tag = "1")]
@@ -96,8 +144,16 @@ pub struct RequestInitChain {
     pub initial_height: i64,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.RequestQuery")]
 pub struct RequestQuery {
     #[prost(bytes = "vec", tag = "1")]
@@ -110,8 +166,16 @@ pub struct RequestQuery {
     pub prove: bool,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.RequestCheckTx")]
 pub struct RequestCheckTx {
     #[prost(bytes = "vec", tag = "1")]
@@ -120,20 +184,46 @@ pub struct RequestCheckTx {
     pub r#type: i32,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.RequestCommit")]
 pub struct RequestCommit {}
 /// lists available snapshots
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.RequestListSnapshots")]
 pub struct RequestListSnapshots {}
 /// offers a snapshot to the application
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.RequestOfferSnapshot")]
 pub struct RequestOfferSnapshot {
     /// snapshot offered by peers
@@ -145,8 +235,17 @@ pub struct RequestOfferSnapshot {
 }
 /// loads a snapshot chunk
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.RequestLoadSnapshotChunk")]
 pub struct RequestLoadSnapshotChunk {
     #[prost(uint64, tag = "1")]
@@ -158,8 +257,16 @@ pub struct RequestLoadSnapshotChunk {
 }
 /// Applies a snapshot chunk
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.RequestApplySnapshotChunk")]
 pub struct RequestApplySnapshotChunk {
     #[prost(uint32, tag = "1")]
@@ -170,8 +277,16 @@ pub struct RequestApplySnapshotChunk {
     pub sender: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.RequestPrepareProposal")]
 pub struct RequestPrepareProposal {
     /// the modified transactions cannot exceed this size.
@@ -196,8 +311,16 @@ pub struct RequestPrepareProposal {
     pub proposer_address: ::prost::alloc::vec::Vec<u8>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.RequestProcessProposal")]
 pub struct RequestProcessProposal {
     #[prost(bytes = "vec", repeated, tag = "1")]
@@ -221,8 +344,16 @@ pub struct RequestProcessProposal {
 }
 /// Extends a vote with application-injected data
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.RequestExtendVote")]
 pub struct RequestExtendVote {
     /// the hash of the block that this vote may be referring to
@@ -248,8 +379,16 @@ pub struct RequestExtendVote {
 }
 /// Verify the vote extension
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.RequestVerifyVoteExtension")]
 pub struct RequestVerifyVoteExtension {
     /// the hash of the block that this received vote corresponds to
@@ -264,8 +403,16 @@ pub struct RequestVerifyVoteExtension {
     pub vote_extension: ::prost::alloc::vec::Vec<u8>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.RequestFinalizeBlock")]
 pub struct RequestFinalizeBlock {
     #[prost(bytes = "vec", repeated, tag = "1")]
@@ -288,8 +435,16 @@ pub struct RequestFinalizeBlock {
     pub proposer_address: ::prost::alloc::vec::Vec<u8>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.Response")]
 pub struct Response {
     #[prost(
@@ -301,8 +456,15 @@ pub struct Response {
 /// Nested message and enum types in `Response`.
 pub mod response {
     #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, Eq, PartialEq, ::prost::Oneof)]
-    #[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema)]
+    #[derive(
+        Clone,
+        Eq,
+        PartialEq,
+        ::prost::Oneof,
+        ::serde::Serialize,
+        ::serde::Deserialize,
+        ::schemars::JsonSchema,
+    )]
     pub enum Value {
         #[prost(message, tag = "1")]
         Exception(super::ResponseException),
@@ -342,29 +504,62 @@ pub mod response {
 }
 /// nondeterministic
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponseException")]
 pub struct ResponseException {
     #[prost(string, tag = "1")]
     pub error: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponseEcho")]
 pub struct ResponseEcho {
     #[prost(string, tag = "1")]
     pub message: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponseFlush")]
 pub struct ResponseFlush {}
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponseInfo")]
 pub struct ResponseInfo {
     #[prost(string, tag = "1")]
@@ -379,8 +574,16 @@ pub struct ResponseInfo {
     pub last_block_app_hash: ::prost::alloc::vec::Vec<u8>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponseInitChain")]
 pub struct ResponseInitChain {
     #[prost(message, optional, tag = "1")]
@@ -391,8 +594,16 @@ pub struct ResponseInitChain {
     pub app_hash: ::prost::alloc::vec::Vec<u8>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponseQuery")]
 pub struct ResponseQuery {
     #[prost(uint32, tag = "1")]
@@ -419,8 +630,16 @@ pub struct ResponseQuery {
     pub codespace: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponseCheckTx")]
 pub struct ResponseCheckTx {
     #[prost(uint32, tag = "1")]
@@ -443,24 +662,50 @@ pub struct ResponseCheckTx {
     pub codespace: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponseCommit")]
 pub struct ResponseCommit {
     #[prost(int64, tag = "3")]
     pub retain_height: i64,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponseListSnapshots")]
 pub struct ResponseListSnapshots {
     #[prost(message, repeated, tag = "1")]
     pub snapshots: ::prost::alloc::vec::Vec<Snapshot>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponseOfferSnapshot")]
 pub struct ResponseOfferSnapshot {
     #[prost(enumeration = "response_offer_snapshot::Result", tag = "1")]
@@ -468,17 +713,7 @@ pub struct ResponseOfferSnapshot {
 }
 /// Nested message and enum types in `ResponseOfferSnapshot`.
 pub mod response_offer_snapshot {
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
     #[repr(i32)]
     pub enum Result {
         /// Unknown result, abort all snapshot restoration
@@ -524,16 +759,32 @@ pub mod response_offer_snapshot {
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponseLoadSnapshotChunk")]
 pub struct ResponseLoadSnapshotChunk {
     #[prost(bytes = "vec", tag = "1")]
     pub chunk: ::prost::alloc::vec::Vec<u8>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponseApplySnapshotChunk")]
 pub struct ResponseApplySnapshotChunk {
     #[prost(enumeration = "response_apply_snapshot_chunk::Result", tag = "1")]
@@ -547,17 +798,7 @@ pub struct ResponseApplySnapshotChunk {
 }
 /// Nested message and enum types in `ResponseApplySnapshotChunk`.
 pub mod response_apply_snapshot_chunk {
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
     #[repr(i32)]
     pub enum Result {
         /// Unknown result, abort all snapshot restoration
@@ -603,16 +844,33 @@ pub mod response_apply_snapshot_chunk {
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponsePrepareProposal")]
 pub struct ResponsePrepareProposal {
     #[prost(bytes = "vec", repeated, tag = "1")]
     pub txs: ::prost::alloc::vec::Vec<::prost::alloc::vec::Vec<u8>>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponseProcessProposal")]
 pub struct ResponseProcessProposal {
     #[prost(enumeration = "response_process_proposal::ProposalStatus", tag = "1")]
@@ -620,17 +878,7 @@ pub struct ResponseProcessProposal {
 }
 /// Nested message and enum types in `ResponseProcessProposal`.
 pub mod response_process_proposal {
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
     #[repr(i32)]
     pub enum ProposalStatus {
         Unknown = 0,
@@ -661,34 +909,44 @@ pub mod response_process_proposal {
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponseExtendVote")]
 pub struct ResponseExtendVote {
     #[prost(bytes = "vec", tag = "1")]
     pub vote_extension: ::prost::alloc::vec::Vec<u8>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponseVerifyVoteExtension")]
 pub struct ResponseVerifyVoteExtension {
-    #[prost(enumeration = "response_verify_vote_extension::VerifyStatus", tag = "1")]
+    #[prost(
+        enumeration = "response_verify_vote_extension::VerifyStatus",
+        tag = "1"
+    )]
     pub status: i32,
 }
 /// Nested message and enum types in `ResponseVerifyVoteExtension`.
 pub mod response_verify_vote_extension {
-    #[derive(
-        Clone,
-        Copy,
-        Debug,
-        PartialEq,
-        Eq,
-        Hash,
-        PartialOrd,
-        Ord,
-        ::prost::Enumeration
-    )]
+    #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
     #[repr(i32)]
     pub enum VerifyStatus {
         Unknown = 0,
@@ -723,8 +981,16 @@ pub mod response_verify_vote_extension {
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ResponseFinalizeBlock")]
 pub struct ResponseFinalizeBlock {
     /// set of block events emmitted as part of executing the block
@@ -747,8 +1013,16 @@ pub struct ResponseFinalizeBlock {
     pub app_hash: ::prost::alloc::vec::Vec<u8>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.CommitInfo")]
 pub struct CommitInfo {
     #[prost(int32, tag = "1")]
@@ -760,8 +1034,16 @@ pub struct CommitInfo {
 /// the PrepareProposal request such that CometBFT can provide vote extensions
 /// to the application.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ExtendedCommitInfo")]
 pub struct ExtendedCommitInfo {
     /// The round at which the block proposer decided in the previous height.
@@ -776,8 +1058,16 @@ pub struct ExtendedCommitInfo {
 /// ResponseFinalizeBlock and ResponseCheckTx.
 /// Later, transactions may be queried using these events.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.Event")]
 pub struct Event {
     #[prost(string, tag = "1")]
@@ -787,8 +1077,16 @@ pub struct Event {
 }
 /// EventAttribute is a single key-value pair, associated with an event.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.EventAttribute")]
 pub struct EventAttribute {
     #[prost(string, tag = "1")]
@@ -803,8 +1101,16 @@ pub struct EventAttribute {
 ///
 /// * Its structure is equivalent to #ResponseDeliverTx which will be deprecated/deleted
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ExecTxResult")]
 pub struct ExecTxResult {
     #[prost(uint32, tag = "1")]
@@ -831,8 +1137,16 @@ pub struct ExecTxResult {
 ///
 /// One usage is indexing transaction results.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.TxResult")]
 pub struct TxResult {
     #[prost(int64, tag = "1")]
@@ -845,8 +1159,16 @@ pub struct TxResult {
     pub result: ::core::option::Option<ExecTxResult>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.Validator")]
 pub struct Validator {
     /// The first 20 bytes of SHA256(public key)
@@ -859,8 +1181,16 @@ pub struct Validator {
     pub power: i64,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ValidatorUpdate")]
 pub struct ValidatorUpdate {
     #[prost(message, optional, tag = "1")]
@@ -869,8 +1199,16 @@ pub struct ValidatorUpdate {
     pub power: i64,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.VoteInfo")]
 pub struct VoteInfo {
     #[prost(message, optional, tag = "1")]
@@ -879,8 +1217,16 @@ pub struct VoteInfo {
     pub block_id_flag: i32,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.ExtendedVoteInfo")]
 pub struct ExtendedVoteInfo {
     /// The validator that sent the vote.
@@ -897,8 +1243,16 @@ pub struct ExtendedVoteInfo {
     pub block_id_flag: i32,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.Misbehavior")]
 pub struct Misbehavior {
     #[prost(enumeration = "MisbehaviorType", tag = "1")]
@@ -919,8 +1273,16 @@ pub struct Misbehavior {
     pub total_voting_power: i64,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.abci.Snapshot")]
 pub struct Snapshot {
     /// The height at which the snapshot was taken

@@ -3,8 +3,16 @@ use coreum_std_derive::CosmwasmExt;
 ///
 /// Since: cosmos-sdk 0.43
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.WeightedVoteOption")]
 pub struct WeightedVoteOption {
     /// option defines the valid vote options, it must not contain duplicate vote options.
@@ -17,8 +25,16 @@ pub struct WeightedVoteOption {
 /// TextProposal defines a standard text proposal whose changes need to be
 /// manually updated in case of approval.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.TextProposal")]
 pub struct TextProposal {
     /// title of the proposal.
@@ -31,8 +47,16 @@ pub struct TextProposal {
 /// Deposit defines an amount deposited by an account address to an active
 /// proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.Deposit")]
 pub struct Deposit {
     /// proposal_id defines the unique id of the proposal.
@@ -47,8 +71,16 @@ pub struct Deposit {
 }
 /// Proposal defines the core field members of a governance proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.Proposal")]
 pub struct Proposal {
     /// proposal_id defines the unique id of the proposal.
@@ -83,8 +115,16 @@ pub struct Proposal {
 }
 /// TallyResult defines a standard tally for a governance proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.TallyResult")]
 pub struct TallyResult {
     /// yes is the number of yes votes on a proposal.
@@ -103,8 +143,16 @@ pub struct TallyResult {
 /// Vote defines a vote on a governance proposal.
 /// A Vote consists of a proposal ID, the voter, and the vote option.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.Vote")]
 pub struct Vote {
     /// proposal_id defines the unique id of the proposal.
@@ -127,8 +175,16 @@ pub struct Vote {
 }
 /// DepositParams defines the params for deposits on governance proposals.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.DepositParams")]
 pub struct DepositParams {
     /// Minimum deposit for a proposal to enter voting period.
@@ -141,8 +197,17 @@ pub struct DepositParams {
 }
 /// VotingParams defines the params for voting on governance proposals.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.VotingParams")]
 pub struct VotingParams {
     /// Duration of the voting period.
@@ -151,8 +216,16 @@ pub struct VotingParams {
 }
 /// TallyParams defines the params for tallying votes on governance proposals.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.TallyParams")]
 pub struct TallyParams {
     /// Minimum percentage of total stake needed to vote for a result to be
@@ -262,8 +335,16 @@ impl ProposalStatus {
 }
 /// GenesisState defines the gov module's genesis state.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.GenesisState")]
 pub struct GenesisState {
     /// starting_proposal_id is the ID of the starting proposal.
@@ -290,8 +371,17 @@ pub struct GenesisState {
 }
 /// QueryProposalRequest is the request type for the Query/Proposal RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.QueryProposalRequest")]
 #[proto_query(
     path = "/cosmos.gov.v1beta1.Query/Proposal",
@@ -304,8 +394,16 @@ pub struct QueryProposalRequest {
 }
 /// QueryProposalResponse is the response type for the Query/Proposal RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.QueryProposalResponse")]
 pub struct QueryProposalResponse {
     #[prost(message, optional, tag = "1")]
@@ -313,8 +411,16 @@ pub struct QueryProposalResponse {
 }
 /// QueryProposalsRequest is the request type for the Query/Proposals RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.QueryProposalsRequest")]
 #[proto_query(
     path = "/cosmos.gov.v1beta1.Query/Proposals",
@@ -332,15 +438,21 @@ pub struct QueryProposalsRequest {
     pub depositor: ::prost::alloc::string::String,
     /// pagination defines an optional pagination for the request.
     #[prost(message, optional, tag = "4")]
-    pub pagination: ::core::option::Option<
-        super::super::base::query::v1beta1::PageRequest,
-    >,
+    pub pagination: ::core::option::Option<super::super::base::query::v1beta1::PageRequest>,
 }
 /// QueryProposalsResponse is the response type for the Query/Proposals RPC
 /// method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.QueryProposalsResponse")]
 pub struct QueryProposalsResponse {
     /// proposals defines all the requested governance proposals.
@@ -348,14 +460,20 @@ pub struct QueryProposalsResponse {
     pub proposals: ::prost::alloc::vec::Vec<Proposal>,
     /// pagination defines the pagination in the response.
     #[prost(message, optional, tag = "2")]
-    pub pagination: ::core::option::Option<
-        super::super::base::query::v1beta1::PageResponse,
-    >,
+    pub pagination: ::core::option::Option<super::super::base::query::v1beta1::PageResponse>,
 }
 /// QueryVoteRequest is the request type for the Query/Vote RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.QueryVoteRequest")]
 #[proto_query(
     path = "/cosmos.gov.v1beta1.Query/Vote",
@@ -371,8 +489,16 @@ pub struct QueryVoteRequest {
 }
 /// QueryVoteResponse is the response type for the Query/Vote RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.QueryVoteResponse")]
 pub struct QueryVoteResponse {
     /// vote defines the queried vote.
@@ -381,8 +507,16 @@ pub struct QueryVoteResponse {
 }
 /// QueryVotesRequest is the request type for the Query/Votes RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.QueryVotesRequest")]
 #[proto_query(
     path = "/cosmos.gov.v1beta1.Query/Votes",
@@ -394,14 +528,20 @@ pub struct QueryVotesRequest {
     pub proposal_id: u64,
     /// pagination defines an optional pagination for the request.
     #[prost(message, optional, tag = "2")]
-    pub pagination: ::core::option::Option<
-        super::super::base::query::v1beta1::PageRequest,
-    >,
+    pub pagination: ::core::option::Option<super::super::base::query::v1beta1::PageRequest>,
 }
 /// QueryVotesResponse is the response type for the Query/Votes RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.QueryVotesResponse")]
 pub struct QueryVotesResponse {
     /// votes defines the queried votes.
@@ -409,14 +549,20 @@ pub struct QueryVotesResponse {
     pub votes: ::prost::alloc::vec::Vec<Vote>,
     /// pagination defines the pagination in the response.
     #[prost(message, optional, tag = "2")]
-    pub pagination: ::core::option::Option<
-        super::super::base::query::v1beta1::PageResponse,
-    >,
+    pub pagination: ::core::option::Option<super::super::base::query::v1beta1::PageResponse>,
 }
 /// QueryParamsRequest is the request type for the Query/Params RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.QueryParamsRequest")]
 #[proto_query(
     path = "/cosmos.gov.v1beta1.Query/Params",
@@ -430,8 +576,16 @@ pub struct QueryParamsRequest {
 }
 /// QueryParamsResponse is the response type for the Query/Params RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.QueryParamsResponse")]
 pub struct QueryParamsResponse {
     /// voting_params defines the parameters related to voting.
@@ -446,8 +600,16 @@ pub struct QueryParamsResponse {
 }
 /// QueryDepositRequest is the request type for the Query/Deposit RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.QueryDepositRequest")]
 #[proto_query(
     path = "/cosmos.gov.v1beta1.Query/Deposit",
@@ -463,8 +625,16 @@ pub struct QueryDepositRequest {
 }
 /// QueryDepositResponse is the response type for the Query/Deposit RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.QueryDepositResponse")]
 pub struct QueryDepositResponse {
     /// deposit defines the requested deposit.
@@ -473,8 +643,16 @@ pub struct QueryDepositResponse {
 }
 /// QueryDepositsRequest is the request type for the Query/Deposits RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.QueryDepositsRequest")]
 #[proto_query(
     path = "/cosmos.gov.v1beta1.Query/Deposits",
@@ -486,14 +664,20 @@ pub struct QueryDepositsRequest {
     pub proposal_id: u64,
     /// pagination defines an optional pagination for the request.
     #[prost(message, optional, tag = "2")]
-    pub pagination: ::core::option::Option<
-        super::super::base::query::v1beta1::PageRequest,
-    >,
+    pub pagination: ::core::option::Option<super::super::base::query::v1beta1::PageRequest>,
 }
 /// QueryDepositsResponse is the response type for the Query/Deposits RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.QueryDepositsResponse")]
 pub struct QueryDepositsResponse {
     /// deposits defines the requested deposits.
@@ -501,14 +685,21 @@ pub struct QueryDepositsResponse {
     pub deposits: ::prost::alloc::vec::Vec<Deposit>,
     /// pagination defines the pagination in the response.
     #[prost(message, optional, tag = "2")]
-    pub pagination: ::core::option::Option<
-        super::super::base::query::v1beta1::PageResponse,
-    >,
+    pub pagination: ::core::option::Option<super::super::base::query::v1beta1::PageResponse>,
 }
 /// QueryTallyResultRequest is the request type for the Query/Tally RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.QueryTallyResultRequest")]
 #[proto_query(
     path = "/cosmos.gov.v1beta1.Query/TallyResult",
@@ -521,8 +712,16 @@ pub struct QueryTallyResultRequest {
 }
 /// QueryTallyResultResponse is the response type for the Query/Tally RPC method.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.QueryTallyResultResponse")]
 pub struct QueryTallyResultResponse {
     /// tally defines the requested tally.
@@ -532,8 +731,16 @@ pub struct QueryTallyResultResponse {
 /// MsgSubmitProposal defines an sdk.Msg type that supports submitting arbitrary
 /// proposal Content.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.MsgSubmitProposal")]
 pub struct MsgSubmitProposal {
     /// content is the proposal's content.
@@ -548,8 +755,17 @@ pub struct MsgSubmitProposal {
 }
 /// MsgSubmitProposalResponse defines the Msg/SubmitProposal response type.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.MsgSubmitProposalResponse")]
 pub struct MsgSubmitProposalResponse {
     /// proposal_id defines the unique id of the proposal.
@@ -558,8 +774,16 @@ pub struct MsgSubmitProposalResponse {
 }
 /// MsgVote defines a message to cast a vote.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.MsgVote")]
 pub struct MsgVote {
     /// proposal_id defines the unique id of the proposal.
@@ -574,16 +798,33 @@ pub struct MsgVote {
 }
 /// MsgVoteResponse defines the Msg/Vote response type.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.MsgVoteResponse")]
 pub struct MsgVoteResponse {}
 /// MsgVoteWeighted defines a message to cast a vote.
 ///
 /// Since: cosmos-sdk 0.43
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.MsgVoteWeighted")]
 pub struct MsgVoteWeighted {
     /// proposal_id defines the unique id of the proposal.
@@ -600,14 +841,31 @@ pub struct MsgVoteWeighted {
 ///
 /// Since: cosmos-sdk 0.43
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.MsgVoteWeightedResponse")]
 pub struct MsgVoteWeightedResponse {}
 /// MsgDeposit defines a message to submit a deposit to an existing proposal.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.MsgDeposit")]
 pub struct MsgDeposit {
     /// proposal_id defines the unique id of the proposal.
@@ -622,7 +880,16 @@ pub struct MsgDeposit {
 }
 /// MsgDepositResponse defines the Msg/Deposit response type.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.gov.v1beta1.MsgDepositResponse")]
 pub struct MsgDepositResponse {}

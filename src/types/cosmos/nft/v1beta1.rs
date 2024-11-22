@@ -1,8 +1,16 @@
 use coreum_std_derive::CosmwasmExt;
 /// EventSend is emitted on Msg/Send
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.EventSend")]
 pub struct EventSend {
     /// class_id associated with the nft
@@ -20,8 +28,16 @@ pub struct EventSend {
 }
 /// EventMint is emitted on Mint
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.EventMint")]
 pub struct EventMint {
     /// class_id associated with the nft
@@ -36,8 +52,16 @@ pub struct EventMint {
 }
 /// EventBurn is emitted on Burn
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.EventBurn")]
 pub struct EventBurn {
     /// class_id associated with the nft
@@ -52,8 +76,16 @@ pub struct EventBurn {
 }
 /// Class defines the class of the nft type.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.Class")]
 pub struct Class {
     /// id defines the unique identifier of the NFT classification, similar to the contract address of ERC721
@@ -80,8 +112,16 @@ pub struct Class {
 }
 /// NFT defines the NFT.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.NFT")]
 pub struct Nft {
     /// class_id associated with the NFT, similar to the contract address of ERC721
@@ -102,8 +142,16 @@ pub struct Nft {
 }
 /// GenesisState defines the nft module's genesis state.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.GenesisState")]
 pub struct GenesisState {
     /// class defines the class of the nft type.
@@ -115,8 +163,16 @@ pub struct GenesisState {
 }
 /// Entry Defines all nft owned by a person
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.Entry")]
 pub struct Entry {
     /// owner is the owner address of the following nft
@@ -128,8 +184,16 @@ pub struct Entry {
 }
 /// QueryBalanceRequest is the request type for the Query/Balance RPC method
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.QueryBalanceRequest")]
 #[proto_query(
     path = "/cosmos.nft.v1beta1.Query/Balance",
@@ -145,8 +209,17 @@ pub struct QueryBalanceRequest {
 }
 /// QueryBalanceResponse is the response type for the Query/Balance RPC method
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.QueryBalanceResponse")]
 pub struct QueryBalanceResponse {
     /// amount is the number of all NFTs of a given class owned by the owner
@@ -155,8 +228,16 @@ pub struct QueryBalanceResponse {
 }
 /// QueryOwnerRequest is the request type for the Query/Owner RPC method
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.QueryOwnerRequest")]
 #[proto_query(
     path = "/cosmos.nft.v1beta1.Query/Owner",
@@ -172,8 +253,16 @@ pub struct QueryOwnerRequest {
 }
 /// QueryOwnerResponse is the response type for the Query/Owner RPC method
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.QueryOwnerResponse")]
 pub struct QueryOwnerResponse {
     /// owner is the owner address of the nft
@@ -182,8 +271,16 @@ pub struct QueryOwnerResponse {
 }
 /// QuerySupplyRequest is the request type for the Query/Supply RPC method
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.QuerySupplyRequest")]
 #[proto_query(
     path = "/cosmos.nft.v1beta1.Query/Supply",
@@ -196,8 +293,17 @@ pub struct QuerySupplyRequest {
 }
 /// QuerySupplyResponse is the response type for the Query/Supply RPC method
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.QuerySupplyResponse")]
 pub struct QuerySupplyResponse {
     /// amount is the number of all NFTs from the given class
@@ -206,8 +312,16 @@ pub struct QuerySupplyResponse {
 }
 /// QueryNFTstRequest is the request type for the Query/NFTs RPC method
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.QueryNFTsRequest")]
 #[proto_query(
     path = "/cosmos.nft.v1beta1.Query/NFTs",
@@ -222,14 +336,20 @@ pub struct QueryNfTsRequest {
     pub owner: ::prost::alloc::string::String,
     /// pagination defines an optional pagination for the request.
     #[prost(message, optional, tag = "3")]
-    pub pagination: ::core::option::Option<
-        super::super::base::query::v1beta1::PageRequest,
-    >,
+    pub pagination: ::core::option::Option<super::super::base::query::v1beta1::PageRequest>,
 }
 /// QueryNFTsResponse is the response type for the Query/NFTs RPC methods
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.QueryNFTsResponse")]
 pub struct QueryNfTsResponse {
     /// NFT defines the NFT
@@ -237,14 +357,20 @@ pub struct QueryNfTsResponse {
     pub nfts: ::prost::alloc::vec::Vec<Nft>,
     /// pagination defines the pagination in the response.
     #[prost(message, optional, tag = "2")]
-    pub pagination: ::core::option::Option<
-        super::super::base::query::v1beta1::PageResponse,
-    >,
+    pub pagination: ::core::option::Option<super::super::base::query::v1beta1::PageResponse>,
 }
 /// QueryNFTRequest is the request type for the Query/NFT RPC method
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.QueryNFTRequest")]
 #[proto_query(path = "/cosmos.nft.v1beta1.Query/NFT", response_type = QueryNftResponse)]
 pub struct QueryNftRequest {
@@ -257,8 +383,16 @@ pub struct QueryNftRequest {
 }
 /// QueryNFTResponse is the response type for the Query/NFT RPC method
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.QueryNFTResponse")]
 pub struct QueryNftResponse {
     /// owner is the owner address of the nft
@@ -267,8 +401,16 @@ pub struct QueryNftResponse {
 }
 /// QueryClassRequest is the request type for the Query/Class RPC method
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.QueryClassRequest")]
 #[proto_query(
     path = "/cosmos.nft.v1beta1.Query/Class",
@@ -281,8 +423,16 @@ pub struct QueryClassRequest {
 }
 /// QueryClassResponse is the response type for the Query/Class RPC method
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.QueryClassResponse")]
 pub struct QueryClassResponse {
     /// class defines the class of the nft type.
@@ -291,8 +441,16 @@ pub struct QueryClassResponse {
 }
 /// QueryClassesRequest is the request type for the Query/Classes RPC method
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.QueryClassesRequest")]
 #[proto_query(
     path = "/cosmos.nft.v1beta1.Query/Classes",
@@ -301,14 +459,20 @@ pub struct QueryClassResponse {
 pub struct QueryClassesRequest {
     /// pagination defines an optional pagination for the request.
     #[prost(message, optional, tag = "1")]
-    pub pagination: ::core::option::Option<
-        super::super::base::query::v1beta1::PageRequest,
-    >,
+    pub pagination: ::core::option::Option<super::super::base::query::v1beta1::PageRequest>,
 }
 /// QueryClassesResponse is the response type for the Query/Classes RPC method
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.QueryClassesResponse")]
 pub struct QueryClassesResponse {
     /// class defines the class of the nft type.
@@ -316,14 +480,20 @@ pub struct QueryClassesResponse {
     pub classes: ::prost::alloc::vec::Vec<Class>,
     /// pagination defines the pagination in the response.
     #[prost(message, optional, tag = "2")]
-    pub pagination: ::core::option::Option<
-        super::super::base::query::v1beta1::PageResponse,
-    >,
+    pub pagination: ::core::option::Option<super::super::base::query::v1beta1::PageResponse>,
 }
 /// MsgSend represents a message to send a nft from one account to another account.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.MsgSend")]
 pub struct MsgSend {
     /// class_id defines the unique identifier of the nft classification, similar to the contract address of ERC721
@@ -341,7 +511,16 @@ pub struct MsgSend {
 }
 /// MsgSendResponse defines the Msg/Send response type.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/cosmos.nft.v1beta1.MsgSendResponse")]
 pub struct MsgSendResponse {}

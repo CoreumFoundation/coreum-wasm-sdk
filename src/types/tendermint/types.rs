@@ -2,8 +2,16 @@ use coreum_std_derive::CosmwasmExt;
 /// ConsensusParams contains consensus critical parameters that determine the
 /// validity of blocks.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.ConsensusParams")]
 pub struct ConsensusParams {
     #[prost(message, optional, tag = "1")]
@@ -19,8 +27,17 @@ pub struct ConsensusParams {
 }
 /// BlockParams contains limits on the block size.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.BlockParams")]
 pub struct BlockParams {
     /// Max block size, in bytes.
@@ -34,8 +51,17 @@ pub struct BlockParams {
 }
 /// EvidenceParams determine how we handle evidence of malfeasance.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.EvidenceParams")]
 pub struct EvidenceParams {
     /// Max age of evidence, in blocks.
@@ -60,8 +86,16 @@ pub struct EvidenceParams {
 /// ValidatorParams restrict the public key types validators can use.
 /// NOTE: uses ABCI pubkey naming, not Amino names.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.ValidatorParams")]
 pub struct ValidatorParams {
     #[prost(string, repeated, tag = "1")]
@@ -69,8 +103,17 @@ pub struct ValidatorParams {
 }
 /// VersionParams contains the ABCI application version.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.VersionParams")]
 pub struct VersionParams {
     #[prost(uint64, tag = "1")]
@@ -80,8 +123,17 @@ pub struct VersionParams {
 ///
 /// It is hashed into the Header.ConsensusHash.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.HashedParams")]
 pub struct HashedParams {
     #[prost(int64, tag = "1")]
@@ -91,8 +143,17 @@ pub struct HashedParams {
 }
 /// ABCIParams configure functionality specific to the Application Blockchain Interface.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, Copy, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    Copy,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.ABCIParams")]
 pub struct AbciParams {
     /// vote_extensions_enable_height configures the first height during which
@@ -108,8 +169,16 @@ pub struct AbciParams {
     pub vote_extensions_enable_height: i64,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.ValidatorSet")]
 pub struct ValidatorSet {
     #[prost(message, repeated, tag = "1")]
@@ -120,8 +189,16 @@ pub struct ValidatorSet {
     pub total_voting_power: i64,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.Validator")]
 pub struct Validator {
     #[prost(bytes = "vec", tag = "1")]
@@ -134,8 +211,16 @@ pub struct Validator {
     pub proposer_priority: i64,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.SimpleValidator")]
 pub struct SimpleValidator {
     #[prost(message, optional, tag = "1")]
@@ -183,8 +268,16 @@ impl BlockIdFlag {
 }
 /// PartsetHeader
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.PartSetHeader")]
 pub struct PartSetHeader {
     #[prost(uint32, tag = "1")]
@@ -193,8 +286,16 @@ pub struct PartSetHeader {
     pub hash: ::prost::alloc::vec::Vec<u8>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.Part")]
 pub struct Part {
     #[prost(uint32, tag = "1")]
@@ -206,8 +307,16 @@ pub struct Part {
 }
 /// BlockID
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.BlockID")]
 pub struct BlockId {
     #[prost(bytes = "vec", tag = "1")]
@@ -217,8 +326,16 @@ pub struct BlockId {
 }
 /// Header defines the structure of a block header.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.Header")]
 pub struct Header {
     /// basic block info
@@ -269,8 +386,16 @@ pub struct Header {
 }
 /// Data contains the set of transactions included in the block
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.Data")]
 pub struct Data {
     /// Txs that will be applied by state @ block.Height+1.
@@ -282,8 +407,16 @@ pub struct Data {
 /// Vote represents a prevote or precommit vote from validators for
 /// consensus.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.Vote")]
 pub struct Vote {
     #[prost(enumeration = "SignedMsgType", tag = "1")]
@@ -317,8 +450,16 @@ pub struct Vote {
 }
 /// Commit contains the evidence that a block was committed by a set of validators.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.Commit")]
 pub struct Commit {
     #[prost(int64, tag = "1")]
@@ -332,8 +473,16 @@ pub struct Commit {
 }
 /// CommitSig is a part of the Vote included in a Commit.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.CommitSig")]
 pub struct CommitSig {
     #[prost(enumeration = "BlockIdFlag", tag = "1")]
@@ -346,8 +495,16 @@ pub struct CommitSig {
     pub signature: ::prost::alloc::vec::Vec<u8>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.ExtendedCommit")]
 pub struct ExtendedCommit {
     #[prost(int64, tag = "1")]
@@ -363,8 +520,16 @@ pub struct ExtendedCommit {
 /// extension-related fields. We use two signatures to ensure backwards compatibility.
 /// That is the digest of the original signature is still the same in prior versions
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.ExtendedCommitSig")]
 pub struct ExtendedCommitSig {
     #[prost(enumeration = "BlockIdFlag", tag = "1")]
@@ -383,8 +548,16 @@ pub struct ExtendedCommitSig {
     pub extension_signature: ::prost::alloc::vec::Vec<u8>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.Proposal")]
 pub struct Proposal {
     #[prost(enumeration = "SignedMsgType", tag = "1")]
@@ -403,8 +576,16 @@ pub struct Proposal {
     pub signature: ::prost::alloc::vec::Vec<u8>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.SignedHeader")]
 pub struct SignedHeader {
     #[prost(message, optional, tag = "1")]
@@ -413,8 +594,16 @@ pub struct SignedHeader {
     pub commit: ::core::option::Option<Commit>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.LightBlock")]
 pub struct LightBlock {
     #[prost(message, optional, tag = "1")]
@@ -423,8 +612,16 @@ pub struct LightBlock {
     pub validator_set: ::core::option::Option<ValidatorSet>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.BlockMeta")]
 pub struct BlockMeta {
     #[prost(message, optional, tag = "1")]
@@ -438,8 +635,16 @@ pub struct BlockMeta {
 }
 /// TxProof represents a Merkle proof of the presence of a transaction in the Merkle tree.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.TxProof")]
 pub struct TxProof {
     #[prost(bytes = "vec", tag = "1")]
@@ -486,8 +691,16 @@ impl SignedMsgType {
     }
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.Evidence")]
 pub struct Evidence {
     #[prost(oneof = "evidence::Sum", tags = "1, 2")]
@@ -496,8 +709,15 @@ pub struct Evidence {
 /// Nested message and enum types in `Evidence`.
 pub mod evidence {
     #[allow(clippy::derive_partial_eq_without_eq)]
-    #[derive(Clone, Eq, PartialEq, ::prost::Oneof)]
-    #[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema)]
+    #[derive(
+        Clone,
+        Eq,
+        PartialEq,
+        ::prost::Oneof,
+        ::serde::Serialize,
+        ::serde::Deserialize,
+        ::schemars::JsonSchema,
+    )]
     pub enum Sum {
         #[prost(message, tag = "1")]
         DuplicateVoteEvidence(super::DuplicateVoteEvidence),
@@ -507,8 +727,16 @@ pub mod evidence {
 }
 /// DuplicateVoteEvidence contains evidence of a validator signed two conflicting votes.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.DuplicateVoteEvidence")]
 pub struct DuplicateVoteEvidence {
     #[prost(message, optional, tag = "1")]
@@ -524,8 +752,16 @@ pub struct DuplicateVoteEvidence {
 }
 /// LightClientAttackEvidence contains evidence of a set of validators attempting to mislead a light client.
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.LightClientAttackEvidence")]
 pub struct LightClientAttackEvidence {
     #[prost(message, optional, tag = "1")]
@@ -540,16 +776,32 @@ pub struct LightClientAttackEvidence {
     pub timestamp: ::core::option::Option<crate::shim::Timestamp>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.EvidenceList")]
 pub struct EvidenceList {
     #[prost(message, repeated, tag = "1")]
     pub evidence: ::prost::alloc::vec::Vec<Evidence>,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(Clone, PartialEq, Eq, ::prost::Message)]
-#[derive(::serde::Serialize, ::serde::Deserialize, ::schemars::JsonSchema, CosmwasmExt)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
 #[proto_message(type_url = "/tendermint.types.Block")]
 pub struct Block {
     #[prost(message, optional, tag = "1")]
