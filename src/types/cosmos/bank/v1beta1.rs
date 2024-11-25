@@ -551,6 +551,7 @@ pub struct QuerySupplyOfResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -911,6 +912,7 @@ pub struct MsgSend {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -946,6 +948,7 @@ pub struct MsgMultiSend {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -988,6 +991,7 @@ pub struct MsgUpdateParams {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -1037,6 +1041,7 @@ pub struct MsgSetSendEnabled {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,

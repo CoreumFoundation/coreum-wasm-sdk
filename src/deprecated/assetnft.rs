@@ -3,7 +3,7 @@ use cosmwasm_std::{Binary, Coin};
 use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
-use crate::pagination::{PageRequest, PageResponse};
+use crate::deprecated::pagination::{PageRequest, PageResponse};
 
 pub const BURNING: u32 = 0;
 pub const FREEZING: u32 = 1;

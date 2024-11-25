@@ -148,6 +148,7 @@ pub struct DelayedTokenUpgradeV1 {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -169,6 +170,7 @@ pub struct TokenUpgradeV1Status {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -401,8 +403,8 @@ pub struct EventDexLockedAmountChanged {
     ::schemars::JsonSchema,
     CosmwasmExt,
 )]
-#[proto_message(type_url = "/coreum.asset.ft.v1.EventDEXWhitelistingReservedAmountChanged")]
-pub struct EventDexWhitelistingReservedAmountChanged {
+#[proto_message(type_url = "/coreum.asset.ft.v1.EventDEXExpectedToReceiveAmountChanged")]
+pub struct EventDexExpectedToReceiveAmountChanged {
     #[prost(string, tag = "1")]
     pub account: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
@@ -525,7 +527,7 @@ pub struct GenesisState {
     #[prost(message, repeated, tag = "6")]
     pub dex_locked_balances: ::prost::alloc::vec::Vec<Balance>,
     #[prost(message, repeated, tag = "7")]
-    pub dex_whitelisting_reserved_balances: ::prost::alloc::vec::Vec<Balance>,
+    pub dex_expected_to_receive_balances: ::prost::alloc::vec::Vec<Balance>,
     #[prost(message, repeated, tag = "8")]
     pub dex_settings: ::prost::alloc::vec::Vec<DexSettingsWithDenom>,
 }
@@ -591,6 +593,7 @@ pub struct DexSettingsWithDenom {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -681,6 +684,7 @@ pub struct QueryTokenUpgradeStatusesRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -796,7 +800,7 @@ pub struct QueryBalanceResponse {
     #[prost(string, tag = "6")]
     pub locked_in_dex: ::prost::alloc::string::String,
     #[prost(string, tag = "7")]
-    pub whitelisting_reserved_in_dex: ::prost::alloc::string::String,
+    pub expected_to_receive_in_dex: ::prost::alloc::string::String,
 }
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -1385,6 +1389,7 @@ pub struct MsgUpdateDexWhitelistedDenoms {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,

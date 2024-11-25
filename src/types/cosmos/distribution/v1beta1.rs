@@ -487,6 +487,7 @@ pub struct GenesisState {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -881,6 +882,7 @@ pub struct QueryDelegatorWithdrawAddressResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -939,6 +941,7 @@ pub struct MsgSetWithdrawAddress {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -1049,6 +1052,7 @@ pub struct MsgFundCommunityPool {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -1091,6 +1095,7 @@ pub struct MsgUpdateParams {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -1134,6 +1139,7 @@ pub struct MsgCommunityPoolSpend {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -1175,6 +1181,7 @@ pub struct MsgDepositValidatorRewardsPool {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,

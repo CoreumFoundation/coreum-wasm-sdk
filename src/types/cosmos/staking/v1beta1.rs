@@ -8,6 +8,7 @@ use coreum_std_derive::CosmwasmExt;
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -33,11 +34,12 @@ pub mod stake_authorization {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(
         Clone,
+        Eq,
         PartialEq,
+        ::prost::Message,
         ::serde::Serialize,
         ::serde::Deserialize,
         ::schemars::JsonSchema,
-        ::prost::Message,
     )]
     pub struct Validators_ {
         #[prost(string, repeated, tag = "1")]
@@ -47,11 +49,12 @@ pub mod stake_authorization {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(
         Clone,
+        Eq,
         PartialEq,
+        ::prost::Oneof,
         ::serde::Serialize,
         ::serde::Deserialize,
         ::schemars::JsonSchema,
-        ::prost::Oneof,
     )]
     pub enum Validators {
         /// allow_list specifies list of validator addresses to whom grantee can delegate tokens on behalf of granter's
@@ -638,6 +641,7 @@ pub struct Pool {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -1297,6 +1301,7 @@ pub struct QueryDelegatorValidatorResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -1338,6 +1343,7 @@ pub struct QueryHistoricalInfoResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -1374,6 +1380,7 @@ pub struct QueryPoolResponse {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -1443,6 +1450,7 @@ pub struct MsgCreateValidator {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -1484,6 +1492,7 @@ pub struct MsgEditValidator {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -1520,6 +1529,7 @@ pub struct MsgDelegate {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -1558,6 +1568,7 @@ pub struct MsgBeginRedelegate {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -1648,6 +1659,7 @@ pub struct MsgCancelUnbondingDelegation {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -1690,6 +1702,7 @@ pub struct MsgUpdateParams {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,

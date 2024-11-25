@@ -56,8 +56,8 @@ pub struct ClassDefinition {
     pub issuer: ::prost::alloc::string::String,
     #[prost(enumeration = "ClassFeature", repeated, tag = "3")]
     pub features: ::prost::alloc::vec::Vec<i32>,
-    /// royalty_rate is a number between 0 and 1,which will be used in coreum native Dex.
-    /// whenever an NFT this class is traded on the Dex, the traded amount will be multiplied by this value
+    /// royalty_rate is a number between 0 and 1,which will be used in coreum native DEX.
+    /// whenever an NFT this class is traded on the DEX, the traded amount will be multiplied by this value
     /// that will be transferred to the issuer of the NFT.
     #[prost(string, tag = "4")]
     pub royalty_rate: ::prost::alloc::string::String,
@@ -94,8 +94,8 @@ pub struct Class {
     pub data: ::core::option::Option<crate::shim::Any>,
     #[prost(enumeration = "ClassFeature", repeated, tag = "9")]
     pub features: ::prost::alloc::vec::Vec<i32>,
-    /// royalty_rate is a number between 0 and 1,which will be used in coreum native Dex.
-    /// whenever an NFT this class is traded on the Dex, the traded amount will be multiplied by this value
+    /// royalty_rate is a number between 0 and 1,which will be used in coreum native DEX.
+    /// whenever an NFT this class is traded on the DEX, the traded amount will be multiplied by this value
     /// that will be transferred to the issuer of the NFT.
     #[prost(string, tag = "10")]
     pub royalty_rate: ::prost::alloc::string::String,
@@ -467,6 +467,7 @@ pub struct BurntNft {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -610,6 +611,7 @@ pub struct QueryFrozenRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -648,6 +650,7 @@ pub struct QueryClassFrozenRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -688,6 +691,7 @@ pub struct QueryWhitelistedRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -866,6 +870,7 @@ pub struct QueryBurntNftRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -1316,6 +1321,7 @@ pub struct MsgUpdateParams {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,

@@ -89,6 +89,7 @@ pub struct ProofOp {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -105,6 +106,7 @@ pub struct ProofOps {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -121,11 +123,12 @@ pub mod public_key {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(
         Clone,
+        Eq,
         PartialEq,
+        ::prost::Oneof,
         ::serde::Serialize,
         ::serde::Deserialize,
         ::schemars::JsonSchema,
-        ::prost::Oneof,
     )]
     pub enum Sum {
         #[prost(bytes, tag = "1")]

@@ -29,6 +29,7 @@ pub struct ConsensusParams {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -52,6 +53,7 @@ pub struct BlockParams {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -103,6 +105,7 @@ pub struct ValidatorParams {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -122,6 +125,7 @@ pub struct VersionParams {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -141,6 +145,7 @@ pub struct HashedParams {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -167,6 +172,7 @@ pub struct AbciParams {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -186,6 +192,7 @@ pub struct ValidatorSet {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -207,6 +214,7 @@ pub struct Validator {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -589,6 +597,7 @@ pub struct SignedHeader {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -685,6 +694,7 @@ impl SignedMsgType {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -701,11 +711,12 @@ pub mod evidence {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(
         Clone,
+        Eq,
         PartialEq,
+        ::prost::Oneof,
         ::serde::Serialize,
         ::serde::Deserialize,
         ::schemars::JsonSchema,
-        ::prost::Oneof,
     )]
     pub enum Sum {
         #[prost(message, tag = "1")]
@@ -744,6 +755,7 @@ pub struct DuplicateVoteEvidence {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -767,6 +779,7 @@ pub struct LightClientAttackEvidence {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -782,6 +795,7 @@ pub struct EvidenceList {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,

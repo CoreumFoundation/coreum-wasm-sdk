@@ -1,8 +1,123 @@
 use coreum_std_derive::CosmwasmExt;
+/// EventOrderPlaced is emitted when a new order is placed and new sequence is generated for it.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.dex.v1.EventOrderPlaced")]
+pub struct EventOrderPlaced {
+    /// creator is order creator address.
+    #[prost(string, tag = "1")]
+    pub creator: ::prost::alloc::string::String,
+    /// id is unique order ID.
+    #[prost(string, tag = "2")]
+    pub id: ::prost::alloc::string::String,
+    /// sequence is unique order sequence.
+    #[prost(uint64, tag = "3")]
+    pub sequence: u64,
+}
+/// EventOrderReduced is emitted when the order is reduced during the matching.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.dex.v1.EventOrderReduced")]
+pub struct EventOrderReduced {
+    /// creator is order creator address.
+    #[prost(string, tag = "1")]
+    pub creator: ::prost::alloc::string::String,
+    /// id is unique order ID.
+    #[prost(string, tag = "2")]
+    pub id: ::prost::alloc::string::String,
+    /// sequence is unique order sequence.
+    #[prost(uint64, tag = "3")]
+    pub sequence: u64,
+    /// sent_coin is coin sent during matching.
+    #[prost(string, tag = "4")]
+    pub sent_coin: ::prost::alloc::string::String,
+    /// received_coin is coin received during matching.
+    #[prost(string, tag = "5")]
+    pub received_coin: ::prost::alloc::string::String,
+}
+/// EventOrderCreated is emitted when the limit order is saved to the order book.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.dex.v1.EventOrderCreated")]
+pub struct EventOrderCreated {
+    /// creator is order creator address.
+    #[prost(string, tag = "1")]
+    pub creator: ::prost::alloc::string::String,
+    /// id is unique order ID.
+    #[prost(string, tag = "2")]
+    pub id: ::prost::alloc::string::String,
+    /// sequence is unique order sequence.
+    #[prost(uint64, tag = "3")]
+    pub sequence: u64,
+    /// remaining_quantity is remaining filling quantity sell/buy.
+    #[prost(string, tag = "4")]
+    pub remaining_quantity: ::prost::alloc::string::String,
+    /// remaining_balance is remaining order balance.
+    #[prost(string, tag = "5")]
+    pub remaining_balance: ::prost::alloc::string::String,
+}
+/// EventOrderClosed is emitted when the order is closed during matching or manually, and removed from the order book.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.dex.v1.EventOrderClosed")]
+pub struct EventOrderClosed {
+    /// creator is order creator address.
+    #[prost(string, tag = "1")]
+    pub creator: ::prost::alloc::string::String,
+    /// id is unique order ID.
+    #[prost(string, tag = "2")]
+    pub id: ::prost::alloc::string::String,
+    /// sequence is unique order sequence.
+    #[prost(uint64, tag = "3")]
+    pub sequence: u64,
+    /// remaining_quantity is remaining filling quantity sell/buy.
+    #[prost(string, tag = "4")]
+    pub remaining_quantity: ::prost::alloc::string::String,
+    /// remaining_balance is remaining order balance.
+    #[prost(string, tag = "5")]
+    pub remaining_balance: ::prost::alloc::string::String,
+}
 /// GoodTil is a good til order settings.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -37,9 +152,9 @@ pub struct CancelGoodTil {
     /// creator is order creator address.
     #[prost(string, tag = "1")]
     pub creator: ::prost::alloc::string::String,
-    /// order_seq is order sequence.
+    /// order_sequence is order sequence.
     #[prost(uint64, tag = "2")]
-    pub order_seq: u64,
+    pub order_sequence: u64,
 }
 /// Order is a DEX order.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -64,35 +179,38 @@ pub struct Order {
     /// id is unique order ID.
     #[prost(string, tag = "3")]
     pub id: ::prost::alloc::string::String,
+    /// sequence is unique order sequence generated at the time of the order placement.
+    #[prost(uint64, tag = "4")]
+    pub sequence: u64,
     /// base_denom is base order denom.
-    #[prost(string, tag = "4")]
+    #[prost(string, tag = "5")]
     pub base_denom: ::prost::alloc::string::String,
     /// quote_denom is quote order denom
-    #[prost(string, tag = "5")]
+    #[prost(string, tag = "6")]
     pub quote_denom: ::prost::alloc::string::String,
     /// price is value of one unit of the base_denom expressed in terms of the quote_denom.
-    #[prost(string, tag = "6")]
+    #[prost(string, tag = "7")]
     pub price: ::prost::alloc::string::String,
     /// quantity is amount of the base base_denom being traded.
-    #[prost(string, tag = "7")]
+    #[prost(string, tag = "8")]
     pub quantity: ::prost::alloc::string::String,
     /// side is order side.
-    #[prost(enumeration = "Side", tag = "8")]
+    #[prost(enumeration = "Side", tag = "9")]
     pub side: i32,
     /// remaining_quantity is remaining filling quantity sell/buy.
-    #[prost(string, tag = "9")]
+    #[prost(string, tag = "10")]
     pub remaining_quantity: ::prost::alloc::string::String,
     /// remaining_balance is remaining order balance.
-    #[prost(string, tag = "10")]
+    #[prost(string, tag = "11")]
     pub remaining_balance: ::prost::alloc::string::String,
     /// good_til is order good til
-    #[prost(message, optional, tag = "11")]
+    #[prost(message, optional, tag = "12")]
     pub good_til: ::core::option::Option<GoodTil>,
     /// time_in_force is order time in force
-    #[prost(enumeration = "TimeInForce", tag = "12")]
+    #[prost(enumeration = "TimeInForce", tag = "13")]
     pub time_in_force: i32,
     /// reserve is the reserve required to save the order in the order book
-    #[prost(message, optional, tag = "13")]
+    #[prost(message, optional, tag = "14")]
     pub reserve: ::core::option::Option<super::super::super::cosmos::base::v1beta1::Coin>,
 }
 /// OrderData is a order data used for the store.
@@ -175,9 +293,9 @@ pub struct OrderBookRecord {
     /// price is order book record price.
     #[prost(string, tag = "3")]
     pub price: ::prost::alloc::string::String,
-    /// order_seq is order sequence.
+    /// order_sequence is order sequence.
     #[prost(uint64, tag = "4")]
-    pub order_seq: u64,
+    pub order_sequence: u64,
     /// order ID provided by the creator.
     #[prost(string, tag = "5")]
     pub order_id: ::prost::alloc::string::String,
@@ -372,8 +490,11 @@ pub struct GenesisState {
     #[prost(message, repeated, tag = "2")]
     pub order_books: ::prost::alloc::vec::Vec<OrderBookDataWithId>,
     #[prost(message, repeated, tag = "3")]
-    pub orders: ::prost::alloc::vec::Vec<OrderWithSequence>,
-    #[prost(message, repeated, tag = "4")]
+    pub orders: ::prost::alloc::vec::Vec<Order>,
+    /// order_sequence is current order sequence;
+    #[prost(uint64, tag = "4")]
+    pub order_sequence: u64,
+    #[prost(message, repeated, tag = "5")]
     pub accounts_denoms_orders_counts: ::prost::alloc::vec::Vec<AccountDenomOrdersCount>,
 }
 /// OrderBookDataWithID is a order book data with it's corresponding ID.
@@ -396,27 +517,6 @@ pub struct OrderBookDataWithId {
     /// data is order book data.
     #[prost(message, optional, tag = "2")]
     pub data: ::core::option::Option<OrderBookData>,
-}
-/// OrderWithSequence is a order with it's corresponding sequence.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
-#[proto_message(type_url = "/coreum.dex.v1.OrderWithSequence")]
-pub struct OrderWithSequence {
-    /// sequence is order sequence.
-    #[prost(uint64, tag = "1")]
-    pub sequence: u64,
-    /// data is order book data.
-    #[prost(message, optional, tag = "2")]
-    pub order: ::core::option::Option<Order>,
 }
 /// AccountDenomOrderCount is a count of orders per account and denom.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -443,6 +543,7 @@ pub struct AccountDenomOrdersCount {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -677,6 +778,7 @@ pub struct QueryAccountDenomOrdersCountRequest {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -801,6 +903,7 @@ pub struct MsgCancelOrdersByDenom {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,

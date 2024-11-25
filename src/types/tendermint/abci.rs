@@ -3,6 +3,7 @@ use coreum_std_derive::CosmwasmExt;
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -22,11 +23,12 @@ pub mod request {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(
         Clone,
+        Eq,
         PartialEq,
+        ::prost::Oneof,
         ::serde::Serialize,
         ::serde::Deserialize,
         ::schemars::JsonSchema,
-        ::prost::Oneof,
     )]
     pub enum Value {
         #[prost(message, tag = "1")]
@@ -82,6 +84,7 @@ pub struct RequestEcho {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -118,6 +121,7 @@ pub struct RequestInfo {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -182,6 +186,7 @@ pub struct RequestCheckTx {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -196,6 +201,7 @@ pub struct RequestCommit {}
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -231,6 +237,7 @@ pub struct RequestOfferSnapshot {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -431,6 +438,7 @@ pub struct RequestFinalizeBlock {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -450,11 +458,12 @@ pub mod response {
     #[allow(clippy::derive_partial_eq_without_eq)]
     #[derive(
         Clone,
+        Eq,
         PartialEq,
+        ::prost::Oneof,
         ::serde::Serialize,
         ::serde::Deserialize,
         ::schemars::JsonSchema,
-        ::prost::Oneof,
     )]
     pub enum Value {
         #[prost(message, tag = "1")]
@@ -529,6 +538,7 @@ pub struct ResponseEcho {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -567,6 +577,7 @@ pub struct ResponseInfo {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -586,6 +597,7 @@ pub struct ResponseInitChain {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -652,6 +664,7 @@ pub struct ResponseCheckTx {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -684,6 +697,7 @@ pub struct ResponseListSnapshots {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -848,6 +862,7 @@ pub struct ResponsePrepareProposal {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -912,6 +927,7 @@ pub struct ResponseExtendVote {
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
+    Copy,
     PartialEq,
     Eq,
     ::prost::Message,
@@ -968,6 +984,7 @@ pub mod response_verify_vote_extension {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
@@ -1167,6 +1184,7 @@ pub struct Validator {
 #[derive(
     Clone,
     PartialEq,
+    Eq,
     ::prost::Message,
     ::serde::Serialize,
     ::serde::Deserialize,
