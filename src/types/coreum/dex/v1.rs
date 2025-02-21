@@ -76,12 +76,12 @@ pub struct EventOrderCreated {
     /// sequence is unique order sequence.
     #[prost(uint64, tag = "3")]
     pub sequence: u64,
-    /// remaining_quantity is remaining filling quantity sell/buy.
+    /// remaining_base_quantity is remaining filling quantity sell/buy.
     #[prost(string, tag = "4")]
-    pub remaining_quantity: ::prost::alloc::string::String,
-    /// remaining_balance is remaining order balance.
+    pub remaining_base_quantity: ::prost::alloc::string::String,
+    /// remaining_spendable_balance is remaining order balance.
     #[prost(string, tag = "5")]
-    pub remaining_balance: ::prost::alloc::string::String,
+    pub remaining_spendable_balance: ::prost::alloc::string::String,
 }
 /// EventOrderClosed is emitted when the order is closed during matching or manually, and removed from the order book.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -106,12 +106,12 @@ pub struct EventOrderClosed {
     /// sequence is unique order sequence.
     #[prost(uint64, tag = "3")]
     pub sequence: u64,
-    /// remaining_quantity is remaining filling quantity sell/buy.
+    /// remaining_base_quantity is remaining filling quantity sell/buy.
     #[prost(string, tag = "4")]
-    pub remaining_quantity: ::prost::alloc::string::String,
-    /// remaining_balance is remaining order balance.
+    pub remaining_base_quantity: ::prost::alloc::string::String,
+    /// remaining_spendable_balance is remaining order balance.
     #[prost(string, tag = "5")]
-    pub remaining_balance: ::prost::alloc::string::String,
+    pub remaining_spendable_balance: ::prost::alloc::string::String,
 }
 /// GoodTil is a good til order settings.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -197,12 +197,12 @@ pub struct Order {
     /// side is order side.
     #[prost(enumeration = "Side", tag = "9")]
     pub side: i32,
-    /// remaining_quantity is remaining filling quantity sell/buy.
+    /// remaining_base_quantity is remaining filling quantity sell/buy.
     #[prost(string, tag = "10")]
-    pub remaining_quantity: ::prost::alloc::string::String,
-    /// remaining_balance is remaining order balance.
+    pub remaining_base_quantity: ::prost::alloc::string::String,
+    /// remaining_spendable_balance is remaining order balance.
     #[prost(string, tag = "11")]
-    pub remaining_balance: ::prost::alloc::string::String,
+    pub remaining_spendable_balance: ::prost::alloc::string::String,
     /// good_til is order good til
     #[prost(message, optional, tag = "12")]
     pub good_til: ::core::option::Option<GoodTil>,
@@ -302,12 +302,12 @@ pub struct OrderBookRecord {
     /// account_number is account number which corresponds the order creator.
     #[prost(uint64, tag = "6")]
     pub account_number: u64,
-    /// remaining_quantity is remaining filling quantity sell/buy.
+    /// remaining_base_quantity is remaining filling quantity sell/buy.
     #[prost(string, tag = "7")]
-    pub remaining_quantity: ::prost::alloc::string::String,
-    /// remaining_balance is remaining order balance.
+    pub remaining_base_quantity: ::prost::alloc::string::String,
+    /// remaining_spendable_balance is remaining order balance.
     #[prost(string, tag = "8")]
-    pub remaining_balance: ::prost::alloc::string::String,
+    pub remaining_spendable_balance: ::prost::alloc::string::String,
 }
 /// OrderBookRecordData is a single order book record used for the store.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -329,12 +329,12 @@ pub struct OrderBookRecordData {
     /// account_number is account number which corresponds the order creator.
     #[prost(uint64, tag = "2")]
     pub account_number: u64,
-    /// remaining_quantity is remaining filling quantity sell/buy.
+    /// remaining_base_quantity is remaining filling quantity sell/buy.
     #[prost(string, tag = "3")]
-    pub remaining_quantity: ::prost::alloc::string::String,
-    /// remaining_balance is remaining order balance.
+    pub remaining_base_quantity: ::prost::alloc::string::String,
+    /// remaining_spendable_balance is remaining order balance.
     #[prost(string, tag = "4")]
-    pub remaining_balance: ::prost::alloc::string::String,
+    pub remaining_spendable_balance: ::prost::alloc::string::String,
 }
 /// Side is order side.
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Hash, PartialOrd, Ord, ::prost::Enumeration)]
