@@ -76,10 +76,10 @@ pub struct EventOrderCreated {
     /// sequence is unique order sequence.
     #[prost(uint64, tag = "3")]
     pub sequence: u64,
-    /// remaining_base_quantity is remaining filling quantity sell/buy.
+    /// remaining_base_quantity - is remaining quantity of base denom which user wants to sell or buy.
     #[prost(string, tag = "4")]
     pub remaining_base_quantity: ::prost::alloc::string::String,
-    /// remaining_spendable_balance is remaining order balance.
+    /// remaining_spendable_balance - is balance up to which user wants to spend to execute the order.
     #[prost(string, tag = "5")]
     pub remaining_spendable_balance: ::prost::alloc::string::String,
 }
@@ -106,10 +106,10 @@ pub struct EventOrderClosed {
     /// sequence is unique order sequence.
     #[prost(uint64, tag = "3")]
     pub sequence: u64,
-    /// remaining_base_quantity is remaining filling quantity sell/buy.
+    /// remaining_base_quantity - is remaining quantity of base denom which user wants to sell or buy.
     #[prost(string, tag = "4")]
     pub remaining_base_quantity: ::prost::alloc::string::String,
-    /// remaining_spendable_balance is remaining order balance.
+    /// remaining_spendable_balance - is balance up to which user wants to spend to execute the order.
     #[prost(string, tag = "5")]
     pub remaining_spendable_balance: ::prost::alloc::string::String,
 }
@@ -156,7 +156,8 @@ pub struct CancelGoodTil {
     #[prost(uint64, tag = "2")]
     pub order_sequence: u64,
 }
-/// Order is a DEX order.
+/// Order represents a DEX order, encapsulating both limit and market orders. It contains comprehensive information about
+/// the order's state.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
@@ -197,10 +198,10 @@ pub struct Order {
     /// side is order side.
     #[prost(enumeration = "Side", tag = "9")]
     pub side: i32,
-    /// remaining_base_quantity is remaining filling quantity sell/buy.
+    /// remaining_base_quantity - is remaining quantity of base denom which user wants to sell or buy.
     #[prost(string, tag = "10")]
     pub remaining_base_quantity: ::prost::alloc::string::String,
-    /// remaining_spendable_balance is remaining order balance.
+    /// remaining_spendable_balance - is balance up to which user wants to spend to execute the order.
     #[prost(string, tag = "11")]
     pub remaining_spendable_balance: ::prost::alloc::string::String,
     /// good_til is order good til
@@ -213,7 +214,7 @@ pub struct Order {
     #[prost(message, optional, tag = "14")]
     pub reserve: ::core::option::Option<super::super::super::cosmos::base::v1beta1::Coin>,
 }
-/// OrderData is a order data used for the store.
+/// OrderData represents the order information for the store missing in the order book record.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
     Clone,
@@ -270,45 +271,6 @@ pub struct OrderBookData {
     #[prost(string, tag = "2")]
     pub quote_denom: ::prost::alloc::string::String,
 }
-/// OrderBookRecord is a single order book record.
-#[allow(clippy::derive_partial_eq_without_eq)]
-#[derive(
-    Clone,
-    PartialEq,
-    Eq,
-    ::prost::Message,
-    ::serde::Serialize,
-    ::serde::Deserialize,
-    ::schemars::JsonSchema,
-    CosmwasmExt,
-)]
-#[proto_message(type_url = "/coreum.dex.v1.OrderBookRecord")]
-pub struct OrderBookRecord {
-    /// order_book_id is order book ID.
-    #[prost(uint32, tag = "1")]
-    pub order_book_id: u32,
-    /// side is order side.
-    #[prost(enumeration = "Side", tag = "2")]
-    pub side: i32,
-    /// price is order book record price.
-    #[prost(string, tag = "3")]
-    pub price: ::prost::alloc::string::String,
-    /// order_sequence is order sequence.
-    #[prost(uint64, tag = "4")]
-    pub order_sequence: u64,
-    /// order ID provided by the creator.
-    #[prost(string, tag = "5")]
-    pub order_id: ::prost::alloc::string::String,
-    /// account_number is account number which corresponds the order creator.
-    #[prost(uint64, tag = "6")]
-    pub account_number: u64,
-    /// remaining_base_quantity is remaining filling quantity sell/buy.
-    #[prost(string, tag = "7")]
-    pub remaining_base_quantity: ::prost::alloc::string::String,
-    /// remaining_spendable_balance is remaining order balance.
-    #[prost(string, tag = "8")]
-    pub remaining_spendable_balance: ::prost::alloc::string::String,
-}
 /// OrderBookRecordData is a single order book record used for the store.
 #[allow(clippy::derive_partial_eq_without_eq)]
 #[derive(
@@ -329,10 +291,10 @@ pub struct OrderBookRecordData {
     /// account_number is account number which corresponds the order creator.
     #[prost(uint64, tag = "2")]
     pub account_number: u64,
-    /// remaining_base_quantity is remaining filling quantity sell/buy.
+    /// remaining_base_quantity - is remaining quantity of base denom which user wants to sell or buy.
     #[prost(string, tag = "3")]
     pub remaining_base_quantity: ::prost::alloc::string::String,
-    /// remaining_spendable_balance is remaining order balance.
+    /// remaining_spendable_balance - is balance up to which user wants to spend to execute the order.
     #[prost(string, tag = "4")]
     pub remaining_spendable_balance: ::prost::alloc::string::String,
 }
@@ -457,10 +419,10 @@ impl TimeInForce {
 )]
 #[proto_message(type_url = "/coreum.dex.v1.Params")]
 pub struct Params {
-    /// default_unified_ref_amount is the default approximate amount you need to by 1USD, used to for tokens without custom value
+    /// default_unified_ref_amount is the default approximate amount you need to buy 1USD, used to for tokens without custom value
     #[prost(string, tag = "1")]
     pub default_unified_ref_amount: ::prost::alloc::string::String,
-    /// price_tick_exponent is the exponent used for the price tick calculation
+    /// price_tick_exponent is the exponent used in price tick calculation formula
     #[prost(int32, tag = "2")]
     pub price_tick_exponent: i32,
     /// max_orders_per_denom is the maximum number of orders per denom the user can have
@@ -469,6 +431,9 @@ pub struct Params {
     /// order_reserve is the reserve required to save the order in the order book
     #[prost(message, optional, tag = "4")]
     pub order_reserve: ::core::option::Option<super::super::super::cosmos::base::v1beta1::Coin>,
+    /// quantity_step_exponent is the exponent used in quantity step calculation formula
+    #[prost(int32, tag = "5")]
+    pub quantity_step_exponent: i32,
 }
 /// GenesisState defines the module genesis state.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -496,6 +461,8 @@ pub struct GenesisState {
     pub order_sequence: u64,
     #[prost(message, repeated, tag = "5")]
     pub accounts_denoms_orders_counts: ::prost::alloc::vec::Vec<AccountDenomOrdersCount>,
+    #[prost(bytes = "vec", repeated, tag = "6")]
+    pub reserved_order_ids: ::prost::alloc::vec::Vec<::prost::alloc::vec::Vec<u8>>,
 }
 /// OrderBookDataWithID is a order book data with it's corresponding ID.
 #[allow(clippy::derive_partial_eq_without_eq)]
@@ -698,6 +665,58 @@ pub struct QueryOrderBooksResponse {
     #[prost(message, optional, tag = "2")]
     pub pagination:
         ::core::option::Option<super::super::super::cosmos::base::query::v1beta1::PageResponse>,
+}
+/// QueryOrderBookParamsRequest defines the request type for the `OrderBookParams` query.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.dex.v1.QueryOrderBookParamsRequest")]
+#[proto_query(
+    path = "/coreum.dex.v1.Query/OrderBookParams",
+    response_type = QueryOrderBookParamsResponse
+)]
+pub struct QueryOrderBookParamsRequest {
+    /// base_denom is base order book denom.
+    #[prost(string, tag = "1")]
+    pub base_denom: ::prost::alloc::string::String,
+    /// quote_denom is quote order book denom
+    #[prost(string, tag = "2")]
+    pub quote_denom: ::prost::alloc::string::String,
+}
+/// QueryOrderBookParamsResponse defines the response type for the `OrderBookParams` query.
+#[allow(clippy::derive_partial_eq_without_eq)]
+#[derive(
+    Clone,
+    PartialEq,
+    Eq,
+    ::prost::Message,
+    ::serde::Serialize,
+    ::serde::Deserialize,
+    ::schemars::JsonSchema,
+    CosmwasmExt,
+)]
+#[proto_message(type_url = "/coreum.dex.v1.QueryOrderBookParamsResponse")]
+pub struct QueryOrderBookParamsResponse {
+    /// price_tick is the minimum price movement an asset price can make, either upward or downward.
+    #[prost(string, tag = "1")]
+    pub price_tick: ::prost::alloc::string::String,
+    /// quantity_step is the the smallest allowable step for the base asset inside a market.
+    #[prost(string, tag = "2")]
+    pub quantity_step: ::prost::alloc::string::String,
+    /// base_denom_unified_ref_amount is needed to define price tick & quantity step of base denom
+    #[prost(string, tag = "3")]
+    pub base_denom_unified_ref_amount: ::prost::alloc::string::String,
+    /// quote_denom_unified_ref_amount is needed to define price tick & quantity step of quote denom
+    #[prost(string, tag = "4")]
+    pub quote_denom_unified_ref_amount: ::prost::alloc::string::String,
 }
 /// QueryOrderBookOrdersRequest defines the request type for the `OrderBookOrders` query.
 #[allow(clippy::derive_partial_eq_without_eq)]
