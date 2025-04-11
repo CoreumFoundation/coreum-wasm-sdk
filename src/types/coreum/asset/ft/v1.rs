@@ -198,7 +198,7 @@ pub struct TokenUpgradeStatuses {
 )]
 #[proto_message(type_url = "/coreum.asset.ft.v1.DEXSettings")]
 pub struct DexSettings {
-    /// unified_ref_amount is the approximate amount you need to by 1USD, used to define the price tick size
+    /// unified_ref_amount is the approximate amount you need to buy 1USD, used to define the price tick size
     #[prost(string, tag = "1")]
     pub unified_ref_amount: ::prost::alloc::string::String,
     /// whitelisted_denoms is the list of denoms to trade with.
@@ -1361,7 +1361,7 @@ pub struct MsgUpdateDexUnifiedRefAmount {
     pub sender: ::prost::alloc::string::String,
     #[prost(string, tag = "2")]
     pub denom: ::prost::alloc::string::String,
-    /// unified_ref_amount is the approximate amount you need to by 1USD, used to define the price tick size
+    /// unified_ref_amount is the approximate amount you need to buy 1USD, used to define the price tick size
     #[prost(string, tag = "3")]
     pub unified_ref_amount: ::prost::alloc::string::String,
 }
